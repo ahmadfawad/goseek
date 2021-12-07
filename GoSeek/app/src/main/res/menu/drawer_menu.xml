@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <group
+        android:id="@+id/grp_1"
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/appliedFragment"
+            android:title="Applied Jobs"
+            app:showAsAction="ifRoom"
+            android:enabled="true"
+            android:iconTint="@color/white"
+            android:icon="@drawable/ic_applied_white"/>
+        <item
+            android:id="@+id/favouriteFragment"
+            android:enabled="true"
+            android:iconTint="@color/white"
+            android:title="Favourite Jobs"
+            app:showAsAction="ifRoom"
+            android:icon="@drawable/ic_heart_white"/>
+
+    </group>
+
+        <group
+            android:id="@+id/grp_2"
+            android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/shareApp"
+            android:title="Share App"
+            android:enabled="true"
+            app:showAsAction="ifRoom"
+            android:iconTint="@color/white"
+            android:icon="@drawable/ic_share_white"/>
+        <item
+            android:id="@+id/rateApp"
+            android:title="Rate App"
+            app:showAsAction="ifRoom"
+            android:enabled="true"
+            android:iconTint="@color/white"
+            android:icon="@drawable/ic_star_white"/>
+
+    </group>
+</menu>

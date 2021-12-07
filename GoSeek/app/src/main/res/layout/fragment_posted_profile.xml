@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="fragment"
+            type="com.softsolution.goseek.fragments.jobPoster.PostedProfileFragment" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:scrollbars="none"
+            android:fillViewport="true">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <LinearLayout
+                    android:id="@+id/linearLayout"
+                    android:weightSum="10"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_gravity="center"
+                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/profile_image"
+                        android:layout_width="0dp"
+                        android:layout_height="70dp"
+                        android:layout_weight="3"
+                        android:src="@drawable/ic_company"/>
+
+                    <LinearLayout
+                        android:layout_gravity="center"
+                        android:orientation="vertical"
+                        android:layout_weight="7"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Jerry Guide to\nthe World Wide Web"
+                            android:textSize="18dp"
+                            android:inputType="textMultiLine"
+                            android:fontFamily="@font/montserrat_semi_bold"
+                            android:textColor="@color/black"
+                            android:layout_gravity="center"/>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <me.zhanghai.android.materialratingbar.MaterialRatingBar
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:numStars="5"
+                                android:rating="3"
+                                android:id="@+id/rating"
+                                style="@style/Widget.MaterialRatingBar.RatingBar.Small" />
+
+                            <TextView
+                                android:layout_toRightOf="@+id/rating"
+                                android:layout_marginLeft="20dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/roboto_medium"
+                                android:textSize="12sp"
+                                android:textColor="@color/black"
+                                android:text="(4.2)"/>
+
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_below="@+id/linearLayout"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="20dp"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:paddingRight="10dp"
+                        android:id="@+id/myProfile"
+                        android:drawablePadding="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:onClick="@{(view)->fragment.onClick(view)}"
+                        android:background="@drawable/background_round_corners_list_view"
+                        android:drawableStart="@drawable/ic_profile_user"
+                        android:drawableEnd="@drawable/ic_profile_arraw"
+                        android:fontFamily="@font/montserrat_medium"
+                        android:gravity="center_vertical"
+                        android:text="Company Profile"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp"
+                        android:drawableLeft="@drawable/ic_profile_user"
+                        android:drawableRight="@drawable/ic_profile_arraw" />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:background="#D5D5D5"/>
+
+                    <TextView
+                        android:layout_marginTop="5dp"
+                        android:id="@+id/location"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/ic_location_red"
+                        android:drawableEnd="@drawable/ic_profile_arraw"
+                        android:paddingRight="10dp"
+                        android:paddingTop="10dp"
+                        android:onClick="@{(view)->fragment.onClick(view)}"
+                        android:background="@drawable/background_round_corners_list_view"
+                        android:paddingBottom="10dp"
+                        android:drawablePadding="10dp"
+                        android:fontFamily="@font/montserrat_medium"
+                        android:gravity="center_vertical"
+                        android:text="Locations"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp"
+                        android:drawableLeft="@drawable/ic_resume"
+                        android:drawableRight="@drawable/ic_profile_arraw" />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:background="#D5D5D5"/>
+
+                    <TextView
+                        android:layout_marginTop="5dp"
+                        android:id="@+id/review"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/ic_red_review"
+                        android:drawableEnd="@drawable/ic_profile_arraw"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:onClick="@{(view)->fragment.onClick(view)}"
+                        android:paddingRight="10dp"
+                        android:drawablePadding="10dp"
+                        android:background="@drawable/background_round_corners_list_view"
+                        android:fontFamily="@font/montserrat_medium"
+                        android:gravity="center_vertical"
+                        android:text="Reviews"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp"
+                        android:drawableLeft="@drawable/ic_location_red"
+                        android:drawableRight="@drawable/ic_profile_arraw" />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:background="#D5D5D5"/>
+
+                    <TextView
+                        android:layout_marginTop="5dp"
+                        android:id="@+id/changePassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/ic_pass_red"
+                        android:drawableEnd="@drawable/ic_profile_arraw"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:onClick="@{(view)->fragment.onClick(view)}"
+                        android:paddingRight="10dp"
+                        android:drawablePadding="10dp"
+                        android:background="@drawable/background_round_corners_list_view"
+                        android:fontFamily="@font/montserrat_medium"
+                        android:gravity="center_vertical"
+                        android:text="Change Password"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp"
+                        android:drawableLeft="@drawable/ic_pass_red"
+                        android:drawableRight="@drawable/ic_profile_arraw" />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:background="#D5D5D5"/>
+                    <TextView
+                        android:layout_marginTop="5dp"
+                        android:id="@+id/signout"
+                        android:background="@drawable/background_round_corners_list_view"
+                        android:drawablePadding="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{(view)->fragment.onClick(view)}"
+                        android:drawableStart="@drawable/ic_signout"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:fontFamily="@font/montserrat_medium"
+                        android:gravity="center_vertical"
+                        android:text="Sign Out"
+                        android:textColor="#ED1924"
+                        android:textSize="16sp"
+                        android:drawableLeft="@drawable/ic_signout" />
+
+
+                </LinearLayout>
+
+
+
+                <TextView
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="bottom|center"
+                    android:layout_marginTop="20dp"
+                    android:textSize="12dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="Terms of Services  I  Privacy Policy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"/>
+
+            </RelativeLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+</layout>

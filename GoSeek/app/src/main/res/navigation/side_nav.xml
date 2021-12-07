@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/side_nav"
+    app:startDestination="@id/baseDashbordFragment2">
+
+    <fragment
+        android:id="@+id/baseDashbordFragment2"
+        android:name="com.softsolution.goseek.fragments.BaseDashbordFragment"
+        android:label="BaseDashbordFragment" >
+        <action
+            android:id="@+id/action_baseDashbordFragment2_to_appliedFragment2"
+            app:destination="@id/appliedFragment2" />
+        <action
+            android:id="@+id/action_baseDashbordFragment2_to_profileFragment2"
+            app:destination="@id/profileFragment2" />
+        <action
+            android:id="@+id/action_baseDashbordFragment2_to_favouriteFragment2"
+            app:destination="@id/favouriteFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/appliedFragment2"
+        android:name="com.softsolution.goseek.fragments.AppliedFragment"
+        android:label="AppliedFragment" />
+    <fragment
+        android:id="@+id/profileFragment2"
+        android:name="com.softsolution.goseek.fragments.ProfileFragment"
+        android:label="ProfileFragment" />
+    <fragment
+        android:id="@+id/favouriteFragment2"
+        android:name="com.softsolution.goseek.fragments.FavouriteFragment"
+        android:label="FavouriteFragment" />
+</navigation>

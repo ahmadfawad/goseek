@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/great_job_screens"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <RelativeLayout
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    <ImageView
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/approved_img"
+        android:src="@drawable/ic_approved"/>
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/approved_img"
+        android:textColor="@color/white"
+        android:id="@+id/sucessful_msg"
+        android:textAlignment="center"
+        android:layout_centerHorizontal="true"
+        android:textSize="18sp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="You Applied Successfully\nas a Cashier."
+        android:gravity="center_horizontal" />
+
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textAlignment="center"
+        android:textSize="12sp"
+        android:id="@+id/text_dummy"
+        android:fontFamily="@font/roboto_medium"
+        android:layout_below="@+id/sucessful_msg"
+        android:layout_centerHorizontal="true"
+        android:text="Company will get back you soon"
+        android:gravity="center_horizontal"
+        android:layout_marginBottom="20dp"/>
+
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:padding="15dp"
+            app:cornerRadius="5dp"
+            app:strokeColor="@color/white"
+            app:strokeWidth="1dp"
+            android:layout_below="@+id/text_dummy"
+            android:id="@+id/existingUser"
+            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Explore Odd Jobs"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:letterSpacing="0"
+            android:justificationMode="inter_word"
+            android:fontFamily="@font/montserrat_bold"
+            android:backgroundTint="@color/white"/>
+
+    </RelativeLayout>
+
+    </RelativeLayout>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="16dp"
+    android:layout_marginRight="16dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="3dp">
+
+
+            <ImageView
+                android:id="@+id/calender"
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/transparent"
+                android:backgroundTint="@color/lightGrey"
+                android:src="@drawable/ic_map" />
+
+            <TextView
+                android:id="@+id/calender_text"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@+id/calender"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_medium"
+                android:layout_marginLeft="10dp"
+                android:text="Gulberg Office"
+                android:textColor="@color/black"
+                android:textSize="16dp"/>
+
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:paddingBottom="0dp"
+            android:paddingTop="0dp"
+            android:background="@color/transparent"
+            android:backgroundTint="@color/lightGrey"
+            app:backgroundTint="@color/transparent"
+            android:insetRight="0dp"
+            app:iconGravity="end"
+            app:iconTint="@color/black"
+            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+            android:layout_alignParentRight="true"
+            app:icon="@drawable/ic_three_dots" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/calender_text"
+            android:layout_marginTop="3dp"
+            android:layout_marginLeft="20dp"
+            android:textSize="12dp"
+            android:fontFamily="@font/roboto_regular"
+            android:id="@+id/desc"
+            android:text="Abdalian Cooperative Housing Society is a housing\nestate located within Lahore, Punjab, Pakistan."/>
+
+
+<androidx.cardview.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_below="@+id/desc"
+    android:layout_height="150dp"
+    app:cardCornerRadius="15dp">
+
+    <FrameLayout
+    android:layout_marginTop="3dp"
+    android:id="@+id/frameLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"/>
+
+
+</androidx.cardview.widget.CardView>
+
+
+    </RelativeLayout>
+
+</LinearLayout>

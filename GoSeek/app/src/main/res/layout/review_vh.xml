@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginTop="15dp"
+    android:layout_marginRight="15dp"
+    android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_gravity="bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <me.zhanghai.android.materialratingbar.MaterialRatingBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:numStars="5"
+                android:rating="3"
+                android:id="@+id/rating"
+                style="@style/Widget.MaterialRatingBar.RatingBar.Small" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/date"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/calender"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/transparent"
+                    android:backgroundTint="@color/lightGrey"
+                    android:src="@drawable/ic_calender"
+                    app:layout_constraintEnd_toStartOf="@+id/calender_text"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/calender_text"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:layout_marginLeft="5dp"
+                    android:text="10 Jun,2021"
+                    android:textColor="@color/lightGrey"
+                    android:textSize="12dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/calender"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+   <!--         <RelativeLayout
+                android:id="@+id/date"
+                android:gravity="bottom"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/calender"
+                    android:background="@color/transparent"
+                    android:src="@drawable/ic_calender"
+                    android:layout_width="wrap_content"
+                    android:backgroundTint="@color/lightGrey"
+                    android:layout_height="14dp"/>
+
+                <TextView
+                    android:id="@+id/review_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/lightGrey"
+                    android:textSize="12dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toRightOf="@id/calender"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="10 Jun,2021"/>
+
+            </RelativeLayout>
+-->
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:visibility="gone"
+                android:layout_alignParentRight="true"
+                android:layout_centerInParent="true"
+                android:backgroundTint="@color/black"
+                android:src="@drawable/ic_move_right"
+                android:layout_marginRight="25dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/review"
+                android:fontFamily="@font/roboto_regular"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:justificationMode="inter_word"
+                android:text="@string/job_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></TextView>
+
+            <TextView
+                android:layout_below="@id/review"
+                android:layout_marginTop="10dp"
+                android:id="@+id/review_writer_name"
+                android:textSize="12dp"
+                android:fontFamily="@font/roboto_bold"
+                android:text="By: John Doe"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </RelativeLayout>
+
+
+
+    </LinearLayout>

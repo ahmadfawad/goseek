@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.github.captain_miao.optroundcardview.OptRoundCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:optRoundCardCornerRadius="35dp"
+    android:padding="16dp"
+    android:background="@color/white"
+    app:optRoundCardLeftBottomCorner="false"
+    app:optRoundCardRightBottomCorner="false"
+    android:id="@+id/bottom_sheet"
+    app:behavior_hideable="true"
+    app:layout_behavior="@string/bottom_sheet_behavior">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="16dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:fontFamily="@font/montserrat_semi_bold"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:text="New Users"/>
+
+
+        <RelativeLayout
+            android:layout_marginTop="20dp"
+            android:background="@drawable/optionscreen_bg"
+            android:paddingLeft="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:fontFamily="@font/montserrat_semi_bold"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/radia_id1"
+                android:text="I am a job seeker"
+                android:textSize="16dp"/>
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_marginTop="10dp"
+            android:background="@drawable/optionscreen_bg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="5dp"
+            android:layout_marginBottom="10dp">
+
+            <RadioButton
+                android:layout_width="fill_parent"
+                android:fontFamily="@font/montserrat_semi_bold"
+                android:layout_height="wrap_content"
+                android:id="@+id/radia_id2"
+                android:text="I want to post an odd job"
+                android:textSize="16dp"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+</com.github.captain_miao.optroundcardview.OptRoundCardView>

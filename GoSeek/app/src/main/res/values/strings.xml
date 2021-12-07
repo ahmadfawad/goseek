@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">Go Seek</string>
+
+    <!--Splash Screen -->
+
+    <string name="splash_text">Go Seek</string>
+    <string name="splash_privacy_policy">Design &amp; Developed by Softsolutions</string>
+
+    <!--Option Screen-->
+    <string name="dummy_text_option_screen">Lorem Ipsum is simply dummy text of the printing &amp; typesetting industry.</string>
+    <string name="existing_user">Existing Users</string>
+    <string name="new_user">New Users</string>
+
+    <string name="dummy_text_job_seeker">Job Seeker Profile</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="great_job">Great Job!</string>
+    <string name="profile">"You have created your basic profile and now you can start finding nearby odd jobs".</string>
+    <string name="job_desc">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using Content here, content here, making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for lorem ipsum will uncover many web sites still in their infancy.</string>
+    <string name="apply">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using Content here, content here, making it look like readable English.</string>
+    <string name="wages">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using Content here, content here, making it look like readable English.</string>
+    <string name="location">10-C PIA Society Civic Center, PIA Main Boulevard</string>
+
+    <string name="add_review"><u>ADD REVIEW</u>.</string>
+
+    <array name="initial_range_slider_values">
+        <item>20</item>
+        <item>80</item>
+    </array>
+    <string name="title_activity_maps">Map</string>
+
+
+    <string name="i_am_here">I am here</string>
+    <string name="provider_failed">Provider Failed</string>
+    <string name="title_activity_fullscreen">FullscreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_upload_resume">UploadResumeActivity</string>
+    <string name="email_verification_screen">Please sent the Verification code that we\nsent you on your email Arslanbutt166@gmail.com</string>
+
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
+    <string name="title_activity_maps2">Map</string>
+
+</resources>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/dashbordFragment"
+        android:title="All Jobs"
+        android:enabled="true"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/select_item_alljobs"/>
+    <item
+        android:id="@+id/favouriteFragment"
+        android:enabled="true"
+        android:title="New Jobs"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/select_item_newjob"/>
+  <!--  <item
+        android:id="@+id/appliedFragment"
+        android:title="Gulberg"
+        app:showAsAction="ifRoom"
+        android:enabled="true"
+        android:icon="@drawable/select_item_location"/>  -->
+    <item
+        android:id="@+id/profileFragment"
+        android:title="Profile"
+        android:enabled="true"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/select_item_user"/>
+</menu>

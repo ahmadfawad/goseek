@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.github.captain_miao.optroundcardview.OptRoundCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:optRoundCardCornerRadius="25dp"
+    app:optRoundCardLeftBottomCorner="false"
+    app:optRoundCardRightBottomCorner="false"
+    android:elevation="@dimen/opt_round_card_view_compat_inset_shadow"
+    app:optRoundCardBackgroundColor="@color/white"
+    android:id="@+id/bottom_sheet"
+    android:padding="16dp"
+    app:behavior_peekHeight="55dp"
+    app:behavior_hideable="true"
+    app:layout_behavior="@string/bottom_sheet_behavior">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:fontFamily="@font/montserrat_semi_bold"
+            android:textColor="@color/black"
+            android:text="Add Review"/>
+
+
+        <me.zhanghai.android.materialratingbar.MaterialRatingBar
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:numStars="5"
+            android:rating="3"
+            android:stepSize="1"
+            style="@style/Widget.MaterialRatingBar.RatingBar" />
+
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_marginTop="10dp"
+            android:id="@+id/textField"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="0dp"
+            android:hint="Write a Review :"
+            android:gravity="top"
+            app:hintTextColor="#848484"
+            app:counterEnabled="true"
+            app:counterMaxLength="150"
+            android:overScrollMode="always"
+            android:scrollbarStyle="insideInset"
+            android:scrollbars="vertical"
+            android:backgroundTint="@color/hint"
+            app:boxBackgroundColor="@android:color/transparent"
+            android:background="@android:color/transparent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:gravity="top"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="0dp"
+                android:paddingEnd="0dp"
+                android:textColor="@color/black"
+                android:inputType="textMultiLine"
+                android:lines="8"
+                android:minLines="1"
+                android:fontFamily="@font/roboto_regular"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_marginTop="20dp"
+            android:padding="15dp"
+            app:cornerRadius="5dp"
+            android:theme="@style/Theme.MaterialComponents.Light"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Post Review"
+            android:textSize="14dp"
+            android:letterSpacing="0"
+            android:id="@+id/post_review"
+            android:textColor="@color/white"
+            android:fontFamily="@font/montserrat_bold"
+            android:backgroundTint="#F87062"/>
+    </LinearLayout>
+</com.github.captain_miao.optroundcardview.OptRoundCardView>

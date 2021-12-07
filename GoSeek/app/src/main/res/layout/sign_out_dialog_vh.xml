@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.github.captain_miao.optroundcardview.OptRoundCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:optRoundCardCornerRadius="0dp"
+    android:elevation="@dimen/opt_round_card_view_compat_inset_shadow"
+    app:optRoundCardBackgroundColor="@color/white"
+    android:id="@+id/bottom_sheet"
+    app:behavior_peekHeight="55dp"
+    app:behavior_hideable="true"
+    app:layout_behavior="@string/bottom_sheet_behavior">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="vertical">
+
+        <ImageButton
+            android:layout_gravity="right"
+            android:id="@+id/cross"
+            android:background="@color/transparent"
+            android:src="@drawable/ic_cross"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:fontFamily="@font/montserrat_semi_bold"
+            android:textColor="@color/black"
+            android:text="Sign Out"/>
+
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:textSize="18dp"
+            android:fontFamily="@font/roboto_medium"
+            android:text="Are you sure you want\nto Sign Out."
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"/>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/yes"
+                android:layout_width="0dp"
+                app:layout_constraintWidth_percent="0.43"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#F87062"
+                android:fontFamily="@font/montserrat_bold"
+                android:padding="15dp"
+                android:text="Yes"
+                android:letterSpacing="0"
+                android:textColor="@color/white"
+                android:textSize="14dp"
+                android:theme="@style/Theme.MaterialComponents.Light"
+                app:cornerRadius="5dp"
+                app:layout_constraintEnd_toStartOf="@+id/no"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_chainStyle="spread"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/no"
+                android:layout_width="0dp"
+                app:layout_constraintWidth_percent="0.43"
+                android:layout_height="wrap_content"
+                app:strokeColor="@color/pink"
+                app:strokeWidth="1dp"
+                android:fontFamily="@font/montserrat_bold"
+                android:padding="15dp"
+                android:text="No"
+                app:rippleColor="@color/hint"
+                android:textColor="@color/pink"
+                android:textSize="14dp"
+                android:letterSpacing="0"
+                style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                android:theme="@style/Theme.MaterialComponents.Light"
+                app:cornerRadius="5dp"
+                android:backgroundTint="@color/white"
+                app:layout_constraintBottom_toBottomOf="@+id/yes"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/yes"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+</com.github.captain_miao.optroundcardview.OptRoundCardView>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.jobSeeker.EditLocationFragment">
+
+
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:gravity="top"
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:elevation="0dp">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/appbarlayout_tool_bar"
+            android:layout_width="match_parent"
+            android:padding="0dp"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@android:color/transparent">
+
+            <RelativeLayout
+                android:padding="0dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.button.MaterialButton
+                    style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/transparent"
+                    android:layout_centerVertical="true"
+                    app:iconGravity="start"
+                    android:id="@+id/back"
+                    android:paddingLeft="0dp"
+                    android:insetLeft="0dp"
+                    app:icon="@drawable/ic_move_left"
+                    app:iconTint="@color/black"
+                    android:background="@android:color/transparent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:fontFamily="@font/montserrat_semi_bold"
+                    android:textSize="20dp"
+                    android:text="Edit Location"
+                    android:textColor="@android:color/black" />
+
+
+            </RelativeLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <RelativeLayout
+        android:layout_gravity="bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageButton
+            android:id="@+id/btn"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/ic_map_location"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/transparent"
+            android:layout_width="50dp"
+            android:layout_height="50dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_below="@id/btn"
+            android:layout_marginTop="5dp"
+            android:padding="15dp"
+            app:cornerRadius="5dp"
+            android:letterSpacing="0"
+            android:id="@+id/edit_location"
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="update location"
+            android:textSize="14dp"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/white"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:fontFamily="@font/montserrat_bold"
+            android:backgroundTint="#F87062"/>
+
+    </RelativeLayout>
+
+    </FrameLayout>

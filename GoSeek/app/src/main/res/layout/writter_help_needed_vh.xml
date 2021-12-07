@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.github.captain_miao.optroundcardview.OptRoundCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:optRoundCardCornerRadius="0dp"
+    android:elevation="@dimen/opt_round_card_view_compat_inset_shadow"
+    app:optRoundCardBackgroundColor="@color/white"
+    android:id="@+id/bottom_sheet"
+    app:behavior_peekHeight="55dp"
+    app:behavior_hideable="true"
+    app:layout_behavior="@string/bottom_sheet_behavior">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:orientation="vertical">
+
+        <com.google.android.material.button.MaterialButton
+            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+            android:layout_gravity="right"
+            android:id="@+id/cross"
+            android:background="@color/transparent"
+            app:iconGravity="end"
+            app:iconTint="@color/hint"
+            app:icon="@drawable/ic_cross"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:fontFamily="@font/montserrat_semi_bold"
+            android:textColor="@color/black"
+            android:text="Waiter Help Needed"/>
+
+
+        <TextView
+            android:layout_marginTop="20dp"
+            android:text="By ABC Company Name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"/>
+
+
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_marginTop="20dp"
+            android:padding="15dp"
+            app:cornerRadius="5dp"
+            android:theme="@style/Theme.MaterialComponents.Light"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Confirm to Apply"
+            android:textSize="14dp"
+            android:letterSpacing="0"
+            android:id="@+id/confirm"
+            android:textColor="@color/white"
+            android:fontFamily="@font/montserrat_bold"
+            android:backgroundTint="#F87062"/>
+    </LinearLayout>
+</com.github.captain_miao.optroundcardview.OptRoundCardView>

@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <data>
+
+        <variable
+            name="fragment"
+            type="com.softsolution.goseek.fragments.jobPoster.PosterJobDetailFragment" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/transparent">
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_alignParentTop="true"
+            android:id="@+id/appBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:elevation="0dp">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/appbarlayout_tool_bar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@android:color/transparent">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <com.google.android.material.button.MaterialButton
+                        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                        app:iconGravity="start"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:id="@+id/back"
+                        android:paddingLeft="0dp"
+                        android:insetLeft="0dp"
+                        android:onClick="@{(view)->fragment.onClick(view)}"
+                        android:background="@android:color/transparent"
+                        app:icon="@drawable/ic_move_left" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:gravity="center"
+                        android:fontFamily="@font/montserrat_semi_bold"
+                        android:textSize="20dp"
+                        android:text="Cashier Needed"
+                        android:textColor="@android:color/white" />
+
+                    <com.google.android.material.button.MaterialButton
+                        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                        app:iconGravity="end"
+                        android:layout_alignParentRight="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:id="@+id/three_dots"
+                        android:onClick="@{(view)->fragment.onClick(view)}"
+                        android:background="@android:color/transparent"
+                        app:icon="@drawable/ic_three_dots" />
+
+
+                </RelativeLayout>
+
+            </androidx.appcompat.widget.Toolbar>
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+
+        <com.github.captain_miao.optroundcardview.OptRoundCardView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:padding="16dp"
+            app:behavior_hideable="true"
+            android:background="#F2F2F2"
+            app:layout_behavior="@string/bottom_sheet_behavior"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
+            app:optRoundCardBackgroundColor="@color/white"
+            app:optRoundCardCornerRadius="35dp"
+            app:optRoundCardLeftBottomCorner="false"
+            app:optRoundCardRightBottomCorner="false">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <View
+                    android:id="@+id/view"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"/>
+
+                <ScrollView
+                    android:layout_below="@+id/view"
+                    android:layout_above="@id/linearLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scrollbars="none"
+                    android:fillViewport="true">
+
+                    <LinearLayout
+                        android:layout_marginTop="0dp"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_height="match_parent">
+
+                        <com.google.android.material.button.MaterialButton
+                            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                            android:backgroundTint="#EEF9F2"
+                            app:cornerRadius="25dp"
+                            app:icon="@drawable/ic_green_dot"
+                            app:iconGravity="textStart"
+                            android:justificationMode="inter_word"
+                            app:iconPadding="3dp"
+                            android:textAllCaps="false"
+                            android:textSize="12sp"
+                            android:layout_margin="0dp"
+                            android:fontFamily="@font/roboto_medium"
+                            android:text="Active"
+                            android:textColor="#56C07F"
+                            app:iconTint="#56C07F"
+                            android:layout_gravity="center"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                        <TextView
+                            android:text="Posted on: 12 Jun, 2021"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/roboto_medium"
+                            android:textSize="14dp"
+                            android:textColor="@color/black"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:text="Impressions: 23"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/roboto_medium"
+                            android:textSize="14dp"
+                            android:textColor="@color/black"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:text="Job Descripotion"
+                            android:fontFamily="@font/montserrat_bold"
+                            android:textSize="18dp"
+                            android:layout_marginTop="16dp"
+                            android:textColor="@color/black"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+                        <TextView
+                            android:layout_marginTop="5dp"
+                            android:lineSpacingMultiplier="1.2"
+                            android:fontFamily="@font/roboto_regular"
+                            android:textColor="@color/black"
+                            android:textSize="14dp"
+                            android:justificationMode="inter_word"
+                            android:layout_gravity="center_vertical|end"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/job_desc"/>
+
+                        <TextView
+                            android:layout_marginTop="15dp"
+                            android:text="Who Can Apply"
+                            android:visibility="gone"
+                            android:fontFamily="@font/montserrat_bold"
+                            android:textSize="18dp"
+                            android:textColor="@color/black"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+                        <TextView
+                            android:layout_marginTop="5dp"
+                            android:visibility="gone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:lineSpacingMultiplier="1.2"
+                            android:layout_gravity="center_vertical|end"
+                            android:fontFamily="@font/roboto_regular"
+                            android:textColor="@color/black"
+                            android:textSize="14dp"
+                            android:justificationMode="inter_word"
+                            android:text="@string/job_desc"/>
+
+                        <TextView
+                            android:layout_marginTop="15dp"
+                            android:text="Wages per Hour"
+                            android:fontFamily="@font/montserrat_bold"
+                            android:textSize="18dp"
+                            android:textColor="@color/black"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+                        <TextView
+                            android:layout_marginTop="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_gravity="center_vertical|end"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto_regular"
+                            android:textColor="@color/black"
+                            android:textSize="14dp"
+                            android:lineSpacingMultiplier="1.2"
+                            android:justificationMode="inter_word"
+                            android:text="@string/job_desc"/>
+                        <TextView
+                            android:layout_marginTop="15dp"
+                            android:text="Location"
+                            android:fontFamily="@font/montserrat_bold"
+                            android:textSize="18dp"
+                            android:textColor="@color/black"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+                        <TextView
+                            android:layout_marginTop="5dp"
+                            android:layout_width="match_parent"
+                            android:fontFamily="@font/roboto_regular"
+                            android:textColor="@color/black"
+                            android:textSize="14dp"
+                            android:justificationMode="inter_word"
+                            android:layout_gravity="center_vertical|end"
+                            android:layout_height="wrap_content"
+                            android:text="@string/location"/>
+
+                        <FrameLayout
+                            android:layout_marginTop="10dp"
+                            android:id="@+id/container_review"
+                            android:layout_width="match_parent"
+                            android:layout_height="150dp">
+
+
+                        </FrameLayout>
+
+                        <RelativeLayout
+                            android:layout_marginTop="10dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="16dp"
+                                android:fontFamily="@font/montserrat_semi_bold"
+                                android:textColor="@color/black"
+                                android:text="Husnain Mukhtar"/>
+
+
+                            <me.zhanghai.android.materialratingbar.MaterialRatingBar
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:numStars="5"
+                                android:rating="3"
+                                style="@style/Widget.MaterialRatingBar.RatingBar.Small" />
+
+                            <!--       <RatingBar
+                                       android:layout_alignParentRight="true"
+                                       android:id="@+id/ratingBar"
+                                       android:layout_width="150dp"
+                                       android:rating="3"
+                                       android:numStars="5"
+                                       android:backgroundTint="@color/transparent"
+                                       android:layout_height="wrap_content" /> -->
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp">
+                            <RelativeLayout
+                                android:id="@+id/location"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+                                <ImageView
+                                    android:id="@+id/map"
+                                    android:background="@color/transparent"
+                                    android:src="@drawable/ic_map"
+                                    android:layout_width="wrap_content"
+                                    android:backgroundTint="@color/lightGrey"
+                                    android:layout_height="wrap_content"/>
+
+                                <TextView
+                                    android:id="@+id/text4"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/lightGrey"
+                                    android:layout_marginLeft="5dp"
+                                    android:textSize="12dp"
+                                    android:layout_toRightOf="@+id/map"
+                                    android:fontFamily="@font/roboto_regular"
+                                    android:text="10 Jun,2021"/>
+
+                            </RelativeLayout>
+
+
+                            <TextView
+                                android:layout_alignParentRight="true"
+                                android:text="4.2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+
+                        </RelativeLayout>
+
+
+                        <TextView
+                            android:layout_marginTop="15dp"
+                            android:text="Reviews"
+                            android:fontFamily="@font/montserrat_bold"
+                            android:textSize="18dp"
+                            android:textColor="@color/black"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+
+                        <!--  <androidx.recyclerview.widget.RecyclerView
+                              android:id="@+id/recyclerview"
+                              android:layout_width="match_parent"
+                              android:layout_height="wrap_content"/> -->
+
+                        <androidx.viewpager2.widget.ViewPager2
+                            android:id="@+id/viewPagerImageSlider"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+
+
+                        <TextView
+                            android:id="@+id/add_review"
+                            android:onClick="@{(view)->fragment.onClick(view)}"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginBottom="10dp"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/montserrat_bold"
+                            android:text="@string/add_review"
+                            android:textColor="#F87062"
+                            android:textSize="12dp" />
+
+                        <TextView
+                            android:layout_marginTop="15dp"
+                            android:text="Job Seekers"
+                            android:fontFamily="@font/montserrat_bold"
+                            android:textSize="18dp"
+                            android:textColor="@color/black"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="10dp"/>
+
+                        <ScrollView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/recyclerView"
+                                tools:listitem="@layout/jobdetail_layout_vh"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layoutAnimation="@anim/layout_animation"/>
+                        </ScrollView>
+                    </LinearLayout>
+                </ScrollView>
+
+                <LinearLayout
+                    android:layout_alignParentBottom="true"
+                    android:id="@+id/linearLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="15dp"
+                    android:weightSum="10">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:layout_margin="0dp"
+                        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                        android:layout_width="0dp"
+                        android:padding="0dp"
+                        android:letterSpacing="0"
+                        android:id="@+id/apply"
+                        android:layout_height="match_parent"
+                        android:layout_weight="8.5"
+                        android:backgroundTint="@color/pink"
+                        android:text="APPLY"
+                        android:onClick="@{(view)->fragment.onClick(view)}"
+                        app:cornerRadius="5dp" />
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        app:cardCornerRadius="5dp"
+                        android:layout_margin="6dp"
+                        android:padding="15dp"
+                        android:id="@+id/cardview"
+                        android:adjustViewBounds="true"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:layout_gravity="center"
+                        android:scaleType="centerInside"
+                        android:layout_weight="1.30"
+                        android:elevation="5dp"
+                        android:insetBottom="0dp"
+                        android:insetLeft="0dp"
+                        android:insetTop="0dp"
+                        android:insetRight="0dp"
+                        app:backgroundTint="@null" >
+
+                        <ImageView
+                            android:layout_gravity="center"
+                            android:id="@+id/imagebtn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_fill_heart"/>
+
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+
+        </com.github.captain_miao.optroundcardview.OptRoundCardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

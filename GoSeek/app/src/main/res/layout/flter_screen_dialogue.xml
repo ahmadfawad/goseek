@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.github.captain_miao.optroundcardview.OptRoundCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:optRoundCardCornerRadius="25dp"
+    app:optRoundCardLeftBottomCorner="false"
+    app:optRoundCardRightBottomCorner="false"
+    android:elevation="@dimen/opt_round_card_view_compat_inset_shadow"
+    app:optRoundCardBackgroundColor="@color/white"
+    android:id="@+id/bottom_sheet"
+    android:padding="16dp"
+    app:behavior_peekHeight="55dp"
+    app:behavior_hideable="true"
+    app:layout_behavior="@string/bottom_sheet_behavior">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:gravity="center"
+                android:fontFamily="@font/montserrat_semi_bold"
+                android:textColor="@color/black"
+                android:text="Filter"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textSize="14dp"
+                android:fontFamily="@font/roboto_medium"
+                android:textColor="@color/black"
+                android:text="Jobs Around Me In"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                tools:listitem="@layout/button_vh"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:text="Wage/Hour"
+                android:textSize="14dp"
+                android:textColor="@color/black"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/roboto_medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <com.google.android.material.slider.RangeSlider
+                style="@style/Widget.App.Slider"
+                app:thumbColor="@color/pink"
+                android:layout_marginTop="20dp"
+                android:valueFrom="0"
+                app:thumbStrokeColor="@color/white"
+                app:thumbStrokeWidth="1.5dp"
+                android:scrollbarThumbHorizontal="@drawable/round_corners_vh"
+                android:valueTo="100"
+                android:stepSize="1"
+                app:tickVisible="false"
+                android:backgroundTint="@color/transparent"
+                android:id="@+id/rangeSlider"
+                android:layout_height="wrap_content"
+                app:values="@array/initial_range_slider_values"
+                android:layout_width="match_parent"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_marginTop="20dp"
+                android:padding="15dp"
+                app:cornerRadius="5dp"
+                android:letterSpacing="0"
+                style="@style/Widget.MaterialComponents.Button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Save"
+                android:textSize="14dp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/montserrat_bold"
+                android:backgroundTint="#F87062"/>
+        </LinearLayout>
+    </com.github.captain_miao.optroundcardview.OptRoundCardView>
