@@ -118,8 +118,12 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_gravity="center_vertical"
                         android:layout_width="match_parent"
+                        android:id="@+id/etEmail"
                         android:layout_height="wrap_content"
                         android:paddingStart="0dp"
+                        android:imeOptions="actionNext"
+                        android:maxLines="1"
+                        android:inputType="textEmailAddress"
                         android:paddingEnd="0dp"
                         android:textColor="@color/black"
                         android:fontFamily="@font/roboto_regular"
@@ -144,7 +148,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:paddingStart="0dp"
+                        android:id="@+id/etPassword"
                         android:paddingEnd="0dp"
+                        android:imeOptions="actionDone"
                         android:inputType="textPassword"
                         android:textColor="@color/black"
                         android:drawableRight="@drawable/ic_lock_pass"
@@ -184,12 +190,14 @@
                     android:backgroundTint="#F87062"/>
 
                 <TextView
+                    android:id="@+id/tvNewUser"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="New User? Create an Account"
                     android:textColor="@color/black"
                     android:textSize="12dp"
+                    android:onClick="@{(view)->fragment.onclick(view)}"
                     android:fontFamily="@font/roboto_medium"
                     android:layout_marginTop="10dp"/>
             </LinearLayout>

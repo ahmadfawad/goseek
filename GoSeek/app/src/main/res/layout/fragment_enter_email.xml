@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="fragment"
+            type="com.softsolution.goseek.fragments.jobSeeker.EnterEmailFragment" />
+    </data>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.jobSeeker.EnterEmailFragment">
-
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
@@ -94,9 +99,12 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_gravity="center_vertical"
                         android:layout_width="match_parent"
+                        android:id="@+id/etEmail"
                         android:layout_height="wrap_content"
                         android:paddingStart="0dp"
                         android:paddingEnd="0dp"
+                        android:maxLines="1"
+                        android:imeOptions="actionDone"
                         android:inputType="textEmailAddress"
                         android:textColor="@color/black"
                         android:drawableTint="@color/hint"
@@ -115,8 +123,9 @@
                     style="@style/Widget.MaterialComponents.Button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Save"
-                    android:id="@+id/next"
+                    android:text="Send"
+                    android:onClick="@{(view)->fragment.onclick(view)}"
+                    android:id="@+id/send"
                     android:textSize="14dp"
                     android:textColor="@color/white"
                     android:fontFamily="@font/montserrat_bold"

@@ -10,7 +10,6 @@ import android.view.WindowManager
 import com.softsolution.goseek.R
 
 class SplashActivity2 : AppCompatActivity() {
-    private val SPLASH_TIME_OUT:Long=3000 //
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash2)
@@ -31,6 +30,10 @@ class SplashActivity2 : AppCompatActivity() {
 
             // close this activity
             finish()
-        }, SPLASH_TIME_OUT)
+        },SPLASH_TIME_OUT)
+    }
+
+    companion object {
+        private const val SPLASH_TIME_OUT:Long=3000
     }
 }

@@ -2,6 +2,8 @@ package com.softsolution.goseek.utils
 
 import android.content.Context
 import android.telephony.TelephonyManager
+import android.text.TextUtils
+import android.util.Patterns
 import com.softsolution.goseek.R
 import java.util.*
 
@@ -21,4 +23,8 @@ fun Context.getCountryDialCode(): String? {
         }
     }
     return contryDialCode ?: "1"
+}
+
+fun String.isValidEmail(): Boolean {
+    return !TextUtils.isEmpty(this) && Patterns.EMAIL_ADDRESS.matcher(this).matches()
 }

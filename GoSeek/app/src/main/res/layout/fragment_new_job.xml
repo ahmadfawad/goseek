@@ -44,6 +44,11 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
+                        android:id="@+id/etTitle"
+                        android:inputType="textCapWords"
+                        android:maxLines="1"
+                        android:imeOptions="actionNext"
+                        android:nextFocusForward="@id/etDescription"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:drawableTint="@color/hint"
@@ -57,7 +62,7 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/textField"
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -79,10 +84,13 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/roboto_regular"
                         android:gravity="top"
-                        android:inputType="textMultiLine"
+                        android:inputType="textMultiLine|textCapSentences"
                         android:lines="8"
                         android:minLines="1"
+                        android:id="@+id/etDescription"
                         android:paddingStart="0dp"
+                        android:imeOptions="actionNext"
+                        android:nextFocusForward="@id/etWhoCanApply"
                         android:paddingEnd="0dp"
                         android:textColor="@color/black" />
 
@@ -93,6 +101,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
+
                     android:background="@android:color/transparent"
                     android:backgroundTint="@color/hint"
                     android:gravity="top"
@@ -111,16 +120,20 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/roboto_regular"
                         android:gravity="top"
-                        android:inputType="textMultiLine"
+                        android:id="@+id/etWhoCanApply"
+                        android:inputType="textMultiLine|textCapSentences"
                         android:lines="8"
                         android:minLines="1"
                         android:paddingStart="0dp"
+                        android:imeOptions="actionNext"
+                        android:nextFocusForward="@id/etWages"
                         android:paddingEnd="0dp"
                         android:textColor="@color/black" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
@@ -134,11 +147,14 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
+                        android:id="@+id/etWages"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:drawableTint="@color/hint"
                         android:fontFamily="@font/roboto_regular"
                         android:paddingStart="0dp"
+                        android:inputType="text"
+                        android:imeOptions="actionDone"
                         android:paddingEnd="0dp"
                         android:textColor="@color/black"
 
@@ -156,7 +172,7 @@
                     android:layout_height="wrap_content"
                     android:text="post job"
                     android:letterSpacing="0"
-                    android:id="@+id/next"
+                    android:id="@+id/postJob"
                     android:textSize="14dp"
                     android:textColor="@color/white"
                     android:fontFamily="@font/montserrat_bold"

@@ -13,10 +13,11 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import com.softsolution.goseek.Interface.CallFragmentInterface
 import com.softsolution.goseek.R
+import com.softsolution.goseek.base.BaseActivity
 import dev.sasikanth.colorsheet.ColorSheet
 
 
-class MainActivity : AppCompatActivity(),CallFragmentInterface {
+class MainActivity : BaseActivity(),CallFragmentInterface {
 
 
 
@@ -60,38 +61,55 @@ class MainActivity : AppCompatActivity(),CallFragmentInterface {
 
 
     override fun passFragmentCallback(name: String) {
-        if (name == "profile"){
-            navController.navigate(R.id.action_baseDashbordFragment_to_myProfileFragment)
-        }else if(name == "uploadResume"){
-            navController.navigate(R.id.action_baseDashbordFragment_to_uploadResumeFragment)
-        }else if(name == "location"){
-            navController.navigate(R.id.action_baseDashbordFragment_to_mapsFragment3)
-        }else if(name =="JobDescription"){
-            navController.navigate(R.id.action_baseDashbordFragment_to_jobDetailFragment)
-        }else if(name == "changePassword"){
-            navController.navigate(R.id.action_baseDashbordFragment_to_forgetPasswordFragment)
-        }else if(name == "login"){
-            navController.navigate(R.id.action_baseDashbordFragment_to_loginFragment)
-        }else if(name=="register"){
-            navController.navigate(R.id.action_baseDashbordFragment_to_optionsFragment)
-        }else if(name=="editCompanyprofile"){
-            navController.navigate(R.id.action_posterBaseDashbordFragment_to_editCompanyProfileFragment)
-        }else if(name =="newJobSeekerDetail"){
-            navController.navigate(R.id.action_posterBaseDashbordFragment_to_sucessfullPostedFragment)
-        }else if(name == "review"){
-            navController.navigate(R.id.action_posterBaseDashbordFragment_to_reviewFragment)
-        }else if(name == "editPassword"){
-            navController.navigate(R.id.action_posterBaseDashbordFragment_to_forgetPasswordFragment)
-        }else if(name == "changeLocation"){
-            navController.navigate(R.id.action_posterBaseDashbordFragment_to_editLocationFragment)
-        }else if(name == "loginPoster"){
-            navController.navigate(R.id.action_posterBaseDashbordFragment_to_loginFragment)
-        }else if(name=="registerPoster"){
-            navController.navigate(R.id.action_posterBaseDashbordFragment_to_optionsFragment2)
-        }else if(name=="postedJobDetail"){
-            navController.navigate(R.id.action_posterBaseDashbordFragment_to_posterJobDetailFragment)
-        }else if(name == "Job"){
-            navController.navigate(R.id.action_posterJobDetailFragment_to_jobSeekerDetailFragment)
+        when (name) {
+            "profile" -> {
+                navController.navigate(R.id.action_baseDashbordFragment_to_myProfileFragment)
+            }
+            "uploadResume" -> {
+                navController.navigate(R.id.action_baseDashbordFragment_to_uploadResumeFragment)
+            }
+            "location" -> {
+                navController.navigate(R.id.action_baseDashbordFragment_to_mapsFragment3)
+            }
+            "JobDescription" -> {
+                navController.navigate(R.id.action_baseDashbordFragment_to_jobDetailFragment)
+            }
+            "changePassword" -> {
+                navController.navigate(R.id.action_baseDashbordFragment_to_forgetPasswordFragment)
+            }
+            "login" -> {
+                navController.navigate(R.id.action_baseDashbordFragment_to_loginFragment)
+            }
+            "register" -> {
+                navController.navigate(R.id.action_baseDashbordFragment_to_optionsFragment)
+            }
+            "editCompanyprofile" -> {
+                navController.navigate(R.id.action_posterBaseDashbordFragment_to_editCompanyProfileFragment)
+            }
+            "newJobSeekerDetail" -> {
+                navController.navigate(R.id.action_posterBaseDashbordFragment_to_sucessfullPostedFragment)
+            }
+            "review" -> {
+                navController.navigate(R.id.action_posterBaseDashbordFragment_to_reviewFragment)
+            }
+            "editPassword" -> {
+                navController.navigate(R.id.action_posterBaseDashbordFragment_to_forgetPasswordFragment)
+            }
+            "changeLocation" -> {
+                navController.navigate(R.id.action_posterBaseDashbordFragment_to_editLocationFragment)
+            }
+            "loginPoster" -> {
+                navController.navigate(R.id.action_posterBaseDashbordFragment_to_loginFragment)
+            }
+            "registerPoster" -> {
+                navController.navigate(R.id.action_posterBaseDashbordFragment_to_optionsFragment2)
+            }
+            "postedJobDetail" -> {
+                navController.navigate(R.id.action_posterBaseDashbordFragment_to_posterJobDetailFragment)
+            }
+            "Job" -> {
+                navController.navigate(R.id.action_posterJobDetailFragment_to_jobSeekerDetailFragment)
+            }
         }
     }
 

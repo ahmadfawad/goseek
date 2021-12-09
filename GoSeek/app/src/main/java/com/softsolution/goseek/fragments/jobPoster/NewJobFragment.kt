@@ -2,16 +2,14 @@ package com.softsolution.goseek.fragments.jobPoster
 
 import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import androidx.navigation.fragment.findNavController
+import androidx.fragment.app.Fragment
 import com.softsolution.goseek.Interface.CallFragmentInterface
 import com.softsolution.goseek.R
 import com.softsolution.goseek.databinding.FragmentNewJobBinding
-import com.softsolution.goseek.utils.Constants
 
 
 class NewJobFragment : Fragment() {
@@ -29,15 +27,25 @@ class NewJobFragment : Fragment() {
             container,
             false
         )
-        binding!!.setFragment(this)
+        binding!!.fragment = this
 
-        return binding!!.getRoot()
+        return binding!!.root
     }
 
     fun onClick(view: View) {
-        when (view?.id) {
-            R.id.next -> {
+        when (view.id) {
+            R.id.postJob -> {
+                if (binding?.etTitle?.editableText?.isNullOrEmpty() == true) {
+                    binding?.etTitle?.error = "Please enter job title"
+                } else if (binding?.etDescription?.editableText?.isNullOrEmpty() == true) {
+                    binding?.etDescription?.error = "Please enter job description"
+                } else if (binding?.etWhoCanApply?.editableText.isNullOrEmpty()) {
+                    binding?.etWhoCanApply?.error = "Enter who can apply"
+                } else if (binding?.etWages?.editableText?.isNullOrEmpty() == true) {
+                    binding?.etWages?.error = "Please enter wages"
+                } else {
                     listener?.passFragmentCallback("newJobSeekerDetail")
+                }
             }
         }
 

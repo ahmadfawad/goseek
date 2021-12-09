@@ -15,6 +15,9 @@ android {
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
+        def date = new Date();
+        def formattedDate = date.format('yyyy-MM-dd-HHmmss')
+        setProperty("archivesBaseName", "Go Seek" + versionName)
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -84,5 +87,9 @@ dependencies {
     implementation "dev.sasikanth:colorsheet:1.0.1"
     implementation 'com.github.kizitonwose.colorpreference:support:1.1.0'
     api 'com.github.yesterselga:country-picker-android:2.0'
+    api 'com.google.code.gson:gson:2.8.6'
+    api 'com.amitshekhar.android:android-networking:1.0.2'
+    implementation 'com.github.ybq:Android-SpinKit:1.4.0'
+    api 'com.github.gayanvoice:android-animations-kotlin:1.0.1'
 
 }

@@ -1,43 +1,85 @@
 package com.softsolution.goseek.fragments.jobSeeker
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.findNavController
-import com.google.android.material.button.MaterialButton
 import com.softsolution.goseek.R
+import com.softsolution.goseek.base.BaseFragment
+import com.softsolution.goseek.databinding.FragmentEmailVerificationBinding
+import com.softsolution.goseek.network.LocalPreference
+import com.softsolution.goseek.network.NetworkClass
+import com.softsolution.goseek.network.Response
+import com.softsolution.goseek.network.URLApi
 
 
-
-class EmailVerificationFragment : Fragment() {
-
+class EmailVerificationFragment : BaseFragment() {
+    private lateinit var binding: FragmentEmailVerificationBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+        binding =
+            DataBindingUtil.inflate(
+                inflater,
+                R.layout.fragment_email_verification,
+                container,
+                false
+            )
+        binding.fragment = this
 
-        val view = inflater?.inflate(R.layout.fragment_email_verification,container, false)
+        return binding.root
 
-        val navController = findNavController()
-        val button = view.findViewById(R.id.back) as MaterialButton
-        val next = view.findViewById(R.id.next) as MaterialButton
-        button.setOnClickListener {
-            navController.popBackStack()
-        }
-
-        next.setOnClickListener {
-            val navController = findNavController()
-            navController.navigate(R.id.action_emailVerificationFragment_to_baseDashbordFragment)
-
-            //findNavController().popBackStack(R.id.baseDashbordFragment,true)
-        }
-        return view
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.tvTextMail.text =
+            "Please sent the Verification code that we\nsent you on your email ${LocalPreference.shared.user?.Email}"
+        val navController = findNavController()
+        binding.back.setOnClickListener {
+            navController.popBackStack()
+        }
+    }
 
+    fun onClick(view: View) {
+        when (view?.id) {
+            R.id.next -> {
+
+                if (binding.squareField.text.isNullOrEmpty()) {
+                    Toast.makeText(mActivity, "Please enter code", Toast.LENGTH_SHORT).show()
+                } else {
+                    optVerify(binding.squareField.text.toString())
+                }
+
+
+            }
+        }
+
+        //findNavController().popBackStack(R.id.baseDashbordFragment,true)
+    }
+
+    private fun optVerify(code: String) {
+        showLoading()
+        NetworkClass.callApi(URLApi.optVerify(code), object : Response {
+            override fun onSuccessResponse(response: String?, message: String) {
+                hideLoading()
+                Toast.makeText(mActivity, message, Toast.LENGTH_SHORT).show()
+                val navController = findNavController()
+                navController.navigate(R.id.action_emailVerificationFragment_to_baseDashbordFragment)
+            }
+
+            override fun onErrorResponse(error: String?, response: String?) {
+                hideLoading()
+                Toast.makeText(mActivity, error ?: "", Toast.LENGTH_SHORT).show()
+
+            }
+
+        })
+    }
 
 }

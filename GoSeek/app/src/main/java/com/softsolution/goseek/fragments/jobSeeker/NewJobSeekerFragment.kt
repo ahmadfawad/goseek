@@ -1,44 +1,117 @@
 package com.softsolution.goseek.fragments.jobSeeker
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.findNavController
+import com.google.gson.Gson
 import com.softsolution.goseek.R
+import com.softsolution.goseek.base.BaseFragment
 import com.softsolution.goseek.databinding.FragmentNewJobSeekerBinding
+import com.softsolution.goseek.model.User
+import com.softsolution.goseek.network.LocalPreference
+import com.softsolution.goseek.network.NetworkClass
+import com.softsolution.goseek.network.Response
+import com.softsolution.goseek.network.URLApi
 import com.softsolution.goseek.utils.Constants
+import com.softsolution.goseek.utils.isValidEmail
+import org.json.JSONObject
 
 
-class NewJobSeekerFragment : Fragment() {
+class NewJobSeekerFragment : BaseFragment() {
     private var binding: FragmentNewJobSeekerBinding? = null
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
 
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_new_job_seeker, container, false)
+        binding =
+            DataBindingUtil.inflate(inflater, R.layout.fragment_new_job_seeker, container, false)
         binding!!.setFragment(this)
 
         return binding!!.getRoot()
 
     }
 
-    fun onclick(view:View){
+    fun onclick(view: View) {
         when (view?.id) {
             R.id.back -> {
                 this.findNavController().popBackStack()
             }
 
-            R.id.next ->{
-                Constants.login =true
-                val navController = findNavController()
-                navController.navigate(R.id.action_newJobSeekerFragment_to_emailVerificationFragment)
+            R.id.next -> {
+                if (binding?.etName?.editableText.isNullOrBlank()) {
+                    binding?.etName?.error = "Please enter your name"
+                } else if (binding?.etEmail?.editableText.isNullOrBlank()) {
+                    binding?.etEmail?.error = "Please enter your email"
+                } else if (!binding?.etEmail?.editableText?.toString()?.trim()?.isValidEmail()!!) {
+                    binding?.etEmail?.error = "Please enter valid email"
+                } else if (binding?.etCode?.editableText.isNullOrBlank()) {
+                    binding?.etCode?.error = "Please enter mobile code"
+                } else if (binding?.etMobileNumber?.editableText.isNullOrBlank()) {
+                    binding?.etMobileNumber?.error = "Please enter mobile number"
+                } else if (binding?.etPassword?.editableText.isNullOrBlank()) {
+                    binding?.etPassword?.error = "Please enter password"
+                } else if (binding?.etPassword?.editableText.toString().length < 8) {
+                    binding?.etPassword?.error = "Your password must be a at least 8 letters"
+                } else if (binding?.etConfirmPassword?.editableText.isNullOrBlank()) {
+                    binding?.etConfirmPassword?.error = "Please retype your password"
+                } else if (binding?.etPassword?.editableText.toString()
+                        .trim() != binding?.etConfirmPassword?.editableText.toString().trim()
+                ) {
+                    binding?.etConfirmPassword?.error = "Your password does not match"
+                } else if (!binding?.cbTerms?.isChecked!!) {
+                    Toast.makeText(
+                        mActivity,
+                        "Please agree on Terms and Condition",
+                        Toast.LENGTH_LONG
+                    ).show()
+                } else {
+                    registerUser(
+                        binding?.etName?.editableText?.toString()?.trim() ?: "",
+                        binding?.etEmail?.editableText?.toString()?.trim() ?: "",
+                        binding?.etMobileNumber?.editableText?.toString()?.trim() ?: "",
+                        binding?.etPassword?.editableText?.toString()?.trim() ?: "",
+                        if (binding?.cbTerms?.isChecked == true) "1" else "0"
+                    )
+                }
             }
 
         }
     }
+
+    private fun registerUser(
+        username: String,
+        email: String,
+        phone: String,
+        password: String,
+        isActive: String
+    ) {
+        showLoading()
+        NetworkClass.callApi(URLApi.registerUser(username, email, phone, password, isActive),
+            object : Response {
+                override fun onSuccessResponse(response: String?, message: String) {
+                    hideLoading()
+                    val json = JSONObject(response ?: "")
+                    val otp = json.optString("ActivetionCode")
+                    val data = Gson().fromJson(json.toString(), User::class.java)
+                    Toast.makeText(requireContext(), otp, Toast.LENGTH_LONG).show()
+                    LocalPreference.shared.user = data
+                    Constants.login = true
+                    val navController = findNavController()
+                    navController.navigate(R.id.action_newJobSeekerFragment_to_emailVerificationFragment)
+                }
+
+                override fun onErrorResponse(error: String?, response: String?) {
+                    hideLoading()
+                    Toast.makeText(requireContext(), error ?: "", Toast.LENGTH_SHORT).show()
+                }
+
+            })
+    }
+
+
 }
