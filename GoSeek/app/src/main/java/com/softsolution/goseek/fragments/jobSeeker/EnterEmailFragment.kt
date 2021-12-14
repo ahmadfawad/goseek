@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.fragment.app.Fragment
+import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.button.MaterialButton
 import com.softsolution.goseek.R
@@ -17,23 +17,25 @@ import com.softsolution.goseek.network.URLApi
 
 class EnterEmailFragment : BaseFragment() {
     private var binding: FragmentEnterEmailBinding? = null
-    private val navController = findNavController()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_enter_email, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_enter_email, container, false)
+        binding?.fragment = this
 
+        return binding!!.root
 
-        val button = view?.findViewById(R.id.back) as MaterialButton
-        button.setOnClickListener {
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding?.backEmail?.setOnClickListener{
+            val navController = findNavController()
             navController.popBackStack()
         }
-
-        return view
-
     }
 
     fun onclick(view: View) {
@@ -42,11 +44,27 @@ class EnterEmailFragment : BaseFragment() {
                 if (binding?.etEmail?.editableText?.isNullOrEmpty() == true) {
                     binding?.etEmail?.error = "Please enter your email"
                 } else {
-                    navController.popBackStack()
+                  forgotPassword(binding?.etEmail?.editableText.toString().trim())
                 }
             }
         }
     }
 
+    private fun forgotPassword(email : String) {
+        showLoading()
+        NetworkClass.callApi(URLApi.sendPassword(email), object : Response {
+            override fun onSuccessResponse(response: String?, message: String) {
+                hideLoading()
+                val navController = findNavController()
+                navController.popBackStack()
+            }
+
+            override fun onErrorResponse(error: String?, response: String?) {
+                hideLoading()
+                Toast.makeText(mActivity, error ?: "", Toast.LENGTH_SHORT).show()
+            }
+
+        })
+    }
 
 }

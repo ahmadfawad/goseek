@@ -1,19 +1,19 @@
 package com.softsolution.goseek.fragments.jobSeeker
 
 import android.content.Context
-import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.Toast
+import android.widget.ImageButton
 import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.softsolution.goseek.Interface.CallFragmentInterface
 import com.softsolution.goseek.R
 import com.softsolution.goseek.databinding.FragmentProfileBinding
+import com.softsolution.goseek.network.LocalPreference
 
 class ProfileFragment : Fragment() {
     var listener: CallFragmentInterface? = null
@@ -31,17 +31,17 @@ class ProfileFragment : Fragment() {
         return binding!!.getRoot()
     }
 
-    fun onClick(view: View){
+    fun onClick(view: View) {
         when (view?.id) {
             R.id.myProfile -> {
-             listener?.passFragmentCallback("profile")
+                listener?.passFragmentCallback("profile")
             }
 
             R.id.uploadResume -> {
                 listener?.passFragmentCallback("uploadResume")
             }
 
-            R.id.changePassword ->{
+            R.id.changePassword -> {
                 listener?.passFragmentCallback("changePassword")
             }
 
@@ -50,23 +50,27 @@ class ProfileFragment : Fragment() {
             }
 
             R.id.signout -> {
-                val messageBoxView = LayoutInflater.from(activity).inflate(R.layout.sign_out_dialog_vh, null)
-                val messageBoxBuilder = AlertDialog.Builder(requireActivity()).setView(messageBoxView)
+                val messageBoxView =
+                    LayoutInflater.from(activity).inflate(R.layout.sign_out_dialog_vh, null)
+                val messageBoxBuilder =
+                    AlertDialog.Builder(requireActivity()).setView(messageBoxView)
 
                 val no = messageBoxView.findViewById<Button>(R.id.no)
                 val yes = messageBoxView.findViewById<Button>(R.id.yes)
+                val cross = messageBoxView.findViewById<ImageButton>(R.id.cross)
                 //show dialog
-                val  messageBoxInstance = messageBoxBuilder.show()
+                val messageBoxInstance = messageBoxBuilder.show()
+
+                cross.setOnClickListener {
+                    messageBoxInstance.dismiss()
+                }
 
                 no.setOnClickListener {
                     messageBoxInstance.dismiss()
                 }
                 yes.setOnClickListener {
-                    if(Build.VERSION.SDK_INT>=16 && Build.VERSION.SDK_INT<21){
-                        requireActivity().finishAffinity();
-                    } else if(Build.VERSION.SDK_INT>=21){
-                        requireActivity().finishAndRemoveTask();
-                    }
+                    LocalPreference.shared.removeAll()
+                    requireActivity().finishAndRemoveTask()
                 }
 
 

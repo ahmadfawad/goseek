@@ -30,9 +30,9 @@ class NewJobSeekerFragment : BaseFragment() {
 
         binding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_new_job_seeker, container, false)
-        binding!!.setFragment(this)
+        binding!!.fragment = this
 
-        return binding!!.getRoot()
+        return binding!!.root
 
     }
 
@@ -70,13 +70,23 @@ class NewJobSeekerFragment : BaseFragment() {
                         Toast.LENGTH_LONG
                     ).show()
                 } else {
-                    registerUser(
-                        binding?.etName?.editableText?.toString()?.trim() ?: "",
-                        binding?.etEmail?.editableText?.toString()?.trim() ?: "",
-                        binding?.etMobileNumber?.editableText?.toString()?.trim() ?: "",
-                        binding?.etPassword?.editableText?.toString()?.trim() ?: "",
-                        if (binding?.cbTerms?.isChecked == true) "1" else "0"
-                    )
+                    if (!LocalPreference.shared.isCompany) {
+                        registerUser(
+                            binding?.etName?.editableText?.toString()?.trim() ?: "",
+                            binding?.etEmail?.editableText?.toString()?.trim() ?: "",
+                            binding?.etMobileNumber?.editableText?.toString()?.trim() ?: "",
+                            binding?.etPassword?.editableText?.toString()?.trim() ?: "",
+                            if (binding?.cbTerms?.isChecked == true) 1 else 0
+                        )
+                    } else {
+                        registerCompany(
+                            binding?.etName?.editableText?.toString()?.trim() ?: "",
+                            binding?.etEmail?.editableText?.toString()?.trim() ?: "",
+                            binding?.etMobileNumber?.editableText?.toString()?.trim() ?: "",
+                            binding?.etPassword?.editableText?.toString()?.trim() ?: "",
+                            if (binding?.cbTerms?.isChecked == true) 1 else 0
+                        )
+                    }
                 }
             }
 
@@ -88,7 +98,7 @@ class NewJobSeekerFragment : BaseFragment() {
         email: String,
         phone: String,
         password: String,
-        isActive: String
+        isActive: Int
     ) {
         showLoading()
         NetworkClass.callApi(URLApi.registerUser(username, email, phone, password, isActive),
@@ -101,6 +111,7 @@ class NewJobSeekerFragment : BaseFragment() {
                     Toast.makeText(requireContext(), otp, Toast.LENGTH_LONG).show()
                     LocalPreference.shared.user = data
                     Constants.login = true
+                    LocalPreference.shared.isLogin = true
                     val navController = findNavController()
                     navController.navigate(R.id.action_newJobSeekerFragment_to_emailVerificationFragment)
                 }
@@ -113,5 +124,36 @@ class NewJobSeekerFragment : BaseFragment() {
             })
     }
 
+    private fun registerCompany(
+        username: String,
+        email: String,
+        phone: String,
+        password: String,
+        isActive: Int
+    ) {
+        showLoading()
+        NetworkClass.callApi(URLApi.registerUser(username, email, phone, password, isActive),
+            object : Response {
+                override fun onSuccessResponse(response: String?, message: String) {
+                    hideLoading()
+                    val json = JSONObject(response ?: "")
+                    val otp = json.optString("ActivetionCode")
+                    val data = Gson().fromJson(json.toString(), User::class.java)
+                    Toast.makeText(requireContext(), otp, Toast.LENGTH_LONG).show()
+                    LocalPreference.shared.user = data
+                    Constants.login = true
+                    LocalPreference.shared.isLogin = true
+                    LocalPreference.shared.isCompany = true
+                    val navController = findNavController()
+                    navController.navigate(R.id.action_newJobSeekerFragment_to_emailVerificationFragment)
+                }
+
+                override fun onErrorResponse(error: String?, response: String?) {
+                    hideLoading()
+                    Toast.makeText(requireContext(), error ?: "", Toast.LENGTH_SHORT).show()
+                }
+
+            })
+    }
 
 }

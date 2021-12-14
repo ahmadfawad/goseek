@@ -7,13 +7,16 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.findNavController
+import com.google.gson.Gson
 import com.softsolution.goseek.R
 import com.softsolution.goseek.base.BaseFragment
 import com.softsolution.goseek.databinding.FragmentEmailVerificationBinding
+import com.softsolution.goseek.model.User
 import com.softsolution.goseek.network.LocalPreference
 import com.softsolution.goseek.network.NetworkClass
 import com.softsolution.goseek.network.Response
 import com.softsolution.goseek.network.URLApi
+import org.json.JSONObject
 
 
 class EmailVerificationFragment : BaseFragment() {
@@ -68,9 +71,19 @@ class EmailVerificationFragment : BaseFragment() {
         NetworkClass.callApi(URLApi.optVerify(code), object : Response {
             override fun onSuccessResponse(response: String?, message: String) {
                 hideLoading()
+                val json = JSONObject(response ?: "")
+                val user = Gson().fromJson(json.toString(), User::class.java)
+                LocalPreference.shared.user = user
                 Toast.makeText(mActivity, message, Toast.LENGTH_SHORT).show()
+                if(!LocalPreference.shared.isCompany){
                 val navController = findNavController()
-                navController.navigate(R.id.action_emailVerificationFragment_to_baseDashbordFragment)
+                    navController.navigate(R.id.action_emailVerificationFragment_to_baseDashbordFragment)
+                }
+                else{
+                    val navController = findNavController()
+                    navController.navigate(R.id.action_emailVerificationFragment_to_postJob)
+
+                }
             }
 
             override fun onErrorResponse(error: String?, response: String?) {

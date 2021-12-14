@@ -1,4 +1,4 @@
-package com.softsolution.goseek.loader
+package com.softsolution.goseek.utils.loader
 
 import android.graphics.Color
 import android.os.Bundle

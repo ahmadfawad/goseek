@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.os.Build
 import com.google.gson.Gson
+import com.softsolution.goseek.base.BaseApplication
 import com.softsolution.goseek.model.User
 
 
@@ -44,14 +45,23 @@ class LocalPreference(private val mContext: Context?) {
                 apply()
             }
         }
-    var emergencyNumber: String?
-        get() = preferences?.getString("emergencyNumber", "") ?: ""
+    var isLogin: Boolean
+        get() = (preferences?.getString("isLogin", "") ?: "") == "TRUE"
         set(token) {
             editor?.apply {
-                putString("emergencyNumber", token)
+                putString("isLogin", if (token) "TRUE" else "FALSE")
                 apply()
             }
         }
+    var isCompany: Boolean
+        get() = (preferences?.getString("isCompany", "") ?: "") == "TRUE"
+        set(token) {
+            editor?.apply {
+                putString("isCompany", if (token) "TRUE" else "FALSE")
+                apply()
+            }
+        }
+
     var name: String?
         get() = preferences?.getString("name", "") ?: ""
         set(token) {

@@ -28,7 +28,7 @@ object URLApi {
 
     const val SOCKET_URL = "http://45.56.122.34:1028"
     public const val BaseUrl =
-        "http://apigoseek.superstudy.pk/api/" //Base URL here
+        "https://apigoseek.superstudy.pk/" //Base URL here
     private var path: String = ""
     private var params: JSONObject = JSONObject()
     var method: NetworkMethod = NetworkMethod.GET
@@ -67,23 +67,47 @@ object URLApi {
 
 
 
-    fun registerUser(username: String, email: String, phone: String, password: String, isActive : String): URLApi {
+    fun registerUser(username: String, email: String, phone: String, password: String, isActive : Int): URLApi {
         method = NetworkMethod.POST
-        path = "Account/Register?="
+        path = "Register?Active=$isActive"
         params = JSONObject()
         params.put("UserName", username)
         params.put("email", email)
         params.put("Phone", phone)
         params.put("Password", password)
-        params.put("isActive", isActive)
+//        params.put("isActive", isActive)
+        return this
+    }
+    fun registerCompany(username: String, email: String, phone: String, password: String, isActive : Int): URLApi {
+        method = NetworkMethod.POST
+        path = "Register?Active=$isActive"
+        params = JSONObject()
+        params.put("BusinessName", username)
+        params.put("email", email)
+        params.put("Phone", phone)
+        params.put("Password", password)
+//        params.put("isActive", isActive)
         return this
     }
 
     fun optVerify(code : String):URLApi{
         method = NetworkMethod.GET
-        path = "/Account/VarifyCode?ActivetionCode=$code"
+        path = "VarifyCode?ActivetionCode=$code"
         params = JSONObject()
-//        params.put("ActivetionCode",code)
+        return this
+    }
+
+    fun login(email : String, password : String):URLApi{
+        method = NetworkMethod.GET
+        path = "Login?Email=$email&Password=$password"
+        params = JSONObject()
+        return this
+
+    } fun sendPassword(email : String):URLApi{
+        method = NetworkMethod.POST
+        path = "ForgetPassword"
+        params = JSONObject()
+        params.put("Email",email)
         return this
     }
 

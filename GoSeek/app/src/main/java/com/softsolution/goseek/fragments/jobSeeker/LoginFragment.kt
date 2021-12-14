@@ -4,15 +4,23 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.google.gson.Gson
 import com.softsolution.goseek.R
+import com.softsolution.goseek.base.BaseFragment
 import com.softsolution.goseek.databinding.FragmentLoginBinding
+import com.softsolution.goseek.model.User
+import com.softsolution.goseek.network.LocalPreference
+import com.softsolution.goseek.network.NetworkClass
+import com.softsolution.goseek.network.Response
+import com.softsolution.goseek.network.URLApi
 import com.softsolution.goseek.utils.Constants
+import org.json.JSONObject
 
 
-class LoginFragment : Fragment() {
+class LoginFragment : BaseFragment() {
     private var binding: FragmentLoginBinding? = null
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -21,19 +29,19 @@ class LoginFragment : Fragment() {
         // Inflate the layout for this fragment
 
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_login, container, false)
-        binding!!.setFragment(this)
+        binding!!.fragment = this
 
 
 
-        return binding!!.getRoot()
+        return binding!!.root
     }
 
     fun onclick(view: View) {
-        when (view?.id) {
+        when (view.id) {
 
             R.id.forgetPassword -> {
                 val navController = findNavController()
-                navController.navigate(R.id.action_loginFragment_to_forgetPasswordFragment)
+                navController.navigate(R.id.action_loginFragment_to_enterEmail)
             }
 
             R.id.login -> {
@@ -45,9 +53,10 @@ class LoginFragment : Fragment() {
                         binding?.etPassword?.error = "Please enter your password"
                     }
                     else -> {
-                        Constants.login = true
-                        val navController = findNavController()
-                        navController.navigate(R.id.action_loginFragment_to_baseDashbordFragment)
+                        login(
+                            binding?.etEmail?.editableText?.toString()?.trim() ?: "",
+                            binding?.etPassword?.editableText?.toString()?.trim() ?: ""
+                        )
                     }
                 }
             }
@@ -60,6 +69,29 @@ class LoginFragment : Fragment() {
                 navController.navigate(R.id.action_loginFragment_to_ResgisterUser)
             }
         }
+    }
+
+    private fun login(email: String, password: String) {
+        showLoading()
+        NetworkClass.callApi(URLApi.login(email, password), object : Response {
+            override fun onSuccessResponse(response: String?, message: String) {
+                hideLoading()
+                val json = JSONObject(response ?: "")
+                val data = Gson().fromJson(json.toString(), User::class.java)
+                LocalPreference.shared.user = data
+                Constants.login = true
+                LocalPreference.shared.isLogin = true
+                LocalPreference.shared.isCompany = data.BusinessName?.isEmpty() != true
+                val navController = findNavController()
+                navController.navigate(R.id.action_loginFragment_to_baseDashbordFragment)
+            }
+
+            override fun onErrorResponse(error: String?, response: String?) {
+                hideLoading()
+                Toast.makeText(mActivity, error ?: "", Toast.LENGTH_SHORT).show()
+            }
+
+        })
     }
 
 }

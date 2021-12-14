@@ -19,10 +19,10 @@ class NetworkClass {
     private fun handleResponse(response: JSONObject) {
 
         val message: String = response.optString("Message", "") ?: ""
-        val status: Boolean = response.optBoolean("status", false)
+        val status: Int = response.optInt("StatusCode", 0)
         val result: Any = if (response.has("data")) response.get("data") else ""
         if (callBack != null) {
-            if (message == "Success") {
+            if (status == 1) {
                 if (result is String && result == "Invalid User Token") {
                     Log.w(TAG, MessageFormat.format("APICall{0}", response))
                     callBack?.onErrorResponse("Invalid User Token")
@@ -150,14 +150,14 @@ class NetworkClass {
         ) {
             val call = NetworkClass()
             call.callBack = callBack
-            val token = LocalPreference.shared.token
+            val token = "31bf3856ad364e35"
             val headers = HashMap<String, String>()
-            if (token?.isNotEmpty() == true) {
-                headers["Authorization"] = "Bearer ${token.trim()}"
-//                headers["session_token"] = "$token"
+            if (token?.isNotEmpty()) {
+//                headers["Authorization"] = "31bf3856ad364e35"
+                headers["Authorization"] = "$token"
             }
             headers["Accept"] = "application/json"
-            headers["Content-Type"] = "application/json"
+            headers["Content-type"] = "application/json"
 
             Log.d(
                 TAG,

@@ -39,7 +39,7 @@
             app:popExitAnim="@anim/slide_out_right"/>
         <action
             android:id="@+id/action_baseDashbordFragment_to_forgetPasswordFragment"
-            app:destination="@id/enterEmailragmengt"
+            app:destination="@id/forgetPasswordFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
@@ -178,6 +178,13 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_emailVerificationFragment_to_postJob"
+            app:destination="@id/newJobPosterFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
@@ -185,7 +192,7 @@
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
-            android:id="@+id/action_loginFragment_to_forgetPasswordFragment"
+            android:id="@+id/action_loginFragment_to_enterEmail"
             app:destination="@id/enterEmailragmengt"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"

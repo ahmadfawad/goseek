@@ -1,14 +1,10 @@
 @file:Suppress("unused")
 
-package com.softsolution.goseek.network
+package com.softsolution.goseek.base
 
 import android.annotation.SuppressLint
-import android.app.Activity
 import android.app.Application
-import android.app.Notification
 import android.graphics.Typeface
-import android.os.Build
-import android.os.Bundle
 import android.util.Log
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
@@ -17,7 +13,6 @@ import com.androidnetworking.AndroidNetworking
 import okhttp3.OkHttpClient
 import okhttp3.Protocol
 
-import java.util.*
 import java.util.concurrent.TimeUnit
 
 open class BaseApplication : Application(), LifecycleObserver {

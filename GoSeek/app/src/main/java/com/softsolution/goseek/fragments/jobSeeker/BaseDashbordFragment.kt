@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.widget.Toolbar
 import androidx.core.app.ShareCompat
@@ -32,6 +33,7 @@ import com.softsolution.goseek.adapter.PageAdapter
 import com.softsolution.goseek.adapter.jobSeekerAdapter.FilterButtonAdapter
 import com.softsolution.goseek.databinding.FragmentBaseDashbordBinding
 import com.softsolution.goseek.model.jobSeekerModel.FilterButtonData
+import com.softsolution.goseek.network.LocalPreference
 import com.softsolution.goseek.utils.Constants
 import java.text.NumberFormat
 import java.util.*
@@ -170,10 +172,12 @@ class BaseDashbordFragment : Fragment()
     private fun initDrawerLayout() {
 
 
-        if (Constants.login == true) {
+        if (LocalPreference.shared.isLogin) {
             var headerView = binding!!.navView.inflateHeaderView(R.layout.nav_header_main)
             headerView.findViewById<View>(R.id.nav_header_main)
+            var name = headerView.findViewById<TextView>(R.id.tv_name)
             button = headerView.findViewById(R.id.back)
+            name.text = LocalPreference.shared.user?.UserName
 
             button.setOnClickListener {
                 binding!!.drawerLayout.closeDrawer(GravityCompat.START)

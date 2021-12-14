@@ -25,7 +25,7 @@ class AppliedFragment : Fragment() {
     ): View? {
 
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_applied, container, false)
-        binding!!.setFragment(this)
+        binding!!.fragment = this
 
         dashbordList= ArrayList<DashbordData>()
         layoutManager= LinearLayoutManager(requireActivity())
@@ -36,7 +36,7 @@ class AppliedFragment : Fragment() {
 
         loadData()
 
-        return binding!!.getRoot()
+        return binding!!.root
     }
     private fun loadData() {
         for (i in 0..16){

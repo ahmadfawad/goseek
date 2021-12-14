@@ -2,136 +2,141 @@
 <layout xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
         <variable
             name="fragment"
             type="com.softsolution.goseek.fragments.jobSeeker.EnterEmailFragment" />
     </data>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".fragments.jobSeeker.EnterEmailFragment">
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appBarLayout"
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
-        app:elevation="0dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="match_parent"
+        tools:context=".fragments.jobSeeker.EnterEmailFragment">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/appbarlayout_tool_bar"
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="@android:color/transparent">
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            app:elevation="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <RelativeLayout
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/appbarlayout_tool_bar"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="?attr/actionBarSize"
+                android:background="@android:color/transparent">
 
-                <com.google.android.material.button.MaterialButton
-                    style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="0dp"
-                    android:insetLeft="0dp"
-                    android:layout_centerVertical="true"
-                    android:background="@android:color/transparent"
-                    android:id="@+id/back"
-                    app:iconGravity="start"
-                    app:icon="@drawable/ic_move_left" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_centerInParent="true"
-                    android:gravity="center"
-                    android:fontFamily="@font/montserrat_semi_bold"
-                    android:textSize="20dp"
-                    android:text="Change Password"
-                    android:textColor="@android:color/white" />
-
-
-            </RelativeLayout>
-
-        </androidx.appcompat.widget.Toolbar>
-    </com.google.android.material.appbar.AppBarLayout>
-    <com.github.captain_miao.optroundcardview.OptRoundCardView
-        android:id="@+id/bottom_sheet"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:padding="16dp"
-        app:behavior_hideable="true"
-        app:layout_behavior="@string/bottom_sheet_behavior"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
-        app:optRoundCardBackgroundColor="@color/white"
-        app:optRoundCardCornerRadius="35dp"
-        app:optRoundCardLeftBottomCorner="false"
-        app:optRoundCardRightBottomCorner="false">
-
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="20dp"
-            android:scrollbars="none"
-            android:fillViewport="true">
-
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-                <com.google.android.material.textfield.TextInputLayout
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Email :"
-                    android:layout_marginTop="10dp"
-                    app:hintTextColor="#848484"
-                    android:backgroundTint="@color/hint"
-                    app:passwordToggleEnabled="false"
-                    app:boxBackgroundColor="@android:color/transparent"
-                    android:background="@android:color/transparent">
+                    android:layout_height="match_parent">
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_gravity="center_vertical"
-                        android:layout_width="match_parent"
-                        android:id="@+id/etEmail"
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/backEmail"
+                        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:paddingStart="0dp"
-                        android:paddingEnd="0dp"
-                        android:maxLines="1"
-                        android:imeOptions="actionDone"
-                        android:inputType="textEmailAddress"
-                        android:textColor="@color/black"
-                        android:drawableTint="@color/hint"
-                        android:drawableRight="@drawable/ic_lock_pass"
-                        android:fontFamily="@font/roboto_regular"
-                        android:paddingLeft="0dp" />
+                        android:layout_centerVertical="true"
+                        android:background="@android:color/transparent"
+                        android:insetLeft="0dp"
+                        android:paddingLeft="0dp"
+                        app:icon="@drawable/ic_move_left"
+                        app:iconGravity="start" />
 
-                </com.google.android.material.textfield.TextInputLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:fontFamily="@font/montserrat_semi_bold"
+                        android:gravity="center"
+                        android:text="Change Password"
+                        android:textColor="@android:color/white"
+                        android:textSize="20dp" />
 
 
-                <com.google.android.material.button.MaterialButton
-                    android:layout_marginTop="40dp"
-                    android:padding="15dp"
-                    app:cornerRadius="5dp"
-                    android:letterSpacing="0"
-                    style="@style/Widget.MaterialComponents.Button"
+                </RelativeLayout>
+
+            </androidx.appcompat.widget.Toolbar>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <com.github.captain_miao.optroundcardview.OptRoundCardView
+            android:id="@+id/bottom_sheet"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:padding="16dp"
+            app:behavior_hideable="true"
+            app:layout_behavior="@string/bottom_sheet_behavior"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
+            app:optRoundCardBackgroundColor="@color/white"
+            app:optRoundCardCornerRadius="35dp"
+            app:optRoundCardLeftBottomCorner="false"
+            app:optRoundCardRightBottomCorner="false">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="20dp"
+                android:fillViewport="true"
+                android:scrollbars="none">
+
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Send"
-                    android:onClick="@{(view)->fragment.onclick(view)}"
-                    android:id="@+id/send"
-                    android:textSize="14dp"
-                    android:textColor="@color/white"
-                    android:fontFamily="@font/montserrat_bold"
-                    android:backgroundTint="#F87062"/>
-            </LinearLayout>
-        </ScrollView>
-    </com.github.captain_miao.optroundcardview.OptRoundCardView>
-</androidx.constraintlayout.widget.ConstraintLayout>
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@android:color/transparent"
+                        android:backgroundTint="@color/hint"
+                        android:hint="Email :"
+                        app:boxBackgroundColor="@android:color/transparent"
+                        app:hintTextColor="#848484"
+                        app:passwordToggleEnabled="false">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etEmail"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:drawableRight="@drawable/ic_lock_pass"
+                            android:drawableTint="@color/hint"
+                            android:fontFamily="@font/roboto_regular"
+                            android:imeOptions="actionDone"
+                            android:inputType="textEmailAddress"
+                            android:maxLines="1"
+                            android:paddingStart="0dp"
+                            android:paddingLeft="0dp"
+                            android:paddingEnd="0dp"
+                            android:textColor="@color/black" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/send"
+                        style="@style/Widget.MaterialComponents.Button"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:backgroundTint="#F87062"
+                        android:fontFamily="@font/montserrat_bold"
+                        android:letterSpacing="0"
+                        android:onClick="@{(view)->fragment.onclick(view)}"
+                        android:padding="15dp"
+                        android:text="Send"
+                        android:textColor="@color/white"
+                        android:textSize="14dp"
+                        app:cornerRadius="5dp" />
+                </LinearLayout>
+            </ScrollView>
+        </com.github.captain_miao.optroundcardview.OptRoundCardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

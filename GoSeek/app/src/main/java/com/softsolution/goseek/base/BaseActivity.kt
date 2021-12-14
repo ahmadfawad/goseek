@@ -4,32 +4,23 @@ package com.softsolution.goseek.base
 
 
 import android.app.Dialog
-import android.content.Context
-import android.database.Cursor
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import android.media.ThumbnailUtils
-import android.net.Uri
 import android.os.Build
-import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.provider.MediaStore
 import android.view.*
 import android.view.View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.loader.content.CursorLoader
 import com.google.android.material.snackbar.Snackbar
 import com.google.gson.Gson
 import com.softsolution.goseek.R
-import com.softsolution.goseek.loader.ProgressDialogue
-import com.softsolution.goseek.network.BaseApplication
+import com.softsolution.goseek.utils.loader.ProgressDialogue
 import java.io.File
 import java.io.FileInputStream
 import java.io.FileNotFoundException
 import java.io.IOException
-import java.util.*
 import kotlin.collections.ArrayList
 
 

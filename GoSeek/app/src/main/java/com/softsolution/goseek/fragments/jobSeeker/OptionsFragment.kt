@@ -15,6 +15,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.button.MaterialButton
 import com.softsolution.goseek.R
 import com.softsolution.goseek.databinding.FragmentOptionsBinding
+import com.softsolution.goseek.network.LocalPreference
 import com.softsolution.goseek.utils.Constants.Companion.login
 
 class OptionsFragment : Fragment(), View.OnClickListener {
@@ -69,12 +70,14 @@ class OptionsFragment : Fragment(), View.OnClickListener {
             R.id.radia_id2 -> {
                 newUser!!.isChecked = false
                 currentUser!!.isChecked = true
+                LocalPreference.shared.isCompany = true
                 currentUser!!.setTextColor(Color.parseColor("#F87062"))
                 newUser!!.setTextColor(Color.parseColor("#080808"))
                 // startActivity(Intent(getApplicationContext(), NewJobSeekerActivity::class.java))
                 Handler().postDelayed({
                     dialog!!.dismiss()
-                    navController.navigate(R.id.action_optionsFragment_to_newJobPosterFragment)
+                    navController.navigate(R.id.action_optionsFragment_to_newJobSeekerFragment)
+//                    navController.navigate(R.id.action_optionsFragment_to_newJobPosterFragment)
                 }, 750)
 
             }
