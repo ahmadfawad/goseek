@@ -43,12 +43,12 @@ class MyProfileFragment : BaseFragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_my_profile, container, false)
         binding!!.fragment = this
 
-        init()
-        binding?.etName?.setText(LocalPreference.shared.user?.Name)
-        binding?.etEmail?.setText(LocalPreference.shared.user?.Email)
-        binding?.etPhoneNumber?.setText(LocalPreference.shared.user?.Phone)
-
         return binding!!.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        init()
     }
 
     private fun init() {
@@ -67,7 +67,17 @@ class MyProfileFragment : BaseFragment() {
             picker.setStyle(DialogFragment.STYLE_NORMAL, R.style.countrypicker_style)
             picker.show(requireActivity().supportFragmentManager, "Select Country")
 
-
+            binding?.etName?.setText(LocalPreference.shared.user?.Name)
+            binding?.etEmail?.setText(LocalPreference.shared.user?.Email)
+            binding?.etPhoneNumber?.setText(LocalPreference.shared.user?.Phone)
+            binding?.btnUpdate?.setOnClickListener {
+                editProfile(
+                    binding?.etName?.editableText.toString().trim(),
+                    binding?.etEmail?.editableText.toString().trim(),
+                    binding?.etPhoneNumber?.editableText.toString().trim(),
+                    LocalPreference.shared.user?.MemberId.toString()
+                )
+            }
         }
     }
 
@@ -81,15 +91,7 @@ class MyProfileFragment : BaseFragment() {
 
     fun onClick(view: View) {
         when (view.id) {
-            R.id.btnUpdate -> {
-                editProfile(
-                    binding?.etName?.editableText.toString().trim(),
-                    binding?.etEmail?.editableText.toString().trim(),
-                    binding?.etPhoneNumber?.editableText.toString().trim(),
-                    LocalPreference.shared.user?.MemberId.toString(),
-                    null
-                )
-            }
+
             R.id.back -> {
                 listener!!.passFragmentCallback("MyProfile")
                 this.findNavController().popBackStack()
@@ -104,25 +106,25 @@ class MyProfileFragment : BaseFragment() {
     }
 
     private fun editProfile(
-        BusinessName: String,
+        UserName: String,
         Email: String,
         Phone: String,
-        MemberId: String,
-        Description: String? = null
+        MemberId: String
     ) {
         showLoading()
         NetworkClass.callApi(
             URLApi.editCompanyProfile(
-                BusinessName,
+                UserName,
                 Email,
                 Phone,
                 MemberId,
-                Description
+                Description = null
             ), object : Response {
                 override fun onSuccessResponse(response: String?, message: String) {
                     hideLoading()
                     val json = JSONObject(response ?: "")
                     val data = Gson().fromJson(json.toString(), User::class.java)
+                    LocalPreference.shared.user = data
                     binding?.etName?.setText(data.Name)
                     binding?.etEmail?.setText(data.Email)
                     binding?.etPhoneNumber?.setText(data.Phone)
