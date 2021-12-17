@@ -81,9 +81,18 @@ class LoginFragment : BaseFragment() {
                 LocalPreference.shared.user = data
                 Constants.login = true
                 LocalPreference.shared.isLogin = true
-                LocalPreference.shared.isCompany = data.BusinessName?.isEmpty() != true
-                val navController = findNavController()
-                navController.navigate(R.id.action_loginFragment_to_baseDashbordFragment)
+                if (data.IsVerify==false) {
+                    val navController = findNavController()
+                    navController.navigate(R.id.actionLoginFragmenttoOtpVerification)
+                } else {
+                    if (data.status == 1) {
+                        val navController = findNavController()
+                        navController.navigate(R.id.action_loginFragment_to_baseDashbordFragment)
+                    } else {
+                        val navController = findNavController()
+                        navController.navigate(R.id.action_loginFragment_to_companyDashboard)
+                    }
+                }
             }
 
             override fun onErrorResponse(error: String?, response: String?) {

@@ -177,7 +177,7 @@ class BaseDashbordFragment : Fragment()
             headerView.findViewById<View>(R.id.nav_header_main)
             var name = headerView.findViewById<TextView>(R.id.tv_name)
             button = headerView.findViewById(R.id.back)
-            name.text = LocalPreference.shared.user?.UserName
+            name.text = LocalPreference.shared.user?.Name
 
             button.setOnClickListener {
                 binding!!.drawerLayout.closeDrawer(GravityCompat.START)
@@ -247,7 +247,7 @@ class BaseDashbordFragment : Fragment()
         binding!!.navView.setNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.favouriteFragment -> {
-                    if (Constants.login == true) {
+                    if (LocalPreference.shared.isLogin) {
                         // setCurrentFragment(secondFragment)
                         binding!!.tabLayout.getTabAt(1)?.select()
                         binding!!.frameLayout.currentItem = 1
@@ -263,7 +263,7 @@ class BaseDashbordFragment : Fragment()
                     }
                 }
                 R.id.appliedFragment -> {
-                    if (Constants.login == true) {
+                    if (LocalPreference.shared.isLogin) {
                         //setCurrentFragment(thirdFragment)
                         binding!!.tabLayout.getTabAt(2)?.select()
                         binding!!.frameLayout.currentItem = 2

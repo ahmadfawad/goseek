@@ -1,30 +1,38 @@
 package com.softsolution.goseek.fragments.jobPoster
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.findNavController
 import com.softsolution.goseek.R
+import com.softsolution.goseek.base.BaseFragment
 import com.softsolution.goseek.databinding.FragmentJobSeekerDetailBinding
+import com.softsolution.goseek.model.jobPosterModel.PostedData
+import com.softsolution.goseek.network.NetworkClass
+import com.softsolution.goseek.network.Response
+import com.softsolution.goseek.network.URLApi
 
-class JobSeekerDetailFragment : Fragment() {
+
+class JobSeekerDetailFragment : BaseFragment() {
 
     private var binding: FragmentJobSeekerDetailBinding? = null
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
 
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_job_seeker_detail, container, false)
-        binding!!.setFragment(this)
+        binding =
+            DataBindingUtil.inflate(inflater, R.layout.fragment_job_seeker_detail, container, false)
+        binding!!.fragment = this
 
 
-        return binding!!.getRoot()
+        return binding!!.root
 
     }
 
@@ -36,9 +44,11 @@ class JobSeekerDetailFragment : Fragment() {
             R.id.cardview -> {
                 val navController = findNavController()
                 navController.navigate(R.id.action_jobSeekerDetailFragment_to_postedProfileDetailFragment)
-              //  this.findNavController().popBackStack()
+                //  this.findNavController().popBackStack()
             }
         }
 
     }
+
+
 }

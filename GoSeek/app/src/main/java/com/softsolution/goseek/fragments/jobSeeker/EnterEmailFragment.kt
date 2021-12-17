@@ -57,6 +57,7 @@ class EnterEmailFragment : BaseFragment() {
                 hideLoading()
                 val navController = findNavController()
                 navController.popBackStack()
+                Toast.makeText(mActivity, "Password has been sent on your Email", Toast.LENGTH_SHORT).show()
             }
 
             override fun onErrorResponse(error: String?, response: String?) {

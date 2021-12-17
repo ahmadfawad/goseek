@@ -32,7 +32,6 @@ class MainActivity : BaseActivity(),CallFragmentInterface {
             supportFragmentManager.findFragmentById(R.id.fragment_container) as NavHostFragment
         navController = navHostFragment.navController
 
-
 //        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
 //            val w: Window = window
 //            w.setFlags(
@@ -119,7 +118,14 @@ class MainActivity : BaseActivity(),CallFragmentInterface {
 
     override fun onResume() {
         super.onResume()
-        FullScreencall()
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+//            val w: Window = window
+//            w.setFlags(
+//                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+//                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+//            )
+//        }
+//        FullScreencall()
     }
 
     fun FullScreencall() {

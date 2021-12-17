@@ -26,9 +26,14 @@ class ProfileFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_profile, container, false)
-        binding!!.setFragment(this)
+        binding!!.fragment = this
 
-        return binding!!.getRoot()
+        return binding!!.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding?.tvName?.text = LocalPreference.shared.user?.Name
     }
 
     fun onClick(view: View) {

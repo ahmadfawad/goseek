@@ -15,133 +15,133 @@
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
+            app:popExitAnim="@anim/slide_out_right" />
         <action
             android:id="@+id/action_baseDashbordFragment_to_jobDetailFragment"
             app:destination="@id/jobDetailFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
+            app:popExitAnim="@anim/slide_out_right" />
         <action
             android:id="@+id/action_baseDashbordFragment_to_uploadResumeFragment"
             app:destination="@id/uploadResumeFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
+            app:popExitAnim="@anim/slide_out_right" />
         <action
             android:id="@+id/action_baseDashbordFragment_to_editLocationFragment"
             app:destination="@id/editLocationFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
+            app:popExitAnim="@anim/slide_out_right" />
         <action
             android:id="@+id/action_baseDashbordFragment_to_forgetPasswordFragment"
             app:destination="@id/forgetPasswordFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
+            app:popExitAnim="@anim/slide_out_right" />
         <action
             android:id="@+id/action_baseDashbordFragment_to_loginFragment"
             app:destination="@id/loginFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
+            app:popExitAnim="@anim/slide_out_right" />
         <action
             android:id="@+id/action_baseDashbordFragment_to_optionsFragment"
             app:destination="@id/optionsFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
+            app:popExitAnim="@anim/slide_out_right" />
         <action
             android:id="@+id/action_baseDashbordFragment_to_mapsFragment3"
             app:destination="@id/mapsFragment3"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
+            app:popExitAnim="@anim/slide_out_right" />
 
     </fragment>
     <fragment
         android:id="@+id/myProfileFragment"
         android:name="com.softsolution.goseek.fragments.jobSeeker.MyProfileFragment"
-        android:label="MyProfileFragment" >
+        android:label="MyProfileFragment">
         <action
             android:id="@+id/action_myProfileFragment_to_baseDashbordFragment"
             app:destination="@id/baseDashbordFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/uploadResumeFragment"
         android:name="com.softsolution.goseek.fragments.jobSeeker.UploadResumeFragment"
-        android:label="UploadResumeFragment" >
+        android:label="UploadResumeFragment">
         <action
             android:id="@+id/action_uploadResumeFragment_to_baseDashbordFragment"
             app:destination="@id/baseDashbordFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/jobDetailFragment"
         android:name="com.softsolution.goseek.fragments.jobSeeker.JobDetailFragment"
-        android:label="JobDetailFragment" >
+        android:label="JobDetailFragment">
         <action
             android:id="@+id/action_jobDetailFragment_to_optionsFragment"
             app:destination="@id/optionsFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
+            app:popExitAnim="@anim/slide_out_right" />
         <action
             android:id="@+id/action_jobDetailFragment_to_baseDashbordFragment"
             app:destination="@id/baseDashbordFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
+            app:popExitAnim="@anim/slide_out_right" />
         <action
             android:id="@+id/action_jobDetailFragment_to_sucessfullFragment"
             app:destination="@id/sucessfullFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/optionsFragment"
         android:name="com.softsolution.goseek.fragments.jobSeeker.OptionsFragment"
-        android:label="OptionsFragment" >
+        android:label="OptionsFragment">
         <action
             android:id="@+id/action_optionsFragment_to_newJobSeekerFragment"
             app:destination="@id/newJobSeekerFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
+            app:popExitAnim="@anim/slide_out_right" />
         <action
             android:id="@+id/action_optionsFragment_to_baseDashbordFragment"
             app:destination="@id/baseDashbordFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
+            app:popExitAnim="@anim/slide_out_right" />
         <action
             android:id="@+id/action_optionsFragment_to_loginFragment"
             app:destination="@id/loginFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
+            app:popExitAnim="@anim/slide_out_right" />
         <action
             android:id="@+id/action_optionsFragment_to_newJobPosterFragment"
             app:destination="@id/newJobPosterFragment" />
@@ -149,7 +149,7 @@
     <fragment
         android:id="@+id/newJobSeekerFragment"
         android:name="com.softsolution.goseek.fragments.jobSeeker.NewJobSeekerFragment"
-        android:label="NewJobSeekerFragment" >
+        android:label="NewJobSeekerFragment">
         <action
             android:id="@+id/action_newJobSeekerFragment_to_emailVerificationFragment"
             app:destination="@id/emailVerificationFragment"
@@ -162,7 +162,7 @@
     <fragment
         android:id="@+id/editLocationFragment"
         android:name="com.softsolution.goseek.fragments.jobSeeker.EditLocationFragment"
-        android:label="EditLocationFragment" >
+        android:label="EditLocationFragment">
         <action
             android:id="@+id/action_editLocationFragment_to_companyLocationFragment"
             app:destination="@id/companyLocationFragment" />
@@ -170,48 +170,62 @@
     <fragment
         android:id="@+id/emailVerificationFragment"
         android:name="com.softsolution.goseek.fragments.jobSeeker.EmailVerificationFragment"
-        android:label="EmailVerificationFragment" >
+        android:label="EmailVerificationFragment">
         <action
             android:id="@+id/action_emailVerificationFragment_to_baseDashbordFragment"
             app:destination="@id/baseDashbordFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
+            app:popExitAnim="@anim/slide_out_right" />
         <action
             android:id="@+id/action_emailVerificationFragment_to_postJob"
             app:destination="@id/newJobPosterFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.softsolution.goseek.fragments.jobSeeker.LoginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" >
+        tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/action_loginFragment_to_enterEmail"
             app:destination="@id/enterEmailragmengt"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
+            app:popExitAnim="@anim/slide_out_right" />
         <action
             android:id="@+id/action_loginFragment_to_baseDashbordFragment"
             app:destination="@id/baseDashbordFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
+            app:popExitAnim="@anim/slide_out_right" />
         <action
             android:id="@+id/action_loginFragment_to_ResgisterUser"
             app:destination="@id/newJobSeekerFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_loginFragment_to_companyDashboard"
+            app:destination="@id/posterBaseDashbordFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/actionLoginFragmenttoOtpVerification"
+            app:destination="@id/emailVerificationFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/forgetPasswordFragment"
@@ -222,14 +236,14 @@
         android:id="@+id/sucessfullFragment"
         android:name="com.softsolution.goseek.fragments.jobSeeker.SucessfullFragment"
         android:label="fragment_sucessfull"
-        tools:layout="@layout/fragment_sucessfull" >
+        tools:layout="@layout/fragment_sucessfull">
         <action
             android:id="@+id/action_sucessfullFragment_to_baseDashbordFragment"
             app:destination="@id/baseDashbordFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/mapsFragment3"
@@ -239,63 +253,64 @@
     <fragment
         android:id="@+id/posterBaseDashbordFragment"
         android:name="com.softsolution.goseek.fragments.jobPoster.PosterBaseDashbordFragment"
-        android:label="PosterBaseDashbordFragment" >
+        android:label="PosterBaseDashbordFragment">
         <action
             android:id="@+id/action_posterBaseDashbordFragment_to_editCompanyProfileFragment"
             app:destination="@id/editCompanyProfileFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
+            app:popExitAnim="@anim/slide_out_right" />
         <action
             android:id="@+id/action_posterBaseDashbordFragment_to_sucessfullPostedFragment"
             app:destination="@id/sucessfullPostedFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
+            app:popExitAnim="@anim/slide_out_right" />
         <action
             android:id="@+id/action_posterBaseDashbordFragment_to_reviewFragment"
             app:destination="@id/reviewFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
+            app:popExitAnim="@anim/slide_out_right" />
         <action
             android:id="@+id/action_posterBaseDashbordFragment_to_editLocationFragment"
             app:destination="@id/editLocationFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
+            app:popExitAnim="@anim/slide_out_right" />
         <action
             android:id="@+id/action_posterBaseDashbordFragment_to_forgetPasswordFragment"
             app:destination="@id/forgetPasswordFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
+            app:popExitAnim="@anim/slide_out_right" />
         <action
             android:id="@+id/action_posterBaseDashbordFragment_to_loginFragment"
             app:destination="@id/loginFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
+            app:popExitAnim="@anim/slide_out_right" />
         <action
             android:id="@+id/action_posterBaseDashbordFragment_to_optionsFragment2"
             app:destination="@id/optionsFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
+            app:popExitAnim="@anim/slide_out_right" />
         <action
             android:id="@+id/action_posterBaseDashbordFragment_to_posterJobDetailFragment"
             app:destination="@id/posterJobDetailFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
+            app:popExitAnim="@anim/slide_out_right" />
+
     </fragment>
     <fragment
         android:id="@+id/editCompanyProfileFragment"
@@ -304,14 +319,14 @@
     <fragment
         android:id="@+id/sucessfullPostedFragment"
         android:name="com.softsolution.goseek.fragments.jobPoster.SucessfullPostedFragment"
-        android:label="SucessfullPostedFragment" >
+        android:label="SucessfullPostedFragment">
         <action
             android:id="@+id/action_sucessfullPostedFragment_to_posterBaseDashbordFragment"
             app:destination="@id/posterBaseDashbordFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/reviewFragment"
@@ -320,19 +335,24 @@
     <fragment
         android:id="@+id/posterJobDetailFragment"
         android:name="com.softsolution.goseek.fragments.jobPoster.PosterJobDetailFragment"
-        android:label="PosterJobDetailFragment" >
+        android:label="PosterJobDetailFragment"
+        tools:layout="@layout/fragment_poster_job_detail">
+        <argument
+            android:name="jobDetail"
+            app:argType="com.softsolution.goseek.model.jobPosterModel.PostedData" />
         <action
             android:id="@+id/action_posterJobDetailFragment_to_jobSeekerDetailFragment"
             app:destination="@id/jobSeekerDetailFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/jobSeekerDetailFragment"
         android:name="com.softsolution.goseek.fragments.jobPoster.JobSeekerDetailFragment"
-        android:label="JobSeekerDetailFragment" >
+        android:label="JobSeekerDetailFragment">
+
         <action
             android:id="@+id/action_jobSeekerDetailFragment_to_postedProfileDetailFragment"
             app:destination="@id/postedProfileDetailFragment" />
@@ -340,14 +360,14 @@
     <fragment
         android:id="@+id/newJobPosterFragment"
         android:name="com.softsolution.goseek.fragments.jobPoster.NewJobPosterFragment"
-        android:label="NewJobPosterFragment" >
+        android:label="NewJobPosterFragment">
         <action
             android:id="@+id/action_newJobPosterFragment_to_posterBaseDashbordFragment"
             app:destination="@id/posterBaseDashbordFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/postedProfileDetailFragment"
@@ -360,6 +380,18 @@
     <fragment
         android:id="@+id/enterEmailragmengt"
         android:name="com.softsolution.goseek.fragments.jobSeeker.EnterEmailFragment"
-        android:label="EnterEmailFragment"/>
-
+        android:label="EnterEmailFragment" />
+    <fragment
+        android:id="@+id/postedDashboardFragment"
+        android:name="com.softsolution.goseek.fragments.jobPoster.PostedDashbordFragment"
+        android:label="EnterEmailFragment"
+        tools:layout="@layout/fragment_posted_dashbord">
+        <action
+            android:id="@+id/action_postedDashboardFragment_to_posterJobDetailFragment"
+            app:destination="@id/posterJobDetailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
 </navigation>

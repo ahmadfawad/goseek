@@ -6,6 +6,7 @@ import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import com.google.gson.Gson
 
 
 abstract class BaseFragment : Fragment() {
@@ -82,4 +83,13 @@ interface CanManagePlayback {
 
     fun stopPlayback()
 
+}
+
+fun <T> generateList(response: String, type: Class<Array<T>>): ArrayList<T> {
+    val arrayList = ArrayList<T>()
+    if (response.isEmpty() || response == "null" || response == "\"[]\"") {
+        return arrayList
+    }
+    arrayList.addAll(listOf(*Gson().fromJson<Array<T>>(response, type)))
+    return arrayList
 }

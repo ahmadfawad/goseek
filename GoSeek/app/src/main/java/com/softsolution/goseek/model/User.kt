@@ -1,19 +1,14 @@
 package com.softsolution.goseek.model
 
+import java.io.Serializable
+
 data class User(
-    val ActivetionCode: String? = null,
-    val BusinessName: String? = null,
-    val CompanyJobs: List<Any>,
-    val CopanyMapLocations: List<Any>,
-    val Description: Any,
     val Email: String? = null,
-    val FavouriteJobs: List<Any>,
-    val IsActive: Boolean? = null,
+    val IsVerify: Boolean? = null,
     val MemberId: Int? = null,
-    val Password: Any? = null,
+    val Name: String? = null,
     val Phone: String? = null,
-    val ProfileImage: Any? = null,
-    val Resumes: List<Any>? = null,
-    val UserName: String? = null,
-    val UserReviews: List<Any>,
-)
+    val ProfileImage: String? = null,
+    val status: Int? = null,
+    val Description: String? = null
+):Serializable

@@ -90,53 +90,19 @@
                         android:id="@+id/etDescription"
                         android:paddingStart="0dp"
                         android:imeOptions="actionNext"
-                        android:nextFocusForward="@id/etWhoCanApply"
-                        android:paddingEnd="0dp"
-                        android:textColor="@color/black" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-
-                    android:background="@android:color/transparent"
-                    android:backgroundTint="@color/hint"
-                    android:gravity="top"
-                    app:counterEnabled="true"
-                    app:counterMaxLength="150"
-                    android:overScrollMode="always"
-                    android:scrollbarStyle="insideInset"
-                    android:scrollbars="vertical"
-                    android:hint="Who Can Apply:"
-                    android:padding="0dp"
-                    app:boxBackgroundColor="@android:color/transparent"
-                    app:hintTextColor="#848484">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/roboto_regular"
-                        android:gravity="top"
-                        android:id="@+id/etWhoCanApply"
-                        android:inputType="textMultiLine|textCapSentences"
-                        android:lines="8"
-                        android:minLines="1"
-                        android:paddingStart="0dp"
-                        android:imeOptions="actionNext"
                         android:nextFocusForward="@id/etWages"
                         android:paddingEnd="0dp"
                         android:textColor="@color/black" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
+
+
                 <com.google.android.material.textfield.TextInputLayout
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="10dp"
                     android:background="@android:color/transparent"
                     android:backgroundTint="@color/hint"
                     android:hint="Wage/Hour:"
@@ -153,7 +119,7 @@
                         android:drawableTint="@color/hint"
                         android:fontFamily="@font/roboto_regular"
                         android:paddingStart="0dp"
-                        android:inputType="text"
+                        android:inputType="number"
                         android:imeOptions="actionDone"
                         android:paddingEnd="0dp"
                         android:textColor="@color/black"

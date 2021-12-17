@@ -5,11 +5,11 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -18,22 +18,18 @@ import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.GravityCompat
 import androidx.databinding.DataBindingUtil
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.navigation.NavigationView
-import com.google.android.material.slider.RangeSlider
 import com.softsolution.goseek.Interface.CallFragmentInterface
 import com.softsolution.goseek.R
 import com.softsolution.goseek.databinding.FragmentPosterBaseDashbordBinding
+import com.softsolution.goseek.network.LocalPreference
 import com.softsolution.goseek.utils.Constants
-import java.text.NumberFormat
-import java.util.*
 
-class PosterBaseDashbordFragment : Fragment()  {
+class PosterBaseDashbordFragment : Fragment() {
 
     private var binding: FragmentPosterBaseDashbordBinding? = null
     var listener: CallFragmentInterface? = null
@@ -61,28 +57,29 @@ class PosterBaseDashbordFragment : Fragment()  {
         initData()
         initDrawerLayout()
 
-        return binding!!.getRoot()
+        return binding!!.root
     }
 
     private fun initDrawerLayout() {
 
 
-        if (Constants.login == true){
+        if (LocalPreference.shared.isLogin) {
             var headerView = binding!!.navView.inflateHeaderView(R.layout.nav_header_main)
             headerView.findViewById<View>(R.id.nav_header_main)
-            button=headerView.findViewById(R.id.back)
-
+            button = headerView.findViewById(R.id.back)
+            var name = headerView.findViewById<TextView>(R.id.tv_name)
+            name.text = LocalPreference.shared.user?.Name
             button.setOnClickListener {
                 binding!!.drawerLayout.closeDrawer(GravityCompat.START)
             }
 
-        }else{
+        } else {
             var headerView = binding!!.navView.inflateHeaderView(R.layout.nav_header_sign_in)
             headerView.findViewById<View>(R.id.nav_header_sign_in)
             val menu: Menu = binding!!.navView.menu
             menu.findItem(R.id.allJob).setTitle("Register").setIcon(R.drawable.ic_register)
             menu.findItem(R.id.addNewJob).setTitle("Login").setIcon(R.drawable.ic_login)
-            button=headerView.findViewById(R.id.back)
+            button = headerView.findViewById(R.id.back)
 
             button.setOnClickListener {
                 binding!!.drawerLayout.closeDrawer(GravityCompat.START)
@@ -96,13 +93,13 @@ class PosterBaseDashbordFragment : Fragment()  {
             binding!!.appbarlayouttoolbar,
             R.string.drawer_open,
             R.string.drawer_close
-        ){
-            override fun onDrawerClosed(view: View){
+        ) {
+            override fun onDrawerClosed(view: View) {
                 super.onDrawerClosed(view)
                 //toast("Drawer closed")
             }
 
-            override fun onDrawerOpened(drawerView: View){
+            override fun onDrawerOpened(drawerView: View) {
                 super.onDrawerOpened(drawerView)
                 //toast("Drawer opened")
             }
@@ -111,55 +108,59 @@ class PosterBaseDashbordFragment : Fragment()  {
 
         // Configure the drawer layout to add listener and show icon on toolbar
         drawerToggle.isDrawerIndicatorEnabled = false
-        val drawable = ResourcesCompat.getDrawable(resources, R.drawable.ic_group_1108, requireActivity().theme)
+        val drawable = ResourcesCompat.getDrawable(
+            resources,
+            R.drawable.ic_group_1108,
+            requireActivity().theme
+        )
         drawerToggle.setHomeAsUpIndicator(drawable)
 
         binding!!.drawerLayout.addDrawerListener(drawerToggle)
         drawerToggle.syncState()
         //or you can add icon
 
-        drawerToggle.setToolbarNavigationClickListener(View.OnClickListener {
+        drawerToggle.setToolbarNavigationClickListener {
             val drawer = binding!!.drawerLayout
             if (drawer.isDrawerOpen(GravityCompat.START)) {
                 drawer.closeDrawer(GravityCompat.START)
             } else {
                 drawer.openDrawer(GravityCompat.START)
             }
-        })
+        }
 
 
         val firstFragment = PostedDashbordFragment()
         val secondFragment = NewJobFragment()
 
-        binding!!.navView.setItemIconTintList(null)
+        binding!!.navView.itemIconTintList = null
 
-        binding!!.navView.setNavigationItemSelectedListener{
-            when (it.itemId){
+        binding!!.navView.setNavigationItemSelectedListener {
+            when (it.itemId) {
                 R.id.allJob -> {
-                    binding!!.heading.text="All Jobs"
-                    if (Constants.login == true) {
+                    binding!!.heading.text = "All Jobs"
+                    if (LocalPreference.shared.isLogin) {
                         setCurrentFragment(firstFragment)
                         //          binding!!.filter.visibility=View.GONE
-                        binding!!.viewDashbord.setVisibility(View.VISIBLE)
-                        binding!!.viewApplied.setVisibility(View.INVISIBLE)
-                        binding!!.viewFav.setVisibility(View.INVISIBLE)
+                        binding!!.viewDashbord.visibility = View.VISIBLE
+                        binding!!.viewApplied.visibility = View.INVISIBLE
+                        binding!!.viewFav.visibility = View.INVISIBLE
 
-                        binding!!.bottomNavView.menu.getItem(0).setChecked(true)
+                        binding!!.bottomNavView.menu.getItem(0).isChecked = true
                     } else {
 
                         listener?.passFragmentCallback("registerPoster")
                     }
                 }
                 R.id.addNewJob -> {
-                    binding!!.heading.text="New Job"
-                    if (Constants.login == true) {
+                    binding!!.heading.text = "New Job"
+                    if (LocalPreference.shared.isLogin) {
                         setCurrentFragment(secondFragment)
                         //             binding!!.filter.visibility=View.GONE
-                        binding!!.viewDashbord.setVisibility(View.INVISIBLE)
-                        binding!!.viewApplied.setVisibility(View.INVISIBLE)
-                        binding!!.viewFav.setVisibility(View.VISIBLE)
+                        binding!!.viewDashbord.visibility = View.INVISIBLE
+                        binding!!.viewApplied.visibility = View.INVISIBLE
+                        binding!!.viewFav.visibility = View.VISIBLE
 
-                        binding!!.bottomNavView.menu.getItem(1).setChecked(true)
+                        binding!!.bottomNavView.menu.getItem(1).isChecked = true
                     } else {
                         listener?.passFragmentCallback("loginPoster")
                     }
@@ -168,14 +169,24 @@ class PosterBaseDashbordFragment : Fragment()  {
                     ShareCompat.IntentBuilder.from(requireActivity())
                         .setType("text/plain")
                         .setChooserTitle("Go Seek")
-                        .setText("http://play.google.com/store/apps/details?id=" + requireActivity().getPackageName())
+                        .setText("http://play.google.com/store/apps/details?id=" + requireActivity().packageName)
                         .startChooser();
                 }
                 R.id.rateApp -> {
                     try {
-                        startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + requireActivity().getPackageName())))
+                        startActivity(
+                            Intent(
+                                Intent.ACTION_VIEW,
+                                Uri.parse("market://details?id=" + requireActivity().packageName)
+                            )
+                        )
                     } catch (e: ActivityNotFoundException) {
-                        startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + requireActivity().getPackageName())))
+                        startActivity(
+                            Intent(
+                                Intent.ACTION_VIEW,
+                                Uri.parse("https://play.google.com/store/apps/details?id=" + requireActivity().packageName)
+                            )
+                        )
                     }
 
                 }
@@ -191,13 +202,13 @@ class PosterBaseDashbordFragment : Fragment()  {
 
     private fun initData() {
 
-        binding!!.bottomNavView.setItemIconTintList(null)
-        binding!!.viewDashbord.setVisibility(View.VISIBLE)
+        binding!!.bottomNavView.itemIconTintList = null
+        binding!!.viewDashbord.visibility = View.VISIBLE
 
 
         val firstFragment = PostedDashbordFragment()
         val secondFragment = NewJobFragment()
- //       val thirdFragment = LocationFragment()
+        //       val thirdFragment = LocationFragment()
         val fourthFragment = PostedProfileFragment()
 
         setCurrentFragment(firstFragment)
@@ -208,42 +219,42 @@ class PosterBaseDashbordFragment : Fragment()  {
                     setCurrentFragment(firstFragment)
                     binding!!.heading.text = "All Jobs"
                     //      binding!!.filter.visibility=View.VISIBLE
-                    binding!!.viewDashbord.setVisibility(View.VISIBLE)
-                    binding!!.viewApplied.setVisibility(View.INVISIBLE)
-                    binding!!.viewFav.setVisibility(View.INVISIBLE)
+                    binding!!.viewDashbord.visibility = View.VISIBLE
+                    binding!!.viewApplied.visibility = View.INVISIBLE
+                    binding!!.viewFav.visibility = View.INVISIBLE
 
                 }
                 R.id.favouriteFragment -> {
                     setCurrentFragment(secondFragment)
                     binding!!.heading.text = "New Job"
                     //      binding!!.filter.visibility=View.GONE
-                    binding!!.viewDashbord.setVisibility(View.INVISIBLE)
-                    binding!!.viewApplied.setVisibility(View.INVISIBLE)
-                    binding!!.viewFav.setVisibility(View.VISIBLE)
+                    binding!!.viewDashbord.visibility = View.INVISIBLE
+                    binding!!.viewApplied.visibility = View.INVISIBLE
+                    binding!!.viewFav.visibility = View.VISIBLE
 
                 }
- /*               R.id.appliedFragment -> {
-                    setCurrentFragment(thirdFragment)
-                    //    binding!!.filter.visibility=View.GONE
-                    binding!!.viewDashbord.setVisibility(View.INVISIBLE)
-                    binding!!.viewApplied.setVisibility(View.VISIBLE)
-                    binding!!.viewFav.setVisibility(View.INVISIBLE)
-                    binding!!.viewProfile.setVisibility(View.INVISIBLE)
-                }  */
+                /*               R.id.appliedFragment -> {
+                                   setCurrentFragment(thirdFragment)
+                                   //    binding!!.filter.visibility=View.GONE
+                                   binding!!.viewDashbord.setVisibility(View.INVISIBLE)
+                                   binding!!.viewApplied.setVisibility(View.VISIBLE)
+                                   binding!!.viewFav.setVisibility(View.INVISIBLE)
+                                   binding!!.viewProfile.setVisibility(View.INVISIBLE)
+                               }  */
                 R.id.profileFragment -> {
                     setCurrentFragment(fourthFragment)
                     binding!!.heading.text = "Profile"
                     //  binding!!.filter.visibility=View.GONE
-                    binding!!.viewDashbord.setVisibility(View.INVISIBLE)
-                    binding!!.viewApplied.setVisibility(View.VISIBLE)
-                    binding!!.viewFav.setVisibility(View.INVISIBLE)
+                    binding!!.viewDashbord.visibility = View.INVISIBLE
+                    binding!!.viewApplied.visibility = View.VISIBLE
+                    binding!!.viewFav.visibility = View.INVISIBLE
                 }
             }
             true
         }
     }
 
-    private fun setCurrentFragment(fragment: Fragment)=
+    private fun setCurrentFragment(fragment: Fragment) =
         childFragmentManager.beginTransaction().apply {
             replace(R.id.frameLayout, fragment)
             commit()
@@ -257,15 +268,15 @@ class PosterBaseDashbordFragment : Fragment()  {
 
     override fun onResume() {
         super.onResume()
-      //  binding!!.bottomNavView.getMenu().getItem(0).setChecked(true)
+        //  binding!!.bottomNavView.getMenu().getItem(0).setChecked(true)
         val fourthFragment = PostedProfileFragment()
-        if(binding!!.bottomNavView.selectedItemId==R.id.profileFragment){
+        if (binding!!.bottomNavView.selectedItemId == R.id.profileFragment) {
             setCurrentFragment(fourthFragment)
             binding!!.heading.text = "Profile"
             //  binding!!.filter.visibility=View.GONE
-            binding!!.viewDashbord.setVisibility(View.INVISIBLE)
-            binding!!.viewApplied.setVisibility(View.VISIBLE)
-            binding!!.viewFav.setVisibility(View.INVISIBLE)
+            binding!!.viewDashbord.visibility = View.INVISIBLE
+            binding!!.viewApplied.visibility = View.VISIBLE
+            binding!!.viewFav.visibility = View.INVISIBLE
         }
 
     }

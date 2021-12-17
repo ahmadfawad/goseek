@@ -75,16 +75,14 @@ class NewJobSeekerFragment : BaseFragment() {
                             binding?.etName?.editableText?.toString()?.trim() ?: "",
                             binding?.etEmail?.editableText?.toString()?.trim() ?: "",
                             binding?.etMobileNumber?.editableText?.toString()?.trim() ?: "",
-                            binding?.etPassword?.editableText?.toString()?.trim() ?: "",
-                            if (binding?.cbTerms?.isChecked == true) 1 else 0
+                            binding?.etPassword?.editableText?.toString()?.trim() ?: ""
                         )
                     } else {
                         registerCompany(
                             binding?.etName?.editableText?.toString()?.trim() ?: "",
                             binding?.etEmail?.editableText?.toString()?.trim() ?: "",
                             binding?.etMobileNumber?.editableText?.toString()?.trim() ?: "",
-                            binding?.etPassword?.editableText?.toString()?.trim() ?: "",
-                            if (binding?.cbTerms?.isChecked == true) 1 else 0
+                            binding?.etPassword?.editableText?.toString()?.trim() ?: ""
                         )
                     }
                 }
@@ -98,20 +96,16 @@ class NewJobSeekerFragment : BaseFragment() {
         email: String,
         phone: String,
         password: String,
-        isActive: Int
     ) {
         showLoading()
-        NetworkClass.callApi(URLApi.registerUser(username, email, phone, password, isActive),
+        NetworkClass.callApi(URLApi.registerUser(username, email, phone, password),
             object : Response {
                 override fun onSuccessResponse(response: String?, message: String) {
                     hideLoading()
                     val json = JSONObject(response ?: "")
-                    val otp = json.optString("ActivetionCode")
                     val data = Gson().fromJson(json.toString(), User::class.java)
-                    Toast.makeText(requireContext(), otp, Toast.LENGTH_LONG).show()
                     LocalPreference.shared.user = data
-                    Constants.login = true
-                    LocalPreference.shared.isLogin = true
+
                     val navController = findNavController()
                     navController.navigate(R.id.action_newJobSeekerFragment_to_emailVerificationFragment)
                 }
@@ -129,17 +123,14 @@ class NewJobSeekerFragment : BaseFragment() {
         email: String,
         phone: String,
         password: String,
-        isActive: Int
     ) {
         showLoading()
-        NetworkClass.callApi(URLApi.registerUser(username, email, phone, password, isActive),
+        NetworkClass.callApi(URLApi.registerCompany(username, email, phone, password),
             object : Response {
                 override fun onSuccessResponse(response: String?, message: String) {
                     hideLoading()
                     val json = JSONObject(response ?: "")
-                    val otp = json.optString("ActivetionCode")
                     val data = Gson().fromJson(json.toString(), User::class.java)
-                    Toast.makeText(requireContext(), otp, Toast.LENGTH_LONG).show()
                     LocalPreference.shared.user = data
                     Constants.login = true
                     LocalPreference.shared.isLogin = true

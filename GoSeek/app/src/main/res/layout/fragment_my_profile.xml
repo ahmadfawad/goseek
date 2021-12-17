@@ -118,6 +118,7 @@
                             android:layout_height="wrap_content"
                             android:paddingStart="0dp"
                             android:paddingEnd="0dp"
+                            android:id="@+id/etName"
                             android:drawableRight="@drawable/ic_useragain"
                             android:inputType="text"
                             android:textColor="@color/black"
@@ -144,6 +145,8 @@
                             android:paddingStart="0dp"
                             android:drawableRight="@drawable/ic_email"
                             android:inputType="text"
+                            android:id="@+id/etEmail"
+                            android:enabled="false"
                             android:paddingEnd="0dp"
                             android:textColor="@color/black"
                             android:fontFamily="@font/roboto_regular"
@@ -185,6 +188,7 @@
                                     android:layout_centerHorizontal="true"
                                     android:layout_centerVertical="true"
                                     android:layout_marginStart="5dp"
+                                    android:padding="3dp"
                                     android:gravity="center"
                                     android:orientation="horizontal">
 
@@ -231,62 +235,13 @@
                                 android:layout_height="wrap_content"
                                 android:focusable="true"
                                 android:inputType="phone"
+                                android:id="@+id/etPhoneNumber"
                                 android:paddingEnd="0dp"
                                 android:textColor="@color/black"
                                 android:fontFamily="@font/roboto_regular"
                                 android:drawableRight="@drawable/ic_phone_again"/>
                         </com.google.android.material.textfield.TextInputLayout>
                     </LinearLayout>
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Password :"
-                        android:layout_marginTop="10dp"
-                        app:hintTextColor="#848484"
-                        android:backgroundTint="@color/hint"
-                        app:passwordToggleEnabled="false"
-                        app:boxBackgroundColor="@android:color/transparent"
-                        android:background="@android:color/transparent">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:layout_gravity="center_vertical"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:paddingStart="0dp"
-                            android:paddingEnd="0dp"
-                            android:drawableRight="@drawable/ic_lock_pass"
-                            android:inputType="textPassword"
-                            android:textColor="@color/black"
-                            android:fontFamily="@font/roboto_regular"
-                            android:clipToPadding="false" />
-
-                    </com.google.android.material.textfield.TextInputLayout>
-
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Confirm Password :"
-                        android:layout_marginTop="10dp"
-                        app:hintTextColor="#848484"
-                        android:backgroundTint="@color/hint"
-                        app:passwordToggleEnabled="false"
-                        app:boxBackgroundColor="@android:color/transparent"
-                        android:background="@android:color/transparent">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:layout_gravity="center_vertical"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:paddingStart="0dp"
-                            android:paddingEnd="0dp"
-                            android:drawableRight="@drawable/ic_lock_pass"
-                            android:inputType="textPassword"
-                            android:textColor="@color/black"
-                            android:fontFamily="@font/roboto_regular"
-                            android:paddingLeft="0dp" />
-
-                    </com.google.android.material.textfield.TextInputLayout>
 
 
 
@@ -300,6 +255,7 @@
                         android:layout_height="wrap_content"
                         android:text="update profile"
                         android:textSize="14dp"
+                        android:id="@+id/btnUpdate"
                         android:textColor="@color/white"
                         android:fontFamily="@font/montserrat_bold"
                         android:backgroundTint="#F87062"/>

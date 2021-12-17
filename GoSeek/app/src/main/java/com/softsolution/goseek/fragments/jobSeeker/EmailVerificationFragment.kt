@@ -1,5 +1,6 @@
 package com.softsolution.goseek.fragments.jobSeeker
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -24,7 +25,7 @@ class EmailVerificationFragment : BaseFragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         binding =
             DataBindingUtil.inflate(
@@ -39,6 +40,7 @@ class EmailVerificationFragment : BaseFragment() {
 
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.tvTextMail.text =
@@ -50,13 +52,14 @@ class EmailVerificationFragment : BaseFragment() {
     }
 
     fun onClick(view: View) {
-        when (view?.id) {
+        when (view.id) {
             R.id.next -> {
 
                 if (binding.squareField.text.isNullOrEmpty()) {
                     Toast.makeText(mActivity, "Please enter code", Toast.LENGTH_SHORT).show()
                 } else {
-                    optVerify(binding.squareField.text.toString())
+                    optVerify(binding.squareField.text.toString(),
+                    LocalPreference.shared.user?.MemberId.toString())
                 }
 
 
@@ -66,20 +69,20 @@ class EmailVerificationFragment : BaseFragment() {
         //findNavController().popBackStack(R.id.baseDashbordFragment,true)
     }
 
-    private fun optVerify(code: String) {
+    private fun optVerify(code: String,memberId:String) {
         showLoading()
-        NetworkClass.callApi(URLApi.optVerify(code), object : Response {
+        NetworkClass.callApi(URLApi.optVerify(code,memberId), object : Response {
             override fun onSuccessResponse(response: String?, message: String) {
                 hideLoading()
                 val json = JSONObject(response ?: "")
                 val user = Gson().fromJson(json.toString(), User::class.java)
                 LocalPreference.shared.user = user
+                LocalPreference.shared.isLogin = true
                 Toast.makeText(mActivity, message, Toast.LENGTH_SHORT).show()
-                if(!LocalPreference.shared.isCompany){
-                val navController = findNavController()
+                if (user.status == 1) {
+                    val navController = findNavController()
                     navController.navigate(R.id.action_emailVerificationFragment_to_baseDashbordFragment)
-                }
-                else{
+                } else {
                     val navController = findNavController()
                     navController.navigate(R.id.action_emailVerificationFragment_to_postJob)
 

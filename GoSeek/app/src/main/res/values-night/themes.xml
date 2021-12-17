@@ -18,7 +18,7 @@
         <item name="android:itemTextAppearance">@style/myCustomMenuTextAppearance</item>
         <item name="android:listDivider">@color/white_80</item>
 
-        <item name="android:navigationBarColor" tools:targetApi="lollipop">@color/bottombarcolor
+        <item name="android:navigationBarColor" tools:targetApi="lollipop">@color/heart
         </item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>

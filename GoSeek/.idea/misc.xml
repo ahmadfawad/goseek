@@ -3,20 +3,34 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Fawad/goseek/GoSeek/app/src/main/res/layout/activity_auth.xml" value="0.12631578947368421" />
         <entry key="..\:/Fawad/goseek/GoSeek/app/src/main/res/layout/activity_splash2.xml" value="0.12631578947368421" />
         <entry key="..\:/Fawad/goseek/GoSeek/app/src/main/res/layout/dashbord_vh.xml" value="0.12631578947368421" />
         <entry key="..\:/Fawad/goseek/GoSeek/app/src/main/res/layout/fragment_base_dashbord.xml" value="0.12631578947368421" />
+        <entry key="..\:/Fawad/goseek/GoSeek/app/src/main/res/layout/fragment_edit_company_profile.xml" value="0.12631578947368421" />
         <entry key="..\:/Fawad/goseek/GoSeek/app/src/main/res/layout/fragment_email_verification.xml" value="0.12631578947368421" />
         <entry key="..\:/Fawad/goseek/GoSeek/app/src/main/res/layout/fragment_enter_email.xml" value="0.12631578947368421" />
         <entry key="..\:/Fawad/goseek/GoSeek/app/src/main/res/layout/fragment_favourite.xml" value="0.12631578947368421" />
         <entry key="..\:/Fawad/goseek/GoSeek/app/src/main/res/layout/fragment_forget_password.xml" value="0.12631578947368421" />
+        <entry key="..\:/Fawad/goseek/GoSeek/app/src/main/res/layout/fragment_job_seeker_detail.xml" value="0.1" />
         <entry key="..\:/Fawad/goseek/GoSeek/app/src/main/res/layout/fragment_login.xml" value="0.12" />
+        <entry key="..\:/Fawad/goseek/GoSeek/app/src/main/res/layout/fragment_my_profile.xml" value="0.16" />
         <entry key="..\:/Fawad/goseek/GoSeek/app/src/main/res/layout/fragment_new_job.xml" value="0.12631578947368421" />
+        <entry key="..\:/Fawad/goseek/GoSeek/app/src/main/res/layout/fragment_new_job_poster.xml" value="0.2" />
         <entry key="..\:/Fawad/goseek/GoSeek/app/src/main/res/layout/fragment_new_job_seeker.xml" value="0.12631578947368421" />
         <entry key="..\:/Fawad/goseek/GoSeek/app/src/main/res/layout/fragment_options.xml" value="0.12631578947368421" />
+        <entry key="..\:/Fawad/goseek/GoSeek/app/src/main/res/layout/fragment_posted_dashbord.xml" value="0.12631578947368421" />
+        <entry key="..\:/Fawad/goseek/GoSeek/app/src/main/res/layout/fragment_posted_profile.xml" value="0.12631578947368421" />
+        <entry key="..\:/Fawad/goseek/GoSeek/app/src/main/res/layout/fragment_posted_profile_detail.xml" value="0.12631578947368421" />
+        <entry key="..\:/Fawad/goseek/GoSeek/app/src/main/res/layout/fragment_poster_base_dashbord.xml" value="0.12631578947368421" />
+        <entry key="..\:/Fawad/goseek/GoSeek/app/src/main/res/layout/fragment_poster_job_detail.xml" value="0.12631578947368421" />
         <entry key="..\:/Fawad/goseek/GoSeek/app/src/main/res/layout/fragment_profile.xml" value="0.12631578947368421" />
+        <entry key="..\:/Fawad/goseek/GoSeek/app/src/main/res/layout/fragment_sucessfull_posted.xml" value="0.12631578947368421" />
+        <entry key="..\:/Fawad/goseek/GoSeek/app/src/main/res/layout/fragment_upload_resume.xml" value="0.12631578947368421" />
         <entry key="..\:/Fawad/goseek/GoSeek/app/src/main/res/layout/loader_view.xml" value="0.12631578947368421" />
         <entry key="..\:/Fawad/goseek/GoSeek/app/src/main/res/layout/nav_header_main.xml" value="0.12631578947368421" />
+        <entry key="..\:/Fawad/goseek/GoSeek/app/src/main/res/layout/nav_header_sign_in.xml" value="0.12631578947368421" />
+        <entry key="..\:/Fawad/goseek/GoSeek/app/src/main/res/layout/posted_dashbord_vh.xml" value="0.22" />
         <entry key="..\:/Fawad/goseek/GoSeek/app/src/main/res/layout/sign_out_dialog_vh.xml" value="0.12631578947368421" />
       </map>
     </option>
