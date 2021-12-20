@@ -35,10 +35,10 @@ class PostedProfileDetailFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View{
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_posted_profile_detail, container, false)
-        binding!!.setFragment(this)
+        binding!!.fragment = this
 
 
         binding!!.cardview.setOnClickListener {
@@ -69,7 +69,7 @@ class PostedProfileDetailFragment : Fragment() {
 
 
 
-        binding!!.pdfView.getSettings().setJavaScriptEnabled(true)
+        binding!!.pdfView.settings.javaScriptEnabled = true
         binding!!.pdfView.loadUrl("https://drive.google.com/file/d/1kVUijoEKypkaCk2h_F8t7HLPaLCwpPFv/view?usp=sharing")
       //  binding!!.pdfView.loadUrl("")
     //    binding!!.skewPdfView.loadPdf("https://mozilla.github.io/pdf.js/web/compressed.tracemonkey-pldi-09.pf")
@@ -77,10 +77,10 @@ class PostedProfileDetailFragment : Fragment() {
 
 
 
-        return binding!!.getRoot()
+        return binding!!.root
     }
     fun onClick(view: View) {
-        when (view?.id) {
+        when (view.id) {
             R.id.back -> {
                 this.findNavController().popBackStack()
             }

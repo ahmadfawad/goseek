@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/go_seek_employer_nav"
+    app:startDestination="@id/postedDashbordFragment">
+
+    <fragment
+        android:id="@+id/postedDashbordFragment"
+        android:name="com.softsolution.goseek.fragments.jobPoster.PostedDashbordFragment"
+        android:label="PostedDashbordFragment"
+        tools:layout="@layout/fragment_posted_dashbord" />
+    <fragment
+        android:id="@+id/posterBaseDashbordFragment2"
+        android:name="com.softsolution.goseek.fragments.jobPoster.PosterBaseDashbordFragment"
+        android:label="PosterBaseDashbordFragment"
+        tools:layout="@layout/fragment_poster_base_dashbord" />
+    <fragment
+        android:id="@+id/newJobFragment"
+        android:name="com.softsolution.goseek.fragments.jobPoster.NewJobFragment"
+        android:label="NewJobFragment"
+        tools:layout="@layout/fragment_new_job" />
+    <fragment
+        android:id="@+id/reviewFragment2"
+        android:name="com.softsolution.goseek.fragments.jobPoster.ReviewFragment"
+        android:label="ReviewFragment"
+        tools:layout="@layout/fragment_review"/>
+    <fragment
+        android:id="@+id/editCompanyProfileFragment2"
+        android:name="com.softsolution.goseek.fragments.jobPoster.EditCompanyProfileFragment"
+        android:label="EditCompanyProfileFragment"
+        tools:layout="@layout/fragment_edit_company_profile"/>
+    <fragment
+        android:id="@+id/companyJobDetail"
+        android:name="com.softsolution.goseek.fragments.jobPoster.PosterJobDetailFragment"
+        android:label="PosterJobDetailFragment"
+        tools:layout="@layout/fragment_poster_job_detail"/>
+
+</navigation>

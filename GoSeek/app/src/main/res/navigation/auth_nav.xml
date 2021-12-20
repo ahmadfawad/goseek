@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/auth_nav"
+    app:startDestination="@id/optionsFragment2">
+
+    <fragment
+        android:id="@+id/optionsFragment2"
+        android:name="com.softsolution.goseek.fragments.jobSeeker.OptionsFragment"
+        android:label="OptionsFragment"
+        tools:layout="@layout/fragment_options">
+        <action
+            android:id="@+id/action_optionsFragment2_to_loginFragment2"
+            app:destination="@id/loginFragment2"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_optionsFragment2_to_newJobSeekerFragment2"
+            app:destination="@id/newJobSeekerFragment2"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment2"
+        android:name="com.softsolution.goseek.fragments.jobSeeker.LoginFragment"
+        android:label="LoginFragment"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment2_to_enterEmailFragment"
+            app:destination="@id/enterEmailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_loginFragment2_to_newJobSeekerFragment2"
+            app:destination="@id/newJobSeekerFragment2"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_loginFragment2_to_emailVerificationFragment2"
+            app:destination="@id/emailVerificationFragment2"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/newJobSeekerFragment2"
+        android:name="com.softsolution.goseek.fragments.jobSeeker.NewJobSeekerFragment"
+        android:label="NewJobSeekerFragment"
+        tools:layout="@layout/fragment_new_job_seeker">
+        <action
+            android:id="@+id/action_newJobSeekerFragment2_to_emailVerificationFragment2"
+            app:destination="@id/emailVerificationFragment2"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/emailVerificationFragment2"
+        android:name="com.softsolution.goseek.fragments.jobSeeker.EmailVerificationFragment"
+        android:label="EmailVerificationFragment"
+        tools:layout="@layout/fragment_email_verification" />
+    <fragment
+        android:id="@+id/enterEmailFragment"
+        android:name="com.softsolution.goseek.fragments.jobSeeker.EnterEmailFragment"
+        android:label="EnterEmailFragment"
+        tools:layout="@layout/fragment_enter_email" />
+</navigation>

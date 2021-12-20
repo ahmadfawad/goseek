@@ -28,11 +28,11 @@ class CompanyLocationFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_company_location, container, false)
+//        return inflater.inflate(R.layout.fragment_company_location, container, false)
 
 
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_company_location, container, false)
-        binding!!.setFragment(this)
+        binding!!.fragment = this
 
         dashbordList= ArrayList<CompanyLocation>()
         layoutManager= LinearLayoutManager(requireActivity())
@@ -43,7 +43,7 @@ class CompanyLocationFragment : Fragment() {
 
         loadData()
 
-        return binding!!.getRoot()
+        return binding!!.root
 
     }
     private fun loadData() {

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/go_seek_user_nav"
+    app:startDestination="@id/baseDashbordFragment3">
+
+    <fragment
+        android:id="@+id/baseDashbordFragment3"
+        android:name="com.softsolution.goseek.fragments.jobSeeker.BaseDashbordFragment"
+        android:label="BaseDashbordFragment"
+        tools:layout="@layout/fragment_base_dashbord" />
+    <fragment
+        android:id="@+id/myProfileFragment2"
+        android:name="com.softsolution.goseek.fragments.jobSeeker.MyProfileFragment"
+        android:label="MyProfileFragment"
+        tools:layout="@layout/fragment_my_profile" />
+    <fragment
+        android:id="@+id/uploadResumeFragment2"
+        android:name="com.softsolution.goseek.fragments.jobSeeker.UploadResumeFragment"
+        android:label="UploadResumeFragment"
+        tools:layout="@layout/fragment_upload_resume" />
+    <fragment
+        android:id="@+id/jobDetailFragment2"
+        android:name="com.softsolution.goseek.fragments.jobSeeker.JobDetailFragment"
+        android:label="JobDetailFragment"
+        tools:layout="@layout/fragment_job_detail" />
+    <fragment
+        android:id="@+id/favouriteFragment3"
+        android:name="com.softsolution.goseek.fragments.jobSeeker.FavouriteFragment"
+        android:label="FavouriteFragment"
+        tools:layout="@layout/fragment_favourite" />
+    <fragment
+        android:id="@+id/forgetPasswordFragment2"
+        android:name="com.softsolution.goseek.fragments.jobSeeker.ForgetPasswordFragment"
+        android:label="ForgetPasswordFragment"
+        tools:layout="@layout/fragment_forget_password" />
+    <fragment
+        android:id="@+id/appliedFragment3"
+        android:name="com.softsolution.goseek.fragments.jobSeeker.AppliedFragment"
+        android:label="AppliedFragment"
+        tools:layout="@layout/fragment_applied" />
+</navigation>
