@@ -9,27 +9,87 @@
         android:id="@+id/baseDashbordFragment3"
         android:name="com.softsolution.goseek.fragments.jobSeeker.BaseDashbordFragment"
         android:label="BaseDashbordFragment"
-        tools:layout="@layout/fragment_base_dashbord" />
+        tools:layout="@layout/fragment_base_dashbord">
+        <action
+            android:id="@+id/action_baseDashbordFragment3_to_jobDetailFragment2"
+            app:destination="@id/jobDetailFragment2"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_baseDashbordFragment3_to_uploadResumeFragment2"
+            app:destination="@id/uploadResumeFragment2"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_baseDashbordFragment3_to_forgetPasswordFragment2"
+            app:destination="@id/forgetPasswordFragment2"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_baseDashbordFragment3_to_mapsFragment"
+            app:destination="@id/mapsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_baseDashbordFragment3_to_myProfileFragment2"
+            app:destination="@id/myProfileFragment2"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
     <fragment
         android:id="@+id/dashbordFragment2"
         android:name="com.softsolution.goseek.fragments.jobSeeker.DashbordFragment"
         android:label="DashbordFragment"
-        tools:layout="@layout/fragment_dashbord"/>
+        tools:layout="@layout/fragment_dashbord" />
     <fragment
         android:id="@+id/myProfileFragment2"
         android:name="com.softsolution.goseek.fragments.jobSeeker.MyProfileFragment"
         android:label="MyProfileFragment"
-        tools:layout="@layout/fragment_my_profile" />
+        tools:layout="@layout/fragment_my_profile">
+        <action
+            android:id="@+id/action_myProfileFragment2_to_baseDashbordFragment3"
+            app:destination="@id/baseDashbordFragment3"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
     <fragment
         android:id="@+id/uploadResumeFragment2"
         android:name="com.softsolution.goseek.fragments.jobSeeker.UploadResumeFragment"
         android:label="UploadResumeFragment"
-        tools:layout="@layout/fragment_upload_resume" />
+        tools:layout="@layout/fragment_upload_resume">
+        <action
+            android:id="@+id/action_uploadResumeFragment2_to_baseDashbordFragment3"
+            app:destination="@id/baseDashbordFragment3"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
     <fragment
         android:id="@+id/jobDetailFragment2"
         android:name="com.softsolution.goseek.fragments.jobSeeker.JobDetailFragment"
         android:label="JobDetailFragment"
-        tools:layout="@layout/fragment_job_detail" />
+        tools:layout="@layout/fragment_job_detail">
+        <action
+            android:id="@+id/action_jobDetailFragment2_to_sucessfullFragment2"
+            app:destination="@id/sucessfullFragment2"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
     <fragment
         android:id="@+id/favouriteFragment3"
         android:name="com.softsolution.goseek.fragments.jobSeeker.FavouriteFragment"
@@ -45,5 +105,15 @@
         android:name="com.softsolution.goseek.fragments.jobSeeker.AppliedFragment"
         android:label="AppliedFragment"
         tools:layout="@layout/fragment_applied" />
+    <fragment
+        android:id="@+id/mapsFragment"
+        android:name="com.softsolution.goseek.fragments.MapsFragment"
+        android:label="fragment_maps"
+        tools:layout="@layout/fragment_maps" />
+    <fragment
+        android:id="@+id/sucessfullFragment2"
+        android:name="com.softsolution.goseek.fragments.jobSeeker.SucessfullFragment"
+        android:label="SucessfullFragment"
+        tools:layout="@layout/fragment_sucessfull" />
 
 </navigation>

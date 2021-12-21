@@ -8,7 +8,6 @@ import com.softsolution.goseek.Interface.CallFragmentInterface
 import com.softsolution.goseek.R
 import com.softsolution.goseek.base.BaseActivity
 import com.softsolution.goseek.databinding.ActivityUserDashboardBinding
-import com.softsolution.goseek.utils.Constants.Companion.login
 
 class UserDashboard : BaseActivity(), CallFragmentInterface {
     private lateinit var binding: ActivityUserDashboardBinding
@@ -25,6 +24,23 @@ class UserDashboard : BaseActivity(), CallFragmentInterface {
     }
 
     override fun passFragmentCallback(name: String) {
+        when (name) {
 
+            "profile" -> {
+                navController.navigate(R.id.action_baseDashbordFragment3_to_myProfileFragment2)
+            }
+            "uploadResume" -> {
+                navController.navigate(R.id.action_baseDashbordFragment3_to_uploadResumeFragment2)
+            }
+            "location" -> {
+                navController.navigate(R.id.action_baseDashbordFragment3_to_mapsFragment)
+            }
+            "JobDescription" -> {
+                navController.navigate(R.id.action_baseDashbordFragment3_to_jobDetailFragment2)
+            }
+            "changePassword" -> {
+                navController.navigate(R.id.action_baseDashbordFragment3_to_forgetPasswordFragment2)
+            }
+        }
     }
 }
