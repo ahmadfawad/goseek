@@ -1,5 +1,6 @@
 package com.softsolution.goseek.fragments.jobPoster
 
+import android.app.Activity
 import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
@@ -20,24 +21,37 @@ import androidx.databinding.DataBindingUtil
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.navigation.NavigationView
+import com.google.android.material.slider.RangeSlider
+import com.google.android.material.tabs.TabLayout
 import com.softsolution.goseek.Interface.CallFragmentInterface
 import com.softsolution.goseek.R
+import com.softsolution.goseek.activities.Auth
+import com.softsolution.goseek.adapter.PageAdapter
+import com.softsolution.goseek.adapter.jobSeekerAdapter.FilterButtonAdapter
+import com.softsolution.goseek.base.BaseFragment
 import com.softsolution.goseek.databinding.FragmentPosterBaseDashbordBinding
+import com.softsolution.goseek.model.jobSeekerModel.FilterButtonData
 import com.softsolution.goseek.network.LocalPreference
 import com.softsolution.goseek.utils.Constants
+import java.text.NumberFormat
+import java.util.*
 
-class PosterBaseDashbordFragment : Fragment() {
+class PosterBaseDashbordFragment : BaseFragment() {
 
     private var binding: FragmentPosterBaseDashbordBinding? = null
     var listener: CallFragmentInterface? = null
+    private var adapter: FilterButtonAdapter? = null
     var fragment: Fragment? = null
+    var rangeSlider: RangeSlider? = null
     var recyclerView: RecyclerView? = null
     var toolbar: Toolbar? = null
     lateinit var button: MaterialButton
-    var drawerLayout: DrawerLayout? = null
+    val buttonList = ArrayList<FilterButtonData>()
     var navController: NavController? = null
     var navigationView: NavigationView? = null
     var check = false
@@ -54,8 +68,44 @@ class PosterBaseDashbordFragment : Fragment() {
         )
         (activity as AppCompatActivity?)!!.setSupportActionBar(binding!!.appbarlayouttoolbar)
 
-        initData()
+//        initData()
         initDrawerLayout()
+
+
+        binding!!.drawerLayout.setScrimColor(resources.getColor(R.color.white_trans))
+
+
+        binding!!.frameLayout.adapter = PageAdapter(childFragmentManager)
+        binding!!.tabLayout.setupWithViewPager(binding!!.frameLayout)
+
+        binding!!.tabLayout.getTabAt(0)?.setIcon(R.drawable.ic_alljob_red)
+        binding!!.tabLayout.getTabAt(1)?.setIcon(R.drawable.ic_newjob_grey)
+        binding!!.tabLayout.getTabAt(2)?.setIcon(R.drawable.user_grey)
+
+        binding!!.tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+            override fun onTabSelected(tab: TabLayout.Tab) {
+                when (tab.position) {
+                    0 -> {
+                        tab.setIcon(R.drawable.ic_alljob_red)
+                        binding!!.tabLayout.getTabAt(1)?.setIcon(R.drawable.ic_heart_grey)
+                        binding!!.tabLayout.getTabAt(2)?.setIcon(R.drawable.ic_user)
+                    }
+                    1 -> {
+                        tab.setIcon(R.drawable.ic_newjob_red)
+                        binding!!.tabLayout.getTabAt(0)?.setIcon(R.drawable.ic_alljob_grey)
+                        binding!!.tabLayout.getTabAt(2)?.setIcon(R.drawable.ic_user)
+                    }
+                    2 -> {
+                        tab.setIcon(R.drawable.ic_user_red)
+                        binding!!.tabLayout.getTabAt(0)?.setIcon(R.drawable.ic_alljob_grey)
+                        binding!!.tabLayout.getTabAt(1)?.setIcon(R.drawable.ic_newjob_grey)
+                    }
+                }
+            }
+
+            override fun onTabUnselected(tab: TabLayout.Tab) {}
+            override fun onTabReselected(tab: TabLayout.Tab) {}
+        })
 
         return binding!!.root
     }
@@ -137,32 +187,35 @@ class PosterBaseDashbordFragment : Fragment() {
         binding!!.navView.setNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.allJob -> {
-                    binding!!.heading.text = "All Jobs"
                     if (LocalPreference.shared.isLogin) {
-                        setCurrentFragment(firstFragment)
-                        //          binding!!.filter.visibility=View.GONE
-                        binding!!.viewDashbord.visibility = View.VISIBLE
-                        binding!!.viewApplied.visibility = View.INVISIBLE
-                        binding!!.viewFav.visibility = View.INVISIBLE
-
-                        binding!!.bottomNavView.menu.getItem(0).isChecked = true
+                        // setCurrentFragment(secondFragment)
+                        binding!!.tabLayout.getTabAt(1)?.select()
+                        binding!!.frameLayout.currentItem = 1
+                        binding!!.filter.visibility = View.GONE
+                        /*    binding!!.viewDashbord.setVisibility(View.INVISIBLE)
+                            binding!!.viewApplied.setVisibility(View.INVISIBLE)
+                            binding!!.viewFav.setVisibility(View.VISIBLE)
+                            binding!!.viewProfile.setVisibility(View.INVISIBLE)*/
+                        //            binding!!.bottomNavView.menu.getItem(1).setChecked(true)
                     } else {
 
-                        listener?.passFragmentCallback("registerPoster")
+                        listener?.passFragmentCallback("login")
                     }
                 }
                 R.id.addNewJob -> {
-                    binding!!.heading.text = "New Job"
                     if (LocalPreference.shared.isLogin) {
-                        setCurrentFragment(secondFragment)
-                        //             binding!!.filter.visibility=View.GONE
-                        binding!!.viewDashbord.visibility = View.INVISIBLE
-                        binding!!.viewApplied.visibility = View.INVISIBLE
-                        binding!!.viewFav.visibility = View.VISIBLE
-
-                        binding!!.bottomNavView.menu.getItem(1).isChecked = true
+                        //setCurrentFragment(thirdFragment)
+                        binding!!.tabLayout.getTabAt(2)?.select()
+                        binding!!.frameLayout.currentItem = 2
+                        binding!!.filter.visibility = View.GONE
+                        /* binding!!.viewDashbord.setVisibility(View.INVISIBLE)
+                         binding!!.viewApplied.setVisibility(View.VISIBLE)
+                         binding!!.viewFav.setVisibility(View.INVISIBLE)
+                         binding!!.viewProfile.setVisibility(View.INVISIBLE)*/
+                        //          binding!!.bottomNavView.menu.getItem(2).setChecked(true)
                     } else {
-                        listener?.passFragmentCallback("loginPoster")
+                        Constants.login = true
+                        startActivity(Intent(mActivity, Auth::class.java))
                     }
                 }
                 R.id.shareApp -> {
@@ -170,7 +223,7 @@ class PosterBaseDashbordFragment : Fragment() {
                         .setType("text/plain")
                         .setChooserTitle("Go Seek")
                         .setText("http://play.google.com/store/apps/details?id=" + requireActivity().packageName)
-                        .startChooser();
+                        .startChooser()
                 }
                 R.id.rateApp -> {
                     try {
@@ -194,65 +247,65 @@ class PosterBaseDashbordFragment : Fragment() {
             }
             // Close the drawer
             binding!!.drawerLayout.closeDrawer(GravityCompat.START)
-            true
+            false
         }
 
 
     }
 
-    private fun initData() {
-
-        binding!!.bottomNavView.itemIconTintList = null
-        binding!!.viewDashbord.visibility = View.VISIBLE
-
-
-        val firstFragment = PostedDashbordFragment()
-        val secondFragment = NewJobFragment()
-        //       val thirdFragment = LocationFragment()
-        val fourthFragment = PostedProfileFragment()
-
-        setCurrentFragment(firstFragment)
-
-        binding!!.bottomNavView.setOnNavigationItemSelectedListener {
-            when (it.itemId) {
-                R.id.dashbordFragment -> {
-                    setCurrentFragment(firstFragment)
-                    binding!!.heading.text = "All Jobs"
-                    //      binding!!.filter.visibility=View.VISIBLE
-                    binding!!.viewDashbord.visibility = View.VISIBLE
-                    binding!!.viewApplied.visibility = View.INVISIBLE
-                    binding!!.viewFav.visibility = View.INVISIBLE
-
-                }
-                R.id.favouriteFragment -> {
-                    setCurrentFragment(secondFragment)
-                    binding!!.heading.text = "New Job"
-                    //      binding!!.filter.visibility=View.GONE
-                    binding!!.viewDashbord.visibility = View.INVISIBLE
-                    binding!!.viewApplied.visibility = View.INVISIBLE
-                    binding!!.viewFav.visibility = View.VISIBLE
-
-                }
-                /*               R.id.appliedFragment -> {
-                                   setCurrentFragment(thirdFragment)
-                                   //    binding!!.filter.visibility=View.GONE
-                                   binding!!.viewDashbord.setVisibility(View.INVISIBLE)
-                                   binding!!.viewApplied.setVisibility(View.VISIBLE)
-                                   binding!!.viewFav.setVisibility(View.INVISIBLE)
-                                   binding!!.viewProfile.setVisibility(View.INVISIBLE)
-                               }  */
-                R.id.profileFragment -> {
-                    setCurrentFragment(fourthFragment)
-                    binding!!.heading.text = "Profile"
-                    //  binding!!.filter.visibility=View.GONE
-                    binding!!.viewDashbord.visibility = View.INVISIBLE
-                    binding!!.viewApplied.visibility = View.VISIBLE
-                    binding!!.viewFav.visibility = View.INVISIBLE
-                }
-            }
-            true
-        }
-    }
+//    private fun initData() {
+//
+//        binding!!.bottomNavView.itemIconTintList = null
+//        binding!!.viewDashbord.visibility = View.VISIBLE
+//
+//
+//        val firstFragment = PostedDashbordFragment()
+//        val secondFragment = NewJobFragment()
+//        //       val thirdFragment = LocationFragment()
+//        val fourthFragment = PostedProfileFragment()
+//
+//        setCurrentFragment(firstFragment)
+//
+//        binding!!.bottomNavView.setOnNavigationItemSelectedListener {
+//            when (it.itemId) {
+//                R.id.dashbordFragment -> {
+//                    setCurrentFragment(firstFragment)
+//                    binding!!.heading.text = "All Jobs"
+//                    //      binding!!.filter.visibility=View.VISIBLE
+//                    binding!!.viewDashbord.visibility = View.VISIBLE
+//                    binding!!.viewApplied.visibility = View.INVISIBLE
+//                    binding!!.viewFav.visibility = View.INVISIBLE
+//
+//                }
+//                R.id.favouriteFragment -> {
+//                    setCurrentFragment(secondFragment)
+//                    binding!!.heading.text = "New Job"
+//                    //      binding!!.filter.visibility=View.GONE
+//                    binding!!.viewDashbord.visibility = View.INVISIBLE
+//                    binding!!.viewApplied.visibility = View.INVISIBLE
+//                    binding!!.viewFav.visibility = View.VISIBLE
+//
+//                }
+//                /*               R.id.appliedFragment -> {
+//                                   setCurrentFragment(thirdFragment)
+//                                   //    binding!!.filter.visibility=View.GONE
+//                                   binding!!.viewDashbord.setVisibility(View.INVISIBLE)
+//                                   binding!!.viewApplied.setVisibility(View.VISIBLE)
+//                                   binding!!.viewFav.setVisibility(View.INVISIBLE)
+//                                   binding!!.viewProfile.setVisibility(View.INVISIBLE)
+//                               }  */
+//                R.id.profileFragment -> {
+//                    setCurrentFragment(fourthFragment)
+//                    binding!!.heading.text = "Profile"
+//                    //  binding!!.filter.visibility=View.GONE
+//                    binding!!.viewDashbord.visibility = View.INVISIBLE
+//                    binding!!.viewApplied.visibility = View.VISIBLE
+//                    binding!!.viewFav.visibility = View.INVISIBLE
+//                }
+//            }
+//            true
+//        }
+//    }
 
     private fun setCurrentFragment(fragment: Fragment) =
         childFragmentManager.beginTransaction().apply {
@@ -269,16 +322,46 @@ class PosterBaseDashbordFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         //  binding!!.bottomNavView.getMenu().getItem(0).setChecked(true)
-        val fourthFragment = PostedProfileFragment()
-        if (binding!!.bottomNavView.selectedItemId == R.id.profileFragment) {
-            setCurrentFragment(fourthFragment)
-            binding!!.heading.text = "Profile"
-            //  binding!!.filter.visibility=View.GONE
-            binding!!.viewDashbord.visibility = View.INVISIBLE
-            binding!!.viewApplied.visibility = View.VISIBLE
-            binding!!.viewFav.visibility = View.INVISIBLE
-        }
+//        val fourthFragment = PostedProfileFragment()
+//        if (binding!!.bottomNavView.selectedItemId == R.id.profileFragment) {
+//            setCurrentFragment(fourthFragment)
+//            binding!!.heading.text = "Profile"
+//            //  binding!!.filter.visibility=View.GONE
+//            binding!!.viewDashbord.visibility = View.INVISIBLE
+//            binding!!.viewApplied.visibility = View.VISIBLE
+//            binding!!.viewFav.visibility = View.INVISIBLE
+//        }
 
+    }
+    private fun loadData() {
+        buttonList.clear()
+        for (i in 0..6) {
+            buttonList.add(FilterButtonData("10 km"))
+        }
+    }
+
+    private fun showBottomSheetDialog() {
+        val view: View = layoutInflater.inflate(R.layout.flter_screen_dialogue, null)
+        val dialog = BottomSheetDialog(requireActivity(), R.style.DialogCustomTheme)
+        dialog.setContentView(view)
+        rangeSlider = dialog.findViewById(R.id.rangeSlider)
+        rangeSlider!!.setLabelFormatter { value ->
+            val currencyFormat = NumberFormat.getCurrencyInstance()
+            currencyFormat.currency = Currency.getInstance("USD")
+            currencyFormat.format(value.toDouble())
+        }
+        loadData()
+        recyclerView = view.findViewById(R.id.recyclerView)
+        adapter = FilterButtonAdapter(buttonList, requireActivity())
+        recyclerView!!.setHasFixedSize(true)
+        recyclerView!!.layoutManager = GridLayoutManager(requireActivity(), 4)
+        recyclerView!!.adapter = adapter
+        dialog.show()
+    }
+
+    override fun onAttach(activity: Activity) {
+        super.onAttach(activity)
+        listener = context as CallFragmentInterface
     }
 
 
