@@ -1,4 +1,4 @@
-package com.softsolution.goseek.fragments.jobSeeker
+package com.softsolution.goseek.fragments.auth
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -34,6 +34,15 @@ class NewJobSeekerFragment : BaseFragment() {
 
         return binding!!.root
 
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        if(LocalPreference.shared.isCompany){
+            binding?.tvTitle?.text = "New Employer"
+        }else{
+            binding?.tvTitle?.text = "New Job Seeker"
+        }
     }
 
     fun onclick(view: View) {
@@ -105,9 +114,8 @@ class NewJobSeekerFragment : BaseFragment() {
                     val json = JSONObject(response ?: "")
                     val data = Gson().fromJson(json.toString(), User::class.java)
                     LocalPreference.shared.user = data
-
                     val navController = findNavController()
-                    navController.navigate(R.id.action_newJobSeekerFragment_to_emailVerificationFragment)
+                    navController.navigate(R.id.action_newJobSeekerFragment2_to_emailVerificationFragment2)
                 }
 
                 override fun onErrorResponse(error: String?, response: String?) {
@@ -132,11 +140,10 @@ class NewJobSeekerFragment : BaseFragment() {
                     val json = JSONObject(response ?: "")
                     val data = Gson().fromJson(json.toString(), User::class.java)
                     LocalPreference.shared.user = data
-                    Constants.login = true
                     LocalPreference.shared.isLogin = true
                     LocalPreference.shared.isCompany = true
                     val navController = findNavController()
-                    navController.navigate(R.id.action_newJobSeekerFragment_to_emailVerificationFragment)
+                    navController.navigate(R.id.action_newJobSeekerFragment2_to_emailVerificationFragment2)
                 }
 
                 override fun onErrorResponse(error: String?, response: String?) {

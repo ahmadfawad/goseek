@@ -1,6 +1,7 @@
-package com.softsolution.goseek.fragments.jobSeeker
+package com.softsolution.goseek.fragments.auth
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.findNavController
 import com.google.gson.Gson
 import com.softsolution.goseek.R
+import com.softsolution.goseek.activities.EmployerDashboard
+import com.softsolution.goseek.activities.UserDashboard
 import com.softsolution.goseek.base.BaseFragment
 import com.softsolution.goseek.databinding.FragmentEmailVerificationBinding
 import com.softsolution.goseek.model.User
@@ -80,11 +83,19 @@ class EmailVerificationFragment : BaseFragment() {
                 LocalPreference.shared.isLogin = true
                 Toast.makeText(mActivity, message, Toast.LENGTH_SHORT).show()
                 if (user.status == 1) {
-                    val navController = findNavController()
-                    navController.navigate(R.id.action_emailVerificationFragment_to_baseDashbordFragment)
+                    val intent = Intent(mActivity, UserDashboard::class.java)
+                    intent.flags =
+                        Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
+                    startActivity(intent)
+//                    val navController = findNavController()
+//                    navController.navigate(R.id.action_emailVerificationFragment_to_baseDashbordFragment)
                 } else {
-                    val navController = findNavController()
-                    navController.navigate(R.id.action_emailVerificationFragment_to_postJob)
+                    val intent = Intent(mActivity, EmployerDashboard::class.java)
+                    intent.flags =
+                        Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
+                    startActivity(intent)
+//                    val navController = findNavController()
+//                    navController.navigate(R.id.action_emailVerificationFragment_to_postJob)
 
                 }
             }

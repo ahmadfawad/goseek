@@ -1,4 +1,4 @@
-package com.softsolution.goseek.fragments.jobSeeker
+package com.softsolution.goseek.fragments.auth
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.findNavController
-import com.google.android.material.button.MaterialButton
 import com.softsolution.goseek.R
 import com.softsolution.goseek.base.BaseFragment
 import com.softsolution.goseek.databinding.FragmentEnterEmailBinding
@@ -57,7 +56,7 @@ class EnterEmailFragment : BaseFragment() {
                 hideLoading()
                 val navController = findNavController()
                 navController.popBackStack()
-                Toast.makeText(mActivity, "Password has been sent on your Email", Toast.LENGTH_SHORT).show()
+                Toast.makeText(mActivity, "Password has been sent to your Email", Toast.LENGTH_SHORT).show()
             }
 
             override fun onErrorResponse(error: String?, response: String?) {

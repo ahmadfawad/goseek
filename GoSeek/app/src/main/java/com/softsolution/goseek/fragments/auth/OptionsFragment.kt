@@ -1,4 +1,4 @@
-package com.softsolution.goseek.fragments.jobSeeker
+package com.softsolution.goseek.fragments.auth
 
 import android.graphics.Color
 import android.os.Bundle
@@ -16,14 +16,13 @@ import com.google.android.material.button.MaterialButton
 import com.softsolution.goseek.R
 import com.softsolution.goseek.databinding.FragmentOptionsBinding
 import com.softsolution.goseek.network.LocalPreference
-import com.softsolution.goseek.utils.Constants.Companion.login
 
 class OptionsFragment : Fragment(), View.OnClickListener {
     private var binding: FragmentOptionsBinding? = null
     var newUser: RadioButton? = null
-    var currentUser:RadioButton? = null
+    var currentUser: RadioButton? = null
     var userNew: MaterialButton? = null
-    var userCurrent:MaterialButton? = null
+    var userCurrent: MaterialButton? = null
     var dialog: BottomSheetDialog? = null
 
     override fun onCreateView(
@@ -32,14 +31,12 @@ class OptionsFragment : Fragment(), View.OnClickListener {
     ): View? {
 
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_options, container, false)
-        binding!!.setFragment(this)
+        binding!!.fragment = this
 
 
-        binding!!.existingUser.setBackgroundTintList(
-            ContextCompat.getColorStateList(
-                requireActivity(),
-                R.color.white
-            )
+        binding!!.existingUser.backgroundTintList = ContextCompat.getColorStateList(
+            requireActivity(),
+            R.color.white
         )
         binding!!.existingUser.setOnClickListener(this)
         binding!!.newUser.setOnClickListener(this)
@@ -52,18 +49,19 @@ class OptionsFragment : Fragment(), View.OnClickListener {
 
     override fun onClick(view: View?) {
 
-       val navController = findNavController()
+        val navController = findNavController()
         when (view?.id) {
             R.id.radia_id1 -> {
                 currentUser!!.isChecked = false
                 newUser!!.isChecked = true
+                LocalPreference.shared.isCompany = false
                 newUser!!.setTextColor(Color.parseColor("#F87062"))
                 currentUser!!.setTextColor(Color.parseColor("#080808"))
                 // startActivity(Intent(getApplicationContext(), JobSeekerProfileActivity::class.java))
 
                 Handler().postDelayed({
                     dialog!!.dismiss()
-                    navController.navigate(R.id.action_optionsFragment_to_newJobSeekerFragment)
+                    navController.navigate(R.id.action_optionsFragment2_to_newJobSeekerFragment2)
                 }, 750)
 
             }
@@ -76,7 +74,7 @@ class OptionsFragment : Fragment(), View.OnClickListener {
                 // startActivity(Intent(getApplicationContext(), NewJobSeekerActivity::class.java))
                 Handler().postDelayed({
                     dialog!!.dismiss()
-                    navController.navigate(R.id.action_optionsFragment_to_newJobSeekerFragment)
+                    navController.navigate(R.id.action_optionsFragment2_to_newJobSeekerFragment2)
 //                    navController.navigate(R.id.action_optionsFragment_to_newJobPosterFragment)
                 }, 750)
 
@@ -101,21 +99,17 @@ class OptionsFragment : Fragment(), View.OnClickListener {
                 //navController.navigate(R.id.action_optionsFragment_to_newJobSeekerFragment)
             }
             R.id.existingUser -> {
-                binding!!.existingUser.setBackgroundTintList(
-                    ContextCompat.getColorStateList(
-                        requireContext(),
-                        R.color.white
-                    )
+                binding!!.existingUser.backgroundTintList = ContextCompat.getColorStateList(
+                    requireContext(),
+                    R.color.white
                 )
                 binding!!.existingUser.setTextColor(Color.parseColor("#080808"))
-                binding!!.newUser.setBackgroundTintList(
-                    ContextCompat.getColorStateList(
-                        requireContext(),
-                        R.color.transparent
-                    )
+                binding!!.newUser.backgroundTintList = ContextCompat.getColorStateList(
+                    requireContext(),
+                    R.color.transparent
                 )
                 binding!!.newUser.setTextColor(Color.parseColor("#FFFFFFFF"))
-                navController.navigate(R.id.action_optionsFragment_to_loginFragment)
+                navController.navigate(R.id.action_optionsFragment2_to_loginFragment2)
                 //startActivity(Intent(getApplicationContext(), DashbordActivity::class.java))
             }
         }

@@ -8,6 +8,7 @@ import com.softsolution.goseek.Interface.CallFragmentInterface
 import com.softsolution.goseek.R
 import com.softsolution.goseek.base.BaseActivity
 import com.softsolution.goseek.databinding.ActivityAuthBinding
+import com.softsolution.goseek.utils.Constants
 
 class Auth : BaseActivity(), CallFragmentInterface {
     private lateinit var binding: ActivityAuthBinding
@@ -20,15 +21,18 @@ class Auth : BaseActivity(), CallFragmentInterface {
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.fragmentContainer) as NavHostFragment
         navController = navHostFragment.navController
-
-
+        val inflater = navHostFragment.navController.navInflater
+        val graph = inflater.inflate(R.navigation.auth_nav)
+        if (Constants.login) {
+            Constants.login = false
+            graph.startDestination = R.id.loginFragment2
+            navHostFragment.navController.graph = graph
+        } else {
+            graph.startDestination = R.id.optionsFragment2
+            navHostFragment.navController.graph = graph
+        }
     }
 
     override fun passFragmentCallback(name: String) {
-        when (name) {
-            "login" -> {
-
-            }
-        }
     }
 }

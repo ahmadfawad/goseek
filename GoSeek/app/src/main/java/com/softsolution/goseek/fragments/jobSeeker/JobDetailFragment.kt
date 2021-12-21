@@ -24,7 +24,8 @@ import com.softsolution.goseek.databinding.FragmentJobDetailBinding
 import com.softsolution.goseek.fragments.MapsFragment
 import com.softsolution.goseek.model.jobSeekerModel.DashbordData
 import com.softsolution.goseek.model.jobSeekerModel.ReviewModel
-import com.softsolution.goseek.utils.Constants.Companion.login
+import com.softsolution.goseek.network.LocalPreference
+
 import java.util.*
 
 class JobDetailFragment : Fragment() {
@@ -67,7 +68,7 @@ class JobDetailFragment : Fragment() {
             }
 
             R.id.apply -> {
-                if (login == true) {
+                if (LocalPreference.shared.isLogin) {
                     userApply()
                 } else {
                     val navController = findNavController()

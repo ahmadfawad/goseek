@@ -50,6 +50,17 @@ class PostedDashbordFragment : BaseFragment(), PostedAdapter.JobDetail {
 
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding?.refreshView?.setOnRefreshListener {
+            jobListing(
+                LocalPreference.shared.user?.MemberId.toString(),
+                LocalPreference.shared.user?.status ?: 0,
+                0
+            )
+        }
+    }
+
     override fun onResume() {
         super.onResume()
         jobListing(
@@ -61,7 +72,7 @@ class PostedDashbordFragment : BaseFragment(), PostedAdapter.JobDetail {
 
 
     private fun jobListing(memberId: String, status: Int, page: Int) {
-        showLoading()
+   binding?.refreshView?.isRefreshing = true
         NetworkClass.callApi(URLApi.companyJobList(memberId, status, page), object : Response {
             override fun onSuccessResponse(response: String?, message: String) {
                 hideLoading()
@@ -69,11 +80,12 @@ class PostedDashbordFragment : BaseFragment(), PostedAdapter.JobDetail {
                 dashbordList?.clear()
                 dashbordList?.addAll(data)
                 adapter?.notifyDataSetChanged()
+                binding?.refreshView?.isRefreshing = false
             }
 
             override fun onErrorResponse(error: String?, response: String?) {
-                hideLoading()
                 Toast.makeText(mActivity, error ?: "", Toast.LENGTH_SHORT).show()
+                binding?.refreshView?.isRefreshing = false
             }
 
         })

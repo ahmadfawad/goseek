@@ -3,18 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/go_seek_employer_nav"
-    app:startDestination="@id/postedDashbordFragment">
+    app:startDestination="@id/posterBaseDashbordFragment2">
 
-    <fragment
-        android:id="@+id/postedDashbordFragment"
-        android:name="com.softsolution.goseek.fragments.jobPoster.PostedDashbordFragment"
-        android:label="PostedDashbordFragment"
-        tools:layout="@layout/fragment_posted_dashbord" />
+
     <fragment
         android:id="@+id/posterBaseDashbordFragment2"
         android:name="com.softsolution.goseek.fragments.jobPoster.PosterBaseDashbordFragment"
         android:label="PosterBaseDashbordFragment"
         tools:layout="@layout/fragment_poster_base_dashbord" />
+    <fragment
+        android:id="@+id/postedDashbordFragment"
+        android:name="com.softsolution.goseek.fragments.jobPoster.PostedDashbordFragment"
+        android:label="PostedDashbordFragment"
+        tools:layout="@layout/fragment_posted_dashbord" />
     <fragment
         android:id="@+id/newJobFragment"
         android:name="com.softsolution.goseek.fragments.jobPoster.NewJobFragment"

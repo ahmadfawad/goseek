@@ -119,7 +119,7 @@
     </fragment>
     <fragment
         android:id="@+id/optionsFragment"
-        android:name="com.softsolution.goseek.fragments.jobSeeker.OptionsFragment"
+        android:name="com.softsolution.goseek.fragments.auth.OptionsFragment"
         android:label="OptionsFragment">
         <action
             android:id="@+id/action_optionsFragment_to_newJobSeekerFragment"
@@ -148,7 +148,7 @@
     </fragment>
     <fragment
         android:id="@+id/newJobSeekerFragment"
-        android:name="com.softsolution.goseek.fragments.jobSeeker.NewJobSeekerFragment"
+        android:name="com.softsolution.goseek.fragments.auth.NewJobSeekerFragment"
         android:label="NewJobSeekerFragment">
         <action
             android:id="@+id/action_newJobSeekerFragment_to_emailVerificationFragment"
@@ -169,7 +169,7 @@
     </fragment>
     <fragment
         android:id="@+id/emailVerificationFragment"
-        android:name="com.softsolution.goseek.fragments.jobSeeker.EmailVerificationFragment"
+        android:name="com.softsolution.goseek.fragments.auth.EmailVerificationFragment"
         android:label="EmailVerificationFragment">
         <action
             android:id="@+id/action_emailVerificationFragment_to_baseDashbordFragment"
@@ -188,7 +188,7 @@
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.softsolution.goseek.fragments.jobSeeker.LoginFragment"
+        android:name="com.softsolution.goseek.fragments.auth.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login">
         <action
@@ -379,7 +379,7 @@
         android:label="CompanyLocationFragment" />
     <fragment
         android:id="@+id/enterEmailragmengt"
-        android:name="com.softsolution.goseek.fragments.jobSeeker.EnterEmailFragment"
+        android:name="com.softsolution.goseek.fragments.auth.EnterEmailFragment"
         android:label="EnterEmailFragment" />
     <fragment
         android:id="@+id/postedDashboardFragment"

@@ -4,7 +4,7 @@
     <data>
         <variable
             name="fragment"
-            type="com.softsolution.goseek.fragments.jobSeeker.EmailVerificationFragment" />
+            type="com.softsolution.goseek.fragments.auth.EmailVerificationFragment" />
     </data>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"

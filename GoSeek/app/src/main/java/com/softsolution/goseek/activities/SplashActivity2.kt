@@ -2,12 +2,12 @@ package com.softsolution.goseek.activities
 
 import android.content.Intent
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.view.View
 import android.view.Window
 import android.view.WindowManager
+import androidx.appcompat.app.AppCompatActivity
 import com.softsolution.goseek.R
 
 class SplashActivity2 : AppCompatActivity() {
@@ -28,11 +28,11 @@ class SplashActivity2 : AppCompatActivity() {
             // This method will be executed once the timer is over
             // Start your app main activity
 
-            startActivity(Intent(this,MainActivity::class.java))
+            startActivity(Intent(this, UserDashboard::class.java))
 
             // close this activity
             finish()
-        },SPLASH_TIME_OUT)
+        }, SPLASH_TIME_OUT)
     }
 
     fun FullScreencall() {
@@ -42,12 +42,13 @@ class SplashActivity2 : AppCompatActivity() {
         } else if (Build.VERSION.SDK_INT >= 19) {
             //for new api versions.
             val decorView = window.decorView
-            val uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+            val uiOptions =
+                View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
             decorView.systemUiVisibility = uiOptions
         }
     }
 
     companion object {
-        private const val SPLASH_TIME_OUT:Long=3000
+        private const val SPLASH_TIME_OUT: Long = 3000
     }
 }

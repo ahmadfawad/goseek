@@ -11,6 +11,11 @@
         android:label="BaseDashbordFragment"
         tools:layout="@layout/fragment_base_dashbord" />
     <fragment
+        android:id="@+id/dashbordFragment2"
+        android:name="com.softsolution.goseek.fragments.jobSeeker.DashbordFragment"
+        android:label="DashbordFragment"
+        tools:layout="@layout/fragment_dashbord"/>
+    <fragment
         android:id="@+id/myProfileFragment2"
         android:name="com.softsolution.goseek.fragments.jobSeeker.MyProfileFragment"
         android:label="MyProfileFragment"
@@ -40,4 +45,5 @@
         android:name="com.softsolution.goseek.fragments.jobSeeker.AppliedFragment"
         android:label="AppliedFragment"
         tools:layout="@layout/fragment_applied" />
+
 </navigation>

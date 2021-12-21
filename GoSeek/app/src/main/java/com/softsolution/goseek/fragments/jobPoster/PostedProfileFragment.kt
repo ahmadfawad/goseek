@@ -1,6 +1,7 @@
 package com.softsolution.goseek.fragments.jobPoster
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,11 +12,13 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.softsolution.goseek.Interface.CallFragmentInterface
 import com.softsolution.goseek.R
+import com.softsolution.goseek.activities.Auth
+import com.softsolution.goseek.base.BaseFragment
 import com.softsolution.goseek.databinding.FragmentPostedProfileBinding
 import com.softsolution.goseek.network.LocalPreference
 
 
-class PostedProfileFragment : Fragment() {
+class PostedProfileFragment : BaseFragment() {
     var listener: CallFragmentInterface? = null
     private var binding: FragmentPostedProfileBinding? = null
     var no: Button? = null
@@ -70,7 +73,8 @@ class PostedProfileFragment : Fragment() {
                 }
                 yes.setOnClickListener {
                     LocalPreference.shared.removeAll()
-                    requireActivity().finishAndRemoveTask()
+                    startActivity(Intent(mActivity, Auth::class.java))
+                    mActivity.finish()
                 }
 
 

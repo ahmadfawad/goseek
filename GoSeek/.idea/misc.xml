@@ -4,10 +4,13 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Fawad/goseek/GoSeek/app/src/main/res/layout/activity_auth.xml" value="0.12631578947368421" />
+        <entry key="..\:/Fawad/goseek/GoSeek/app/src/main/res/layout/activity_employer_dashboard.xml" value="0.12631578947368421" />
         <entry key="..\:/Fawad/goseek/GoSeek/app/src/main/res/layout/activity_main.xml" value="0.12631578947368421" />
         <entry key="..\:/Fawad/goseek/GoSeek/app/src/main/res/layout/activity_splash2.xml" value="0.12631578947368421" />
+        <entry key="..\:/Fawad/goseek/GoSeek/app/src/main/res/layout/activity_user_dashboard.xml" value="0.12631578947368421" />
         <entry key="..\:/Fawad/goseek/GoSeek/app/src/main/res/layout/dashbord_vh.xml" value="0.12631578947368421" />
         <entry key="..\:/Fawad/goseek/GoSeek/app/src/main/res/layout/fragment_base_dashbord.xml" value="0.12631578947368421" />
+        <entry key="..\:/Fawad/goseek/GoSeek/app/src/main/res/layout/fragment_bottom_sheet.xml" value="0.12631578947368421" />
         <entry key="..\:/Fawad/goseek/GoSeek/app/src/main/res/layout/fragment_company_location.xml" value="0.12631578947368421" />
         <entry key="..\:/Fawad/goseek/GoSeek/app/src/main/res/layout/fragment_dashbord.xml" value="0.12631578947368421" />
         <entry key="..\:/Fawad/goseek/GoSeek/app/src/main/res/layout/fragment_edit_company_profile.xml" value="0.12631578947368421" />

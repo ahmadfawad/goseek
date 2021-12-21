@@ -1,6 +1,7 @@
 package com.softsolution.goseek.fragments.jobSeeker
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,13 +10,14 @@ import android.widget.Button
 import android.widget.ImageButton
 import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.Fragment
 import com.softsolution.goseek.Interface.CallFragmentInterface
 import com.softsolution.goseek.R
+import com.softsolution.goseek.activities.Auth
+import com.softsolution.goseek.base.BaseFragment
 import com.softsolution.goseek.databinding.FragmentProfileBinding
 import com.softsolution.goseek.network.LocalPreference
 
-class ProfileFragment : Fragment() {
+class ProfileFragment : BaseFragment() {
     var listener: CallFragmentInterface? = null
     private var binding: FragmentProfileBinding? = null
     var no: Button? = null
@@ -75,7 +77,8 @@ class ProfileFragment : Fragment() {
                 }
                 yes.setOnClickListener {
                     LocalPreference.shared.removeAll()
-                    requireActivity().finishAndRemoveTask()
+                    startActivity(Intent(mActivity, Auth::class.java))
+                    mActivity.finish()
                 }
 
 

@@ -1,5 +1,6 @@
-package com.softsolution.goseek.fragments.jobSeeker
+package com.softsolution.goseek.fragments.auth
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.findNavController
 import com.google.gson.Gson
 import com.softsolution.goseek.R
+import com.softsolution.goseek.activities.EmployerDashboard
+import com.softsolution.goseek.activities.UserDashboard
 import com.softsolution.goseek.base.BaseFragment
 import com.softsolution.goseek.databinding.FragmentLoginBinding
 import com.softsolution.goseek.model.User
@@ -16,7 +19,6 @@ import com.softsolution.goseek.network.LocalPreference
 import com.softsolution.goseek.network.NetworkClass
 import com.softsolution.goseek.network.Response
 import com.softsolution.goseek.network.URLApi
-import com.softsolution.goseek.utils.Constants
 import org.json.JSONObject
 
 
@@ -25,7 +27,7 @@ class LoginFragment : BaseFragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
 
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_login, container, false)
@@ -41,7 +43,7 @@ class LoginFragment : BaseFragment() {
 
             R.id.forgetPassword -> {
                 val navController = findNavController()
-                navController.navigate(R.id.action_loginFragment_to_enterEmail)
+                navController.navigate(R.id.action_loginFragment2_to_enterEmailFragment)
             }
 
             R.id.login -> {
@@ -66,7 +68,7 @@ class LoginFragment : BaseFragment() {
             }
             R.id.tvNewUser -> {
                 val navController = findNavController()
-                navController.navigate(R.id.action_loginFragment_to_ResgisterUser)
+                navController.navigate(R.id.action_loginFragment2_to_newJobSeekerFragment2)
             }
         }
     }
@@ -79,18 +81,25 @@ class LoginFragment : BaseFragment() {
                 val json = JSONObject(response ?: "")
                 val data = Gson().fromJson(json.toString(), User::class.java)
                 LocalPreference.shared.user = data
-                Constants.login = true
                 LocalPreference.shared.isLogin = true
-                if (data.IsVerify==false) {
+                if (data.IsVerify == false) {
                     val navController = findNavController()
-                    navController.navigate(R.id.actionLoginFragmenttoOtpVerification)
+                    navController.navigate(R.id.action_loginFragment2_to_emailVerificationFragment2)
                 } else {
                     if (data.status == 1) {
-                        val navController = findNavController()
-                        navController.navigate(R.id.action_loginFragment_to_baseDashbordFragment)
+                        val intent = Intent(mActivity, UserDashboard::class.java)
+                        intent.flags =
+                            Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
+                        startActivity(intent)
+//                        val navController = findNavController()
+//                        navController.navigate(R.id.action_loginFragment_to_baseDashbordFragment)
                     } else {
-                        val navController = findNavController()
-                        navController.navigate(R.id.action_loginFragment_to_companyDashboard)
+                        val intent = Intent(mActivity, EmployerDashboard::class.java)
+                        intent.flags =
+                            Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
+                        startActivity(intent)
+//                        val navController = findNavController()
+//                        navController.navigate(R.id.action_loginFragment_to_companyDashboard)
                     }
                 }
             }

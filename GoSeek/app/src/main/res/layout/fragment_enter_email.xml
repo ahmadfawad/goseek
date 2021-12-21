@@ -5,14 +5,14 @@
 
         <variable
             name="fragment"
-            type="com.softsolution.goseek.fragments.jobSeeker.EnterEmailFragment" />
+            type="com.softsolution.goseek.fragments.auth.EnterEmailFragment" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".fragments.jobSeeker.EnterEmailFragment">
+        tools:context=".fragments.auth.EnterEmailFragment">
 
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/appBarLayout"

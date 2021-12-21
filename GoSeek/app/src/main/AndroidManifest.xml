@@ -25,6 +25,12 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
         <activity
+            android:name=".activities.EmployerDashboard"
+            android:exported="false" />
+        <activity
+            android:name=".activities.UserDashboard"
+            android:exported="false" />
+        <activity
             android:name=".activities.Auth"
             android:exported="false" />
 

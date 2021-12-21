@@ -29,17 +29,19 @@ import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
 import com.softsolution.goseek.Interface.CallFragmentInterface
 import com.softsolution.goseek.R
+import com.softsolution.goseek.activities.Auth
 import com.softsolution.goseek.adapter.PageAdapter
 import com.softsolution.goseek.adapter.jobSeekerAdapter.FilterButtonAdapter
+import com.softsolution.goseek.base.BaseFragment
 import com.softsolution.goseek.databinding.FragmentBaseDashbordBinding
 import com.softsolution.goseek.model.jobSeekerModel.FilterButtonData
 import com.softsolution.goseek.network.LocalPreference
-import com.softsolution.goseek.utils.Constants
+import com.softsolution.goseek.utils.Constants.Companion.login
 import java.text.NumberFormat
 import java.util.*
 
 
-class BaseDashbordFragment : Fragment()
+class BaseDashbordFragment : BaseFragment()
 //    ,NavigationView.OnNavigationItemSelectedListener
 {
     private var binding: FragmentBaseDashbordBinding? = null
@@ -274,7 +276,8 @@ class BaseDashbordFragment : Fragment()
                          binding!!.viewProfile.setVisibility(View.INVISIBLE)*/
                         //          binding!!.bottomNavView.menu.getItem(2).setChecked(true)
                     } else {
-                        listener?.passFragmentCallback("register")
+                        login = true
+                        startActivity(Intent(mActivity, Auth::class.java))
                     }
                 }
                 R.id.shareApp -> {
