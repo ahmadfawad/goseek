@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment
 import com.softsolution.goseek.Interface.CallFragmentInterface
 import com.softsolution.goseek.R
 import com.softsolution.goseek.activities.Auth
+import com.softsolution.goseek.activities.SplashActivity2
 import com.softsolution.goseek.base.BaseFragment
 import com.softsolution.goseek.databinding.FragmentPostedProfileBinding
 import com.softsolution.goseek.network.LocalPreference
@@ -50,7 +51,7 @@ class PostedProfileFragment : BaseFragment() {
             }
 
             R.id.changePassword -> {
-                listener?.passFragmentCallback("editPassword")
+                listener?.passFragmentCallback("changePassword")
             }
 
             R.id.location -> {
@@ -73,7 +74,7 @@ class PostedProfileFragment : BaseFragment() {
                 }
                 yes.setOnClickListener {
                     LocalPreference.shared.removeAll()
-                    startActivity(Intent(mActivity, Auth::class.java))
+                    startActivity(Intent(mActivity, SplashActivity2::class.java))
                     mActivity.finish()
                 }
 

@@ -43,6 +43,10 @@ class MyProfileFragment : BaseFragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_my_profile, container, false)
         binding!!.fragment = this
 
+        binding?.etName?.setText(LocalPreference.shared.user?.Name)
+        binding?.etEmail?.setText(LocalPreference.shared.user?.Email)
+        binding?.etPhoneNumber?.setText(LocalPreference.shared.user?.Phone)
+
         return binding!!.root
     }
 
@@ -67,9 +71,7 @@ class MyProfileFragment : BaseFragment() {
             picker.setStyle(DialogFragment.STYLE_NORMAL, R.style.countrypicker_style)
             picker.show(requireActivity().supportFragmentManager, "Select Country")
 
-            binding?.etName?.setText(LocalPreference.shared.user?.Name)
-            binding?.etEmail?.setText(LocalPreference.shared.user?.Email)
-            binding?.etPhoneNumber?.setText(LocalPreference.shared.user?.Phone)
+
             binding?.btnUpdate?.setOnClickListener {
                 editProfile(
                     binding?.etName?.editableText.toString().trim(),

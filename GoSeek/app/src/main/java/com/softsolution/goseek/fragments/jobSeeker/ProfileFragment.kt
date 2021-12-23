@@ -13,9 +13,11 @@ import androidx.databinding.DataBindingUtil
 import com.softsolution.goseek.Interface.CallFragmentInterface
 import com.softsolution.goseek.R
 import com.softsolution.goseek.activities.Auth
+import com.softsolution.goseek.activities.SplashActivity2
 import com.softsolution.goseek.base.BaseFragment
 import com.softsolution.goseek.databinding.FragmentProfileBinding
 import com.softsolution.goseek.network.LocalPreference
+import com.softsolution.goseek.utils.Constants
 
 class ProfileFragment : BaseFragment() {
     var listener: CallFragmentInterface? = null
@@ -36,11 +38,12 @@ class ProfileFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding?.tvName?.text = LocalPreference.shared.user?.Name
-        if(!LocalPreference.shared.isLogin){
+        if (!LocalPreference.shared.isLogin) {
             binding?.llProfile?.visibility = View.GONE
-        }
-        else{
+            binding?.llLogin?.visibility = View.VISIBLE
+        } else {
             binding?.llProfile?.visibility = View.VISIBLE
+            binding?.llLogin?.visibility = View.GONE
         }
     }
 
@@ -60,6 +63,14 @@ class ProfileFragment : BaseFragment() {
 
             R.id.location -> {
                 listener?.passFragmentCallback("location")
+            }
+            R.id.tvRegister -> {
+                Constants.login = false
+                startActivity(Intent(mActivity, Auth::class.java))
+            }
+            R.id.tvLogin -> {
+                Constants.login = true
+                startActivity(Intent(mActivity, Auth::class.java))
             }
 
             R.id.signout -> {
@@ -83,7 +94,7 @@ class ProfileFragment : BaseFragment() {
                 }
                 yes.setOnClickListener {
                     LocalPreference.shared.removeAll()
-                    startActivity(Intent(mActivity, Auth::class.java))
+                    startActivity(Intent(mActivity, SplashActivity2::class.java))
                     mActivity.finish()
                 }
 

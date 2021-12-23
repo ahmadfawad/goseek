@@ -33,6 +33,14 @@ class ForgetPasswordFragment : BaseFragment() {
 
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.back.setOnClickListener {
+            val navController = findNavController()
+            navController.popBackStack()
+        }
+    }
+
 
     fun onclick(view: View) {
         when (view?.id) {
@@ -64,10 +72,7 @@ class ForgetPasswordFragment : BaseFragment() {
                     }
                 }
             }
-            R.id.back -> {
-                val navController = findNavController()
-                navController.popBackStack()
-            }
+
         }
     }
 

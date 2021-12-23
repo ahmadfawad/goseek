@@ -24,7 +24,6 @@ class Auth : BaseActivity(), CallFragmentInterface {
         val inflater = navHostFragment.navController.navInflater
         val graph = inflater.inflate(R.navigation.auth_nav)
         if (Constants.login) {
-            Constants.login = false
             graph.startDestination = R.id.loginFragment2
             navHostFragment.navController.graph = graph
         } else {

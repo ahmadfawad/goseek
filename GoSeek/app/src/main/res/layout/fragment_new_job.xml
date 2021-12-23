@@ -119,11 +119,10 @@
                         android:drawableTint="@color/hint"
                         android:fontFamily="@font/roboto_regular"
                         android:paddingStart="0dp"
-                        android:inputType="number"
+                        android:inputType="numberDecimal"
                         android:imeOptions="actionDone"
                         android:paddingEnd="0dp"
                         android:textColor="@color/black"
-
                         />
 
                 </com.google.android.material.textfield.TextInputLayout>

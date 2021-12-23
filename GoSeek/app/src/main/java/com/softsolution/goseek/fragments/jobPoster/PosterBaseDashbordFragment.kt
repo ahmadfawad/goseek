@@ -88,16 +88,19 @@ class PosterBaseDashbordFragment : BaseFragment() {
             override fun onTabSelected(tab: TabLayout.Tab) {
                 when (tab.position) {
                     0 -> {
+                        binding?.tvHeading?.text = "All Jobs"
                         tab.setIcon(R.drawable.ic_alljob_red)
                         binding!!.tabLayout.getTabAt(1)?.setIcon(R.drawable.ic_newjob_grey)
                         binding!!.tabLayout.getTabAt(2)?.setIcon(R.drawable.ic_user)
                     }
                     1 -> {
+                        binding?.tvHeading?.text = "Add New Job"
                         tab.setIcon(R.drawable.ic_newjob_red)
                         binding!!.tabLayout.getTabAt(0)?.setIcon(R.drawable.ic_alljob_grey)
                         binding!!.tabLayout.getTabAt(2)?.setIcon(R.drawable.ic_user)
                     }
                     2 -> {
+                        binding?.tvHeading?.text = "Profile"
                         tab.setIcon(R.drawable.ic_user_red)
                         binding!!.tabLayout.getTabAt(0)?.setIcon(R.drawable.ic_alljob_grey)
                         binding!!.tabLayout.getTabAt(1)?.setIcon(R.drawable.ic_newjob_grey)
@@ -197,9 +200,10 @@ class PosterBaseDashbordFragment : BaseFragment() {
             when (it.itemId) {
                 R.id.allJob -> {
                     if (LocalPreference.shared.isLogin) {
+                        binding?.tvHeading?.text = "All Jobs"
                         // setCurrentFragment(secondFragment)
-                        binding!!.tabLayout.getTabAt(1)?.select()
-                        binding!!.frameLayout.currentItem = 1
+                        binding!!.tabLayout.getTabAt(0)?.select()
+                        binding!!.frameLayout.currentItem = 0
                         binding!!.filter.visibility = View.GONE
                         /*    binding!!.viewDashbord.setVisibility(View.INVISIBLE)
                             binding!!.viewApplied.setVisibility(View.INVISIBLE)
@@ -213,9 +217,10 @@ class PosterBaseDashbordFragment : BaseFragment() {
                 }
                 R.id.addNewJob -> {
                     if (LocalPreference.shared.isLogin) {
+                        binding?.tvHeading?.text = "Add New Job"
                         //setCurrentFragment(thirdFragment)
-                        binding!!.tabLayout.getTabAt(2)?.select()
-                        binding!!.frameLayout.currentItem = 2
+                        binding!!.tabLayout.getTabAt(1)?.select()
+                        binding!!.frameLayout.currentItem = 1
                         binding!!.filter.visibility = View.GONE
                         /* binding!!.viewDashbord.setVisibility(View.INVISIBLE)
                          binding!!.viewApplied.setVisibility(View.VISIBLE)

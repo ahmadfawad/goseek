@@ -21,7 +21,7 @@ import com.softsolution.goseek.network.Response
 import com.softsolution.goseek.network.URLApi
 import java.util.*
 
-class PostedDashbordFragment : BaseFragment(), PostedAdapter.JobDetail {
+class PostedDashbordFragment : BaseFragment() {
     private var binding: FragmentPostedDashbordBinding? = null
     private var dashbordList: ArrayList<PostedData>? = null
     private var adapter: PostedAdapter? = null
@@ -35,7 +35,7 @@ class PostedDashbordFragment : BaseFragment(), PostedAdapter.JobDetail {
         binding!!.fragment = this
 
         dashbordList = ArrayList<PostedData>()
-        adapter = PostedAdapter(dashbordList!!, mActivity, this)
+        adapter = PostedAdapter(dashbordList!!, mActivity)
         binding?.recyclerView?.layoutManager =
             LinearLayoutManager(mActivity, RecyclerView.VERTICAL, false)
         binding?.recyclerView?.adapter = adapter
@@ -91,14 +91,6 @@ class PostedDashbordFragment : BaseFragment(), PostedAdapter.JobDetail {
         })
     }
 
-    override fun jobDetail(jobDetails: PostedData) {
-        val navController = findNavController()
-        navController.navigate(R.id.action_postedDashboardFragment_to_posterJobDetailFragment)
-        navController.navigate(
-            PostedDashbordFragmentDirections.actionPostedDashboardFragmentToPosterJobDetailFragment(
-                jobDetails
-            )
-        )
-    }
+
 
 }

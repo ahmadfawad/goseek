@@ -52,10 +52,10 @@ class PosterJobDetailFragment : BaseFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments.let {
-            var args = PosterJobDetailFragmentArgs.fromBundle(it!!)
-            jobDetail = args.jobDetail
-        }
+//        arguments.let {
+//            var args = PosterJobDetailFragmentArgs.fromBundle(it!!)
+//            jobDetail = args.jobDetail
+//        }
     }
 
     override fun onCreateView(

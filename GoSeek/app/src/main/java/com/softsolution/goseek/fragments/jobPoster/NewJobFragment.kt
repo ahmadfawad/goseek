@@ -39,12 +39,12 @@ class NewJobFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding?.etWages?.onFocusChangeListener =
-            View.OnFocusChangeListener { v, hasFocus ->
-                if (hasFocus)
-                    binding?.etWages?.setText("$")
-                binding?.etWages?.setSelection(1)
-            }
+//        binding?.etWages?.onFocusChangeListener =
+//            View.OnFocusChangeListener { v, hasFocus ->
+//                if (hasFocus)
+//                    binding?.etWages?.setText("$")
+//                binding?.etWages?.setSelection(1)
+//            }
 //        binding?.etWages?.addTextChangedListener(object : TextWatcher {
 //            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
 //

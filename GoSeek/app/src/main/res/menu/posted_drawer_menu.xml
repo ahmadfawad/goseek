@@ -16,7 +16,7 @@
             android:id="@+id/addNewJob"
             android:enabled="true"
             android:iconTint="@color/white"
-            android:title="Add New Jobs"
+            android:title="Add New Job"
             app:showAsAction="ifRoom"
             android:icon="@drawable/ic_heart_white"/>
 

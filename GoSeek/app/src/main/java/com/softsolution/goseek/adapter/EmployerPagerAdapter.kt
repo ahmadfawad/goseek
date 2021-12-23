@@ -17,18 +17,18 @@ class EmployerPagerAdapter (fm: FragmentManager) : FragmentPagerAdapter(fm) {
     }
 
     override fun getItem(position: Int): Fragment {
-        when(position) {
+        return when(position) {
             0 -> {
-                return PostedDashbordFragment()
+                PostedDashbordFragment()
             }
             1 -> {
-                return NewJobFragment()
+                NewJobFragment()
             }
             2->{
-                return PostedProfileFragment()
+                PostedProfileFragment()
             }
             else -> {
-                return PostedDashbordFragment()
+                PostedDashbordFragment()
             }
         }
     }

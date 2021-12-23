@@ -19,6 +19,7 @@ import com.softsolution.goseek.network.LocalPreference
 import com.softsolution.goseek.network.NetworkClass
 import com.softsolution.goseek.network.Response
 import com.softsolution.goseek.network.URLApi
+import com.softsolution.goseek.utils.Constants
 import org.json.JSONObject
 
 
@@ -33,9 +34,19 @@ class LoginFragment : BaseFragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_login, container, false)
         binding!!.fragment = this
 
-
+        if(Constants.login){
+            binding?.back?.visibility = View.GONE
+        }
+        else{
+            binding?.back?.visibility = View.VISIBLE
+        }
 
         return binding!!.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
     }
 
     fun onclick(view: View) {

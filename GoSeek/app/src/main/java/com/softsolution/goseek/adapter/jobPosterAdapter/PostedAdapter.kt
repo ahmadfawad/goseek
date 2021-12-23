@@ -18,8 +18,8 @@ import java.util.*
 
 class PostedAdapter(
     private val list: ArrayList<PostedData>,
-    private val context: Context,
-    var jobListener: JobDetail
+    private val context: Context
+//    var jobListener: JobDetail
 ) : RecyclerView.Adapter<PostedAdapter.ViewHolder>() {
 
     var listener: CallFragmentInterface? = null
@@ -74,10 +74,10 @@ class PostedAdapter(
             }
 
             itemView.setOnClickListener {
-                jobListener.jobDetail(dashbordData)
+//                jobListener.jobDetail(dashbordData)
                 //  callbackInterface.passResultCallback()
-//                listener = context as CallFragmentInterface
-//                listener?.passFragmentCallback("postedJobDetail")
+                listener = context as CallFragmentInterface
+                listener?.passFragmentCallback("postedJobDetail")
 
             }
 

@@ -138,24 +138,28 @@ class BaseDashbordFragment : BaseFragment()
             override fun onTabSelected(tab: TabLayout.Tab) {
                 when (tab.position) {
                     0 -> {
+                        headingTextChange("New Job Seeker","Dashboard")
                         tab.setIcon(R.drawable.ic_home_red)
                         binding!!.tabLayout.getTabAt(1)?.setIcon(R.drawable.ic_heart_grey)
                         binding!!.tabLayout.getTabAt(2)?.setIcon(R.drawable.ic_applied)
                         binding!!.tabLayout.getTabAt(3)?.setIcon(R.drawable.ic_user)
                     }
                     1 -> {
+                        headingTextChange("New Job Seeker","Favourite Jobs")
                         tab.setIcon(R.drawable.ic_fill_heart)
                         binding!!.tabLayout.getTabAt(0)?.setIcon(R.drawable.ic_house)
                         binding!!.tabLayout.getTabAt(2)?.setIcon(R.drawable.ic_applied)
                         binding!!.tabLayout.getTabAt(3)?.setIcon(R.drawable.ic_user)
                     }
                     2 -> {
+                        headingTextChange("New Job Seeker","Applied Jobs")
                         tab.setIcon(R.drawable.ic_applied_red)
                         binding!!.tabLayout.getTabAt(0)?.setIcon(R.drawable.ic_house)
                         binding!!.tabLayout.getTabAt(1)?.setIcon(R.drawable.ic_heart_grey)
                         binding!!.tabLayout.getTabAt(3)?.setIcon(R.drawable.ic_user)
                     }
                     3 -> {
+                        headingTextChange("New Job Seeker","Profile")
                         tab.setIcon(R.drawable.ic_user_red)
                         binding!!.tabLayout.getTabAt(0)?.setIcon(R.drawable.ic_house)
                         binding!!.tabLayout.getTabAt(1)?.setIcon(R.drawable.ic_heart_grey)
@@ -170,6 +174,11 @@ class BaseDashbordFragment : BaseFragment()
         return binding!!.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+            headingTextChange("New Job Seeker","Dashboard")
+    }
+
 
     private fun initDrawerLayout() {
 
@@ -180,7 +189,7 @@ class BaseDashbordFragment : BaseFragment()
             var name = headerView.findViewById<TextView>(R.id.tv_name)
             button = headerView.findViewById(R.id.back)
             name.text = LocalPreference.shared.user?.Name
-
+            binding?.filter?.visibility = View.VISIBLE
             button.setOnClickListener {
                 binding!!.drawerLayout.closeDrawer(GravityCompat.START)
             }
@@ -189,6 +198,7 @@ class BaseDashbordFragment : BaseFragment()
             var headerView = binding!!.navView.inflateHeaderView(R.layout.nav_header_sign_in)
             headerView.findViewById<View>(R.id.nav_header_sign_in)
             val menu: Menu = binding!!.navView.menu
+            binding?.filter?.visibility = View.GONE
             menu.findItem(R.id.appliedFragment).setTitle("Register").setIcon(R.drawable.ic_register)
             menu.findItem(R.id.favouriteFragment).setTitle("Login").setIcon(R.drawable.ic_login)
             button = headerView.findViewById(R.id.back)
@@ -249,6 +259,7 @@ class BaseDashbordFragment : BaseFragment()
         binding!!.navView.setNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.favouriteFragment -> {
+                    headingTextChange("New Job Seeker","Favourite Jobs")
                     if (LocalPreference.shared.isLogin) {
                         // setCurrentFragment(secondFragment)
                         binding!!.tabLayout.getTabAt(1)?.select()
@@ -265,6 +276,7 @@ class BaseDashbordFragment : BaseFragment()
                     }
                 }
                 R.id.appliedFragment -> {
+                    headingTextChange("New Job Seeker","Applied Jobs")
                     if (LocalPreference.shared.isLogin) {
                         //setCurrentFragment(thirdFragment)
                         binding!!.tabLayout.getTabAt(2)?.select()
@@ -583,4 +595,12 @@ class BaseDashbordFragment : BaseFragment()
 
        }
    */
+    private fun headingTextChange (beforeLogin :String , afterLogin : String){
+        if (!LocalPreference.shared.isLogin){
+            binding?.tvHeading?.text = beforeLogin
+        }
+        else{
+            binding?.tvHeading?.text = afterLogin
+        }
+    }
 }
