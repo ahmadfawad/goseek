@@ -31,6 +31,7 @@ import com.google.android.material.tabs.TabLayout
 import com.softsolution.goseek.Interface.CallFragmentInterface
 import com.softsolution.goseek.R
 import com.softsolution.goseek.activities.Auth
+import com.softsolution.goseek.adapter.EmployerPagerAdapter
 import com.softsolution.goseek.adapter.PageAdapter
 import com.softsolution.goseek.adapter.jobSeekerAdapter.FilterButtonAdapter
 import com.softsolution.goseek.base.BaseFragment
@@ -66,28 +67,29 @@ class PosterBaseDashbordFragment : BaseFragment() {
             container,
             false
         )
-        (activity as AppCompatActivity?)!!.setSupportActionBar(binding!!.appbarlayouttoolbar)
+//        (activity as AppCompatActivity?)!!.setSupportActionBar(binding!!.appbarlayouttoolbar)
 
 //        initData()
         initDrawerLayout()
+        binding!!.filter.visibility = View.GONE
 
 
         binding!!.drawerLayout.setScrimColor(resources.getColor(R.color.white_trans))
 
 
-        binding!!.frameLayout.adapter = PageAdapter(childFragmentManager)
+        binding!!.frameLayout.adapter = EmployerPagerAdapter(childFragmentManager)
         binding!!.tabLayout.setupWithViewPager(binding!!.frameLayout)
 
         binding!!.tabLayout.getTabAt(0)?.setIcon(R.drawable.ic_alljob_red)
         binding!!.tabLayout.getTabAt(1)?.setIcon(R.drawable.ic_newjob_grey)
-        binding!!.tabLayout.getTabAt(2)?.setIcon(R.drawable.user_grey)
+        binding!!.tabLayout.getTabAt(2)?.setIcon(R.drawable.ic_user)
 
         binding!!.tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab) {
                 when (tab.position) {
                     0 -> {
                         tab.setIcon(R.drawable.ic_alljob_red)
-                        binding!!.tabLayout.getTabAt(1)?.setIcon(R.drawable.ic_heart_grey)
+                        binding!!.tabLayout.getTabAt(1)?.setIcon(R.drawable.ic_newjob_grey)
                         binding!!.tabLayout.getTabAt(2)?.setIcon(R.drawable.ic_user)
                     }
                     1 -> {
@@ -158,17 +160,24 @@ class PosterBaseDashbordFragment : BaseFragment() {
 
         // Configure the drawer layout to add listener and show icon on toolbar
         drawerToggle.isDrawerIndicatorEnabled = false
-        val drawable = ResourcesCompat.getDrawable(
-            resources,
-            R.drawable.ic_group_1108,
-            requireActivity().theme
-        )
-        drawerToggle.setHomeAsUpIndicator(drawable)
+//        val drawable = ResourcesCompat.getDrawable(
+//            resources,
+//            R.drawable.ic_group_1108,
+//            requireActivity().theme
+//        )
+//        drawerToggle.setHomeAsUpIndicator(drawable)
 
         binding!!.drawerLayout.addDrawerListener(drawerToggle)
         drawerToggle.syncState()
         //or you can add icon
-
+        binding?.drawer?.setOnClickListener {
+            val drawer = binding!!.drawerLayout
+            if (drawer.isDrawerOpen(GravityCompat.START)) {
+                drawer.closeDrawer(GravityCompat.START)
+            } else {
+                drawer.openDrawer(GravityCompat.START)
+            }
+        }
         drawerToggle.setToolbarNavigationClickListener {
             val drawer = binding!!.drawerLayout
             if (drawer.isDrawerOpen(GravityCompat.START)) {
@@ -186,7 +195,7 @@ class PosterBaseDashbordFragment : BaseFragment() {
 
         binding!!.navView.setNavigationItemSelectedListener {
             when (it.itemId) {
-                R.id.allJob -> {
+                R.id.dashbordFragment -> {
                     if (LocalPreference.shared.isLogin) {
                         // setCurrentFragment(secondFragment)
                         binding!!.tabLayout.getTabAt(1)?.select()
@@ -202,7 +211,7 @@ class PosterBaseDashbordFragment : BaseFragment() {
                         listener?.passFragmentCallback("login")
                     }
                 }
-                R.id.addNewJob -> {
+                R.id.favouriteFragment -> {
                     if (LocalPreference.shared.isLogin) {
                         //setCurrentFragment(thirdFragment)
                         binding!!.tabLayout.getTabAt(2)?.select()

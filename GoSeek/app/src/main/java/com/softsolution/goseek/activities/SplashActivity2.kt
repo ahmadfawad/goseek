@@ -9,6 +9,7 @@ import android.view.Window
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import com.softsolution.goseek.R
+import com.softsolution.goseek.network.LocalPreference
 
 class SplashActivity2 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,8 +28,16 @@ class SplashActivity2 : AppCompatActivity() {
         Handler().postDelayed({
             // This method will be executed once the timer is over
             // Start your app main activity
+            if (LocalPreference.shared.user != null) {
+                if (LocalPreference.shared.user?.status == 2) {
+                    startActivity(Intent(this, EmployerDashboard::class.java))
+                } else {
+                    startActivity(Intent(this, UserDashboard::class.java))
+                }
+            } else {
+                startActivity(Intent(this, UserDashboard::class.java))
+            }
 
-            startActivity(Intent(this, UserDashboard::class.java))
 
             // close this activity
             finish()

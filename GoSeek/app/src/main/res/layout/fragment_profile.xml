@@ -3,209 +3,220 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="fragment"
             type="com.softsolution.goseek.fragments.jobSeeker.ProfileFragment" />
     </data>
 
-   <LinearLayout
-       android:layout_width="match_parent"
-       android:layout_height="match_parent"
-       android:orientation="vertical">
-       <ScrollView
-           android:layout_width="match_parent"
-           android:layout_height="match_parent"
-           android:layout_marginLeft="20dp"
-           android:layout_marginRight="20dp"
-           android:scrollbars="none"
-           android:fillViewport="true">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-           <RelativeLayout
-               android:layout_width="match_parent"
-               android:layout_height="match_parent">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:fillViewport="true"
+            android:scrollbars="none">
 
-
-               <LinearLayout
-                   android:id="@+id/linearLayout"
-                   android:weightSum="10"
-                   android:layout_marginTop="20dp"
-                   android:orientation="horizontal"
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content">
-
-                   <de.hdodenhof.circleimageview.CircleImageView
-                       xmlns:app="http://schemas.android.com/apk/res-auto"
-                       android:id="@+id/profile_image"
-                       android:layout_width="70dp"
-                       android:layout_height="70dp"
-                       android:src="@drawable/profile"/>
-
-                   <TextView
-                       android:id="@+id/tvName"
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:text="Husnain Mukhtar"
-                       android:textSize="18dp"
-                       android:fontFamily="@font/montserrat_semi_bold"
-                       android:layout_marginLeft="20dp"
-                       android:textColor="@color/black"
-                       android:layout_gravity="center"/>
-
-               </LinearLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
 
-               <LinearLayout
-                   android:layout_below="@+id/linearLayout"
-                   android:orientation="vertical"
-                   android:layout_width="match_parent"
-                   android:layout_marginTop="20dp"
-                   android:layout_height="wrap_content">
+                <LinearLayout
+                    android:id="@+id/linearLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal"
+                    android:weightSum="10">
 
-                   <TextView
-                       android:paddingTop="10dp"
-                       android:paddingBottom="10dp"
-                       android:paddingRight="10dp"
-                       android:id="@+id/myProfile"
-                       android:drawablePadding="10dp"
-                       android:layout_width="match_parent"
-                       android:layout_height="wrap_content"
-                       android:clickable="true"
-                       android:onClick="@{(view)->fragment.onClick(view)}"
-                       android:background="@drawable/background_round_corners_list_view"
-                       android:drawableStart="@drawable/ic_profile_user"
-                       android:drawableEnd="@drawable/ic_profile_arraw"
-                       android:fontFamily="@font/montserrat_medium"
-                       android:gravity="center_vertical"
-                       android:text="My Profile"
-                       android:textColor="@android:color/black"
-                       android:textSize="16sp"
-                       android:drawableLeft="@drawable/ic_profile_user"
-                       android:drawableRight="@drawable/ic_profile_arraw" />
-                   <View
-                       android:layout_width="match_parent"
-                       android:layout_height="1dp"
-                       android:layout_marginLeft="10dp"
-                       android:layout_marginRight="10dp"
-                       android:background="#D5D5D5"/>
+                    <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/profile_image"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:src="@drawable/profile" />
 
-                   <TextView
-                       android:layout_marginTop="5dp"
-                       android:id="@+id/uploadResume"
-                       android:layout_width="match_parent"
-                       android:layout_height="wrap_content"
-                       android:drawableStart="@drawable/ic_resume"
-                       android:drawableEnd="@drawable/ic_profile_arraw"
-                       android:paddingRight="10dp"
-                       android:paddingTop="10dp"
-                       android:onClick="@{(view)->fragment.onClick(view)}"
-                       android:background="@drawable/background_round_corners_list_view"
-                       android:paddingBottom="10dp"
-                       android:drawablePadding="10dp"
-                       android:fontFamily="@font/montserrat_medium"
-                       android:gravity="center_vertical"
-                       android:text="Upload Resume"
-                       android:textColor="@android:color/black"
-                       android:textSize="16sp"
-                       android:drawableLeft="@drawable/ic_resume"
-                       android:drawableRight="@drawable/ic_profile_arraw" />
-                   <View
-                       android:layout_width="match_parent"
-                       android:layout_height="1dp"
-                       android:layout_marginLeft="10dp"
-                       android:layout_marginRight="10dp"
-                       android:background="#D5D5D5"/>
+                    <TextView
+                        android:id="@+id/tvName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="20dp"
+                        android:fontFamily="@font/montserrat_semi_bold"
+                        android:text="Husnain Mukhtar"
+                        android:textColor="@color/black"
+                        android:textSize="18dp" />
 
-                   <TextView
-                       android:layout_marginTop="5dp"
-                       android:id="@+id/location"
-                       android:layout_width="match_parent"
-                       android:layout_height="wrap_content"
-                       android:drawableStart="@drawable/ic_location_red"
-                       android:drawableEnd="@drawable/ic_profile_arraw"
-                       android:paddingTop="10dp"
-                       android:paddingBottom="10dp"
-                       android:onClick="@{(view)->fragment.onClick(view)}"
-                       android:paddingRight="10dp"
-                       android:drawablePadding="10dp"
-                       android:background="@drawable/background_round_corners_list_view"
-                       android:fontFamily="@font/montserrat_medium"
-                       android:gravity="center_vertical"
-                       android:text="Lahore, Pakistan"
-                       android:textColor="@android:color/black"
-                       android:textSize="16sp"
-                       android:drawableLeft="@drawable/ic_location_red"
-                       android:drawableRight="@drawable/ic_profile_arraw" />
-                   <View
-                       android:layout_width="match_parent"
-                       android:layout_height="1dp"
-                       android:layout_marginLeft="10dp"
-                       android:layout_marginRight="10dp"
-                       android:background="#D5D5D5"/>
+                </LinearLayout>
 
-                   <TextView
-                       android:layout_marginTop="5dp"
-                       android:id="@+id/changePassword"
-                       android:layout_width="match_parent"
-                       android:layout_height="wrap_content"
-                       android:drawableStart="@drawable/ic_pass_red"
-                       android:drawableEnd="@drawable/ic_profile_arraw"
-                       android:paddingTop="10dp"
-                       android:paddingBottom="10dp"
-                       android:onClick="@{(view)->fragment.onClick(view)}"
-                       android:paddingRight="10dp"
-                       android:drawablePadding="10dp"
-                       android:background="@drawable/background_round_corners_list_view"
-                       android:fontFamily="@font/montserrat_medium"
-                       android:gravity="center_vertical"
-                       android:text="Change Password"
-                       android:textColor="@android:color/black"
-                       android:textSize="16sp"
-                       android:drawableLeft="@drawable/ic_pass_red"
-                       android:drawableRight="@drawable/ic_profile_arraw" />
-                   <View
-                       android:layout_width="match_parent"
-                       android:layout_height="1dp"
-                       android:layout_marginLeft="10dp"
-                       android:layout_marginRight="10dp"
-                       android:background="#D5D5D5"/>
-                   <TextView
-                       android:layout_marginTop="5dp"
-                       android:id="@+id/signout"
-                       android:background="@drawable/background_round_corners_list_view"
-                       android:drawablePadding="10dp"
-                       android:layout_width="match_parent"
-                       android:layout_height="wrap_content"
-                       android:onClick="@{(view)->fragment.onClick(view)}"
-                       android:drawableStart="@drawable/ic_signout"
-                       android:paddingTop="10dp"
-                       android:paddingBottom="10dp"
-                       android:fontFamily="@font/montserrat_medium"
-                       android:gravity="center_vertical"
-                       android:text="Sign Out"
-                       android:textColor="#ED1924"
-                       android:textSize="16sp"
-                       android:drawableLeft="@drawable/ic_signout" />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="20dp"
+                    android:layout_below="@+id/linearLayout"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:id="@+id/llProfile"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/myProfile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/background_round_corners_list_view"
+                            android:clickable="true"
+                            android:drawableStart="@drawable/ic_profile_user"
+                            android:drawableLeft="@drawable/ic_profile_user"
+                            android:drawableEnd="@drawable/ic_profile_arraw"
+                            android:drawableRight="@drawable/ic_profile_arraw"
+                            android:drawablePadding="10dp"
+                            android:fontFamily="@font/montserrat_medium"
+                            android:gravity="center_vertical"
+                            android:onClick="@{(view)->fragment.onClick(view)}"
+                            android:paddingTop="10dp"
+                            android:paddingRight="10dp"
+                            android:paddingBottom="10dp"
+                            android:text="My Profile"
+                            android:textColor="@android:color/black"
+                            android:textSize="16sp" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:background="#D5D5D5" />
+
+                        <TextView
+                            android:id="@+id/uploadResume"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:background="@drawable/background_round_corners_list_view"
+                            android:drawableStart="@drawable/ic_resume"
+                            android:drawableLeft="@drawable/ic_resume"
+                            android:drawableEnd="@drawable/ic_profile_arraw"
+                            android:drawableRight="@drawable/ic_profile_arraw"
+                            android:drawablePadding="10dp"
+                            android:fontFamily="@font/montserrat_medium"
+                            android:gravity="center_vertical"
+                            android:onClick="@{(view)->fragment.onClick(view)}"
+                            android:paddingTop="10dp"
+                            android:paddingRight="10dp"
+                            android:paddingBottom="10dp"
+                            android:text="Upload Resume"
+                            android:textColor="@android:color/black"
+                            android:textSize="16sp" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:background="#D5D5D5" />
+
+                        <TextView
+                            android:id="@+id/location"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:background="@drawable/background_round_corners_list_view"
+                            android:drawableStart="@drawable/ic_location_red"
+                            android:drawableLeft="@drawable/ic_location_red"
+                            android:drawableEnd="@drawable/ic_profile_arraw"
+                            android:drawableRight="@drawable/ic_profile_arraw"
+                            android:drawablePadding="10dp"
+                            android:fontFamily="@font/montserrat_medium"
+                            android:gravity="center_vertical"
+                            android:onClick="@{(view)->fragment.onClick(view)}"
+                            android:paddingTop="10dp"
+                            android:paddingRight="10dp"
+                            android:paddingBottom="10dp"
+                            android:text="Lahore, Pakistan"
+                            android:textColor="@android:color/black"
+                            android:textSize="16sp" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:background="#D5D5D5" />
+
+                        <TextView
+                            android:id="@+id/changePassword"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:background="@drawable/background_round_corners_list_view"
+                            android:drawableStart="@drawable/ic_pass_red"
+                            android:drawableLeft="@drawable/ic_pass_red"
+                            android:drawableEnd="@drawable/ic_profile_arraw"
+                            android:drawableRight="@drawable/ic_profile_arraw"
+                            android:drawablePadding="10dp"
+                            android:fontFamily="@font/montserrat_medium"
+                            android:gravity="center_vertical"
+                            android:onClick="@{(view)->fragment.onClick(view)}"
+                            android:paddingTop="10dp"
+                            android:paddingRight="10dp"
+                            android:paddingBottom="10dp"
+                            android:text="Change Password"
+                            android:textColor="@android:color/black"
+                            android:textSize="16sp" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:background="#D5D5D5" />
+
+                        <TextView
+                            android:id="@+id/signout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:background="@drawable/background_round_corners_list_view"
+                            android:drawableStart="@drawable/ic_signout"
+                            android:drawableLeft="@drawable/ic_signout"
+                            android:drawablePadding="10dp"
+                            android:fontFamily="@font/montserrat_medium"
+                            android:gravity="center_vertical"
+                            android:onClick="@{(view)->fragment.onClick(view)}"
+                            android:paddingTop="10dp"
+                            android:paddingBottom="10dp"
+                            android:text="Sign Out"
+                            android:textColor="#ED1924"
+                            android:textSize="16sp" />
 
 
-               </LinearLayout>
+                    </LinearLayout>
+                </RelativeLayout>
 
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="bottom|center"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="Terms of Services  I  Privacy Policy"
+                    android:textSize="12dp" />
 
-               <TextView
-                   android:layout_alignParentBottom="true"
-                   android:layout_centerInParent="true"
-                   android:layout_gravity="bottom|center"
-                   android:layout_marginTop="20dp"
-                   android:textSize="12dp"
-                   android:fontFamily="@font/roboto_regular"
-                   android:text="Terms of Services  I  Privacy Policy"
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:layout_marginBottom="20dp"/>
+            </RelativeLayout>
 
-           </RelativeLayout>
+        </ScrollView>
 
-       </ScrollView>
-
-   </LinearLayout>
+    </LinearLayout>
 </layout>

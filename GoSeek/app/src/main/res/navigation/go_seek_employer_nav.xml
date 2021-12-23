@@ -36,5 +36,10 @@
         android:name="com.softsolution.goseek.fragments.jobPoster.PosterJobDetailFragment"
         android:label="PosterJobDetailFragment"
         tools:layout="@layout/fragment_poster_job_detail"/>
+    <fragment
+        android:id="@+id/postedProfileFragment"
+        android:name="com.softsolution.goseek.fragments.jobPoster.PostedProfileFragment"
+        android:label="PostedProfileFragment"
+        tools:layout="@layout/fragment_posted_profile"/>
 
 </navigation>

@@ -36,6 +36,12 @@ class ProfileFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding?.tvName?.text = LocalPreference.shared.user?.Name
+        if(!LocalPreference.shared.isLogin){
+            binding?.llProfile?.visibility = View.GONE
+        }
+        else{
+            binding?.llProfile?.visibility = View.VISIBLE
+        }
     }
 
     fun onClick(view: View) {

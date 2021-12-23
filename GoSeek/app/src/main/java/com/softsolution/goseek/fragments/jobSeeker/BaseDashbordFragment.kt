@@ -260,8 +260,8 @@ class BaseDashbordFragment : BaseFragment()
                             binding!!.viewProfile.setVisibility(View.INVISIBLE)*/
                         //            binding!!.bottomNavView.menu.getItem(1).setChecked(true)
                     } else {
-
-                        listener?.passFragmentCallback("login")
+                        login = true
+                        startActivity(Intent(mActivity, Auth::class.java))
                     }
                 }
                 R.id.appliedFragment -> {
@@ -276,7 +276,7 @@ class BaseDashbordFragment : BaseFragment()
                          binding!!.viewProfile.setVisibility(View.INVISIBLE)*/
                         //          binding!!.bottomNavView.menu.getItem(2).setChecked(true)
                     } else {
-                        login = true
+                        login = false
                         startActivity(Intent(mActivity, Auth::class.java))
                     }
                 }
