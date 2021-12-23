@@ -195,7 +195,7 @@ class PosterBaseDashbordFragment : BaseFragment() {
 
         binding!!.navView.setNavigationItemSelectedListener {
             when (it.itemId) {
-                R.id.dashbordFragment -> {
+                R.id.allJob -> {
                     if (LocalPreference.shared.isLogin) {
                         // setCurrentFragment(secondFragment)
                         binding!!.tabLayout.getTabAt(1)?.select()
@@ -211,7 +211,7 @@ class PosterBaseDashbordFragment : BaseFragment() {
                         listener?.passFragmentCallback("login")
                     }
                 }
-                R.id.favouriteFragment -> {
+                R.id.addNewJob -> {
                     if (LocalPreference.shared.isLogin) {
                         //setCurrentFragment(thirdFragment)
                         binding!!.tabLayout.getTabAt(2)?.select()
