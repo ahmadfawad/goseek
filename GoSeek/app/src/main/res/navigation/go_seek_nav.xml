@@ -337,9 +337,7 @@
         android:name="com.softsolution.goseek.fragments.jobPoster.PosterJobDetailFragment"
         android:label="PosterJobDetailFragment"
         tools:layout="@layout/fragment_poster_job_detail">
-        <argument
-            android:name="jobDetail"
-            app:argType="com.softsolution.goseek.model.jobPosterModel.PostedData" />
+
         <action
             android:id="@+id/action_posterJobDetailFragment_to_jobSeekerDetailFragment"
             app:destination="@id/jobSeekerDetailFragment"

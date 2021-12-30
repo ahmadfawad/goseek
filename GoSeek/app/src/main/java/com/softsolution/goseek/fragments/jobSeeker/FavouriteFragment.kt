@@ -11,13 +11,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.softsolution.goseek.R
 import com.softsolution.goseek.adapter.jobSeekerAdapter.DashbordAdapter
 import com.softsolution.goseek.databinding.FragmentFavouriteBinding
+import com.softsolution.goseek.model.jobPosterModel.PostedData
 import com.softsolution.goseek.model.jobSeekerModel.DashbordData
 import java.util.*
 
 
 class FavouriteFragment : Fragment() {
     private var binding: FragmentFavouriteBinding? = null
-    private var dashbordList: ArrayList<DashbordData>? = null
+    private var dashbordList: ArrayList<PostedData>? = null
     private var layoutManager: RecyclerView.LayoutManager? = null
     private var adapter: DashbordAdapter? = null
 
@@ -28,7 +29,7 @@ class FavouriteFragment : Fragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_favourite, container, false)
         binding!!.fragment = this
 
-        dashbordList = ArrayList<DashbordData>()
+        dashbordList = ArrayList<PostedData>()
         layoutManager = LinearLayoutManager(requireActivity(), RecyclerView.VERTICAL, false)
         adapter = DashbordAdapter(dashbordList!!, requireActivity())
 
@@ -42,12 +43,12 @@ class FavouriteFragment : Fragment() {
 
     private fun loadData() {
         for (i in 0..16) {
-            val dashboardData = DashbordData()
-            dashboardData.designation = "Catering Hospitality"
-            dashboardData.designation_desc = "Waiter Help Wanted"
-            dashboardData.location = "Wandsworth, Uk"
-            dashboardData.time = "10 Jun 2021"
-            dashboardData.rate = "$3"
+            val dashboardData = PostedData()
+            dashboardData.JobTitle="Catering Hospitality"
+            dashboardData.JobDescription="Waiter Help Wanted"
+            dashboardData.Location="Wandsworth, Uk"
+            dashboardData.CreatedDate="10 Jun 2021"
+            dashboardData.Wages="$3"
             dashbordList!!.add(dashboardData)
         }
         adapter!!.notifyDataSetChanged()

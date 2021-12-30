@@ -43,7 +43,7 @@ class ForgetPasswordFragment : BaseFragment() {
 
 
     fun onclick(view: View) {
-        when (view?.id) {
+        when (view.id) {
             R.id.save -> {
                 when {
                     binding.etOldPassword.editableText.isNullOrEmpty() -> {

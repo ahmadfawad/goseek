@@ -13,13 +13,14 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.softsolution.goseek.Interface.CallFragmentInterface
 import com.softsolution.goseek.R
+import com.softsolution.goseek.fragments.sharedJobDetail
 import com.softsolution.goseek.model.jobPosterModel.PostedData
 import java.util.*
 
 class PostedAdapter(
     private val list: ArrayList<PostedData>,
-    private val context: Context
-//    var jobListener: JobDetail
+    private val context: Context,
+    var jobListener: JobDetail
 ) : RecyclerView.Adapter<PostedAdapter.ViewHolder>() {
 
     var listener: CallFragmentInterface? = null
@@ -74,10 +75,10 @@ class PostedAdapter(
             }
 
             itemView.setOnClickListener {
-//                jobListener.jobDetail(dashbordData)
+                jobListener.jobDetail(dashbordData)
                 //  callbackInterface.passResultCallback()
-                listener = context as CallFragmentInterface
-                listener?.passFragmentCallback("postedJobDetail")
+//                listener = context as CallFragmentInterface
+//                listener?.passFragmentCallback("postedJobDetail")
 
             }
 

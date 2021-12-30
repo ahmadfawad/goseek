@@ -6,6 +6,7 @@ package com.softsolution.goseek.network
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import org.json.JSONObject
+import java.net.URL
 
 
 @Suppress("UNUSED_PARAMETER")
@@ -154,6 +155,22 @@ object URLApi {
         path = "jobdetail?CompanyJobId=$companyJobId"
         params = JSONObject()
         return this
+    }
+    fun uploadProfileImage(memberId: String):URLApi{
+        method = NetworkMethod.POST
+        path = "updateProfileImage"
+        params = JSONObject()
+        params.put("MemberId",memberId)
+        return this
+    }
+
+    fun uploadResume(memberId: String):URLApi{
+        method = NetworkMethod.POST
+        path = "uploadresume"
+        params = JSONObject()
+        params.put("MemberId",memberId)
+        return this
+
     }
 }
 

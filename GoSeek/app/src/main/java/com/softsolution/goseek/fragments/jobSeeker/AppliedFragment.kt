@@ -11,23 +11,24 @@ import androidx.recyclerview.widget.RecyclerView
 import com.softsolution.goseek.R
 import com.softsolution.goseek.adapter.jobSeekerAdapter.DashbordAdapter
 import com.softsolution.goseek.databinding.FragmentAppliedBinding
+import com.softsolution.goseek.model.jobPosterModel.PostedData
 import com.softsolution.goseek.model.jobSeekerModel.DashbordData
 import java.util.ArrayList
 
 class AppliedFragment : Fragment() {
     private var binding: FragmentAppliedBinding? = null
-    private var dashbordList: ArrayList<DashbordData>?=null
+    private var dashbordList: ArrayList<PostedData>?=null
     private var layoutManager: RecyclerView.LayoutManager?=null
     private var adapter: DashbordAdapter?=null
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_applied, container, false)
         binding!!.fragment = this
 
-        dashbordList= ArrayList<DashbordData>()
+        dashbordList= ArrayList<PostedData>()
         layoutManager= LinearLayoutManager(requireActivity())
         adapter= DashbordAdapter(dashbordList!!,requireActivity())
 
@@ -40,12 +41,12 @@ class AppliedFragment : Fragment() {
     }
     private fun loadData() {
         for (i in 0..16){
-            val dashbordData= DashbordData()
-            dashbordData.designation="Catering Hospitality"
-            dashbordData.designation_desc="Waiter Help Wanted"
-            dashbordData.location="Wandsworth, Uk"
-            dashbordData.time="10 Jun 2021"
-            dashbordData.rate="$3"
+            val dashbordData= PostedData()
+            dashbordData.JobTitle="Catering Hospitality"
+            dashbordData.JobDescription="Waiter Help Wanted"
+            dashbordData.Location="Wandsworth, Uk"
+            dashbordData.CreatedDate="10 Jun 2021"
+            dashbordData.Wages="$3"
             dashbordList!!.add(dashbordData)
         }
         adapter!!.notifyDataSetChanged()

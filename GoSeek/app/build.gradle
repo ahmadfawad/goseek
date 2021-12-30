@@ -39,6 +39,17 @@ android {
     buildFeatures{
         dataBinding  true
     }
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/ASL2.0'
+        exclude("META-INF/*.kotlin_module")
+    }
 }
 
 dependencies {
@@ -92,5 +103,9 @@ dependencies {
     api 'com.amitshekhar.android:android-networking:1.0.2'
     implementation 'com.github.ybq:Android-SpinKit:1.4.0'
     api 'com.github.gayanvoice:android-animations-kotlin:1.0.1'
+    implementation "com.github.bumptech.glide:glide:4.12.0"
+    api 'com.github.qoqa:glide-svg:3.0.0'
+
+
 
 }

@@ -48,7 +48,7 @@ class ProfileFragment : BaseFragment() {
     }
 
     fun onClick(view: View) {
-        when (view?.id) {
+        when (view.id) {
             R.id.myProfile -> {
                 listener?.passFragmentCallback("profile")
             }

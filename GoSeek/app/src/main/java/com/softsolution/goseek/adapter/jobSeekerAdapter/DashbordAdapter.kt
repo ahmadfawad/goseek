@@ -9,11 +9,12 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.softsolution.goseek.Interface.CallFragmentInterface
 import com.softsolution.goseek.R
+import com.softsolution.goseek.model.jobPosterModel.PostedData
 import com.softsolution.goseek.model.jobSeekerModel.DashbordData
 import java.util.*
 
 class DashbordAdapter(
-    private val list: ArrayList<DashbordData>,
+    private val list: ArrayList<PostedData>,
     private val context: Context
 ) : RecyclerView.Adapter<DashbordAdapter.ViewHolder>() {
 
@@ -34,7 +35,7 @@ class DashbordAdapter(
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        fun bind(dashbordData: DashbordData) {
+        fun bind(dashbordData: PostedData) {
 
             var designation: TextView = itemView.findViewById(R.id.designation) as TextView
             var designationDescription: TextView =
@@ -44,11 +45,11 @@ class DashbordAdapter(
             var rate: TextView = itemView.findViewById(R.id.rate) as TextView
             var heart: ImageView = itemView.findViewById(R.id.heart) as ImageView
 
-            designation.text = dashbordData.designation
-            designationDescription.text = dashbordData.designation_desc
-            calenderText.text = dashbordData.time
-            locationText.text = dashbordData.location
-            rate.text = dashbordData.rate
+            designation.text = dashbordData.JobTitle
+            designationDescription.text = dashbordData.JobDescription
+            calenderText.text = dashbordData.CreatedDate
+            locationText.text = dashbordData.Location
+            rate.text = dashbordData.Wages
 
             heart.setOnClickListener {
                 heart.setImageResource(R.drawable.ic_fill_heart)

@@ -95,7 +95,13 @@
         android:id="@+id/companyJobDetail"
         android:name="com.softsolution.goseek.fragments.jobPoster.PosterJobDetailFragment"
         android:label="PosterJobDetailFragment"
-        tools:layout="@layout/fragment_poster_job_detail"/>
+        tools:layout="@layout/fragment_poster_job_detail">
+        <argument
+            android:name="jobDetail"
+            app:nullable="true"
+            android:defaultValue="@null"
+            app:argType="com.softsolution.goseek.model.jobPosterModel.PostedData" />
+    </fragment>
     <fragment
         android:id="@+id/postedProfileFragment"
         android:name="com.softsolution.goseek.fragments.jobPoster.PostedProfileFragment"

@@ -87,17 +87,18 @@ class NetworkClass {
         val TAG = NetworkClass::class.java.toString()
         fun callFileUpload(
             baseLink: URLApi, file: File,
-            name: String = "profile_image", callBack: Response?
+            name: String = "ProfileImage", callBack: Response?
         ) {
             val call = NetworkClass()
             call.callBack = callBack
-            val token = LocalPreference.shared.token
+            val token = "31bf3856ad364e35"
             val headers = HashMap<String, String>()
-            if (token?.isNotEmpty() == true) {
-                headers["Authorization"] = "Bearer ${token.trim()}"
+            if (token.isNotEmpty()) {
+//                headers["Authorization"] = "Bearer ${token.trim()}"
 //                headers["session_token"] = "$token"
+                headers["Authorization"] = "$token"
             }
-//            headers["Accept"] = "application/json"
+            headers["Accept"] = "application/json"
 //            headers["Content-Type"] = "application/json"
             Log.w(TAG, MessageFormat.format("APICall{0} : {1}", URLApi.param(), baseLink))
             AndroidNetworking.upload(URLApi.link())
@@ -107,6 +108,7 @@ class NetworkClass {
                 .addMultipartParameter(URLApi.paramHas())
                 .setTag(baseLink)
                 .setPriority(Priority.MEDIUM)
+
                 .build()
                 .getAsJSONObject(call.responseListener)
 //                .addMulti

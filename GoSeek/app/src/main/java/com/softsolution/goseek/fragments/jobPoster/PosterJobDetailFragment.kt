@@ -32,6 +32,7 @@ import com.softsolution.goseek.network.Response
 import com.softsolution.goseek.network.URLApi
 import org.json.JSONObject
 import java.util.*
+import kotlin.math.abs
 
 class PosterJobDetailFragment : BaseFragment() {
     private var binding: FragmentPosterJobDetailBinding? = null
@@ -48,14 +49,14 @@ class PosterJobDetailFragment : BaseFragment() {
     private var btn: Button? = null
     private var adapterPosted: PostedJobAdapter? = null
     var i = 1
-    var jobDetail: PostedData? = null
+    private var jobDetail: PostedData? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        arguments.let {
-//            var args = PosterJobDetailFragmentArgs.fromBundle(it!!)
-//            jobDetail = args.jobDetail
-//        }
+        arguments.let {
+            val args = PosterJobDetailFragmentArgs.fromBundle(it!!)
+            jobDetail = args.jobDetail
+        }
     }
 
     override fun onCreateView(
@@ -205,7 +206,7 @@ class PosterJobDetailFragment : BaseFragment() {
         compositePageTransformer.addTransformer(MarginPageTransformer(40)) //40
 
         compositePageTransformer.addTransformer { page, position ->
-            val r = 1 - Math.abs(position)
+            val r = 1 - abs(position)
             page.scaleY = 0.85f + r * 0.15f
         }
         binding!!.viewPagerImageSlider.setPageTransformer(compositePageTransformer)

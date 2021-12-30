@@ -81,18 +81,14 @@ class OptionsFragment : Fragment(), View.OnClickListener {
             }
             R.id.newUser -> {
                 showBottomSheetDialog()
-                binding!!.newUser.setBackgroundTintList(
-                    ContextCompat.getColorStateList(
-                        requireContext(),
-                        R.color.white
-                    )
+                binding!!.newUser.backgroundTintList = ContextCompat.getColorStateList(
+                    requireContext(),
+                    R.color.white
                 )
                 binding!!.newUser.setTextColor(Color.parseColor("#080808"))
-                binding!!.existingUser.setBackgroundTintList(
-                    ContextCompat.getColorStateList(
-                        requireContext(),
-                        R.color.transparent
-                    )
+                binding!!.existingUser.backgroundTintList = ContextCompat.getColorStateList(
+                    requireContext(),
+                    R.color.transparent
                 )
                 binding!!.existingUser.setTextColor(Color.parseColor("#FFFFFFFF"))
 

@@ -45,16 +45,11 @@ class SplashActivity2 : AppCompatActivity() {
     }
 
     fun FullScreencall() {
-        if (Build.VERSION.SDK_INT > 11 && Build.VERSION.SDK_INT < 19) { // lower api
-            val v = this.window.decorView
-            v.systemUiVisibility = View.GONE
-        } else if (Build.VERSION.SDK_INT >= 19) {
-            //for new api versions.
-            val decorView = window.decorView
-            val uiOptions =
-                View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-            decorView.systemUiVisibility = uiOptions
-        }
+        //for new api versions.
+        val decorView = window.decorView
+        val uiOptions =
+            View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+        decorView.systemUiVisibility = uiOptions
     }
 
     companion object {

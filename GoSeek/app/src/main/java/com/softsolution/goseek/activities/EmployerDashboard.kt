@@ -32,7 +32,7 @@ class EmployerDashboard : BaseActivity(), CallFragmentInterface {
                 navController.navigate(R.id.action_posterBaseDashbordFragment2_to_editCompanyProfileFragment2)
             }
             "postedJobDetail" -> {
-                navController.navigate(R.id.action_posterBaseDashbordFragment2_to_companyJobDetail)
+//                navController.navigate(R.id.action_posterBaseDashbordFragment2_to_companyJobDetail)
             }
             "changePassword" -> {
                 navController.navigate(R.id.action_posterBaseDashbordFragment2_to_forgetPasswordFragment3)

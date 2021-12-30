@@ -37,7 +37,7 @@ class JobSeekerDetailFragment : BaseFragment() {
     }
 
     fun onClick(view: View) {
-        when (view?.id) {
+        when (view.id) {
             R.id.back -> {
                 this.findNavController().popBackStack()
             }

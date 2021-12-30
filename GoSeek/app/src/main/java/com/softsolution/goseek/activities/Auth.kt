@@ -33,5 +33,6 @@ class Auth : BaseActivity(), CallFragmentInterface {
     }
 
     override fun passFragmentCallback(name: String) {
+
     }
 }
