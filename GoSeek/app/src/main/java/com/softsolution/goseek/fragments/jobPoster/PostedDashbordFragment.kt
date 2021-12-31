@@ -28,8 +28,7 @@ class PostedDashbordFragment : BaseFragment(), PostedAdapter.JobDetail {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
+    ): View {
         binding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_posted_dashbord, container, false)
         binding!!.fragment = this

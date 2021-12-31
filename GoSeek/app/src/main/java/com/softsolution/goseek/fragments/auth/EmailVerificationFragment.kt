@@ -47,7 +47,7 @@ class EmailVerificationFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.tvTextMail.text =
-            "Please sent the Verification code that we\nsent you on your email ${LocalPreference.shared.user?.Email}"
+            "Please check the Verification code that we\nsent you on your email ${LocalPreference.shared.user?.Email}"
         val navController = findNavController()
         binding.back.setOnClickListener {
             navController.popBackStack()

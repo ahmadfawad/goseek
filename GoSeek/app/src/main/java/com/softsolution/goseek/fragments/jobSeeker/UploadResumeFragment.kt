@@ -34,7 +34,7 @@ class UploadResumeFragment : BaseFragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View{
         binding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_upload_resume, container, false)
         binding!!.fragment = this

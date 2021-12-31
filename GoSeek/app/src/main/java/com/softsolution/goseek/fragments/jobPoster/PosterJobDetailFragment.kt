@@ -36,17 +36,14 @@ import kotlin.math.abs
 
 class PosterJobDetailFragment : BaseFragment() {
     private var binding: FragmentPosterJobDetailBinding? = null
-    val reviewList = ArrayList<ReviewModel>()
+    private val reviewList = ArrayList<ReviewModel>()
     private var adapter: ReviewAdapter? = null
     private val sliderHandler = Handler()
     var cross: Button? = null
-    var confirm: Button? = null
     var review: MaterialButton? = null
     var dialog: BottomSheetDialog? = null
     private var dashbordList: ArrayList<PostedDashbordData>? = null
     private var layoutManager: RecyclerView.LayoutManager? = null
-    private var recyclerView: RecyclerView? = null
-    private var btn: Button? = null
     private var adapterPosted: PostedJobAdapter? = null
     var i = 1
     private var jobDetail: PostedData? = null
@@ -62,7 +59,7 @@ class PosterJobDetailFragment : BaseFragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View{
         // Inflate the layout for this fragment
 
         binding =
@@ -164,8 +161,6 @@ class PosterJobDetailFragment : BaseFragment() {
 
     private fun init() {
 
-        //Setting recyclerView
-
         dashbordList = ArrayList<PostedDashbordData>()
         layoutManager = LinearLayoutManager(requireActivity())
         adapterPosted = PostedJobAdapter(dashbordList!!, requireActivity())
@@ -175,16 +170,15 @@ class PosterJobDetailFragment : BaseFragment() {
 
         moreNearByJobLoadData()
 
-        //Setting heart btn
 
-        binding!!.cardview.setOnClickListener(View.OnClickListener {
+        binding!!.cardview.setOnClickListener{
             if (i % 2 == 0) {
                 binding!!.imagebtn.setImageResource(R.drawable.ic_fill_heart)
             } else {
                 binding!!.imagebtn.setImageResource(R.drawable.ic_heart)
             }
             i++
-        })
+        }
 
         //Setting View Pager with animation
 
@@ -257,11 +251,11 @@ class PosterJobDetailFragment : BaseFragment() {
         dialog = BottomSheetDialog(requireActivity(), R.style.DialogCustomTheme)
         dialog?.setContentView(view)
         dialog?.show()
-        review = dialog?.findViewById<MaterialButton>(R.id.post_review)
-        review!!.setOnClickListener(View.OnClickListener {
+        review = dialog?.findViewById(R.id.post_review)
+        review!!.setOnClickListener{
 
 
-        })
+        }
     }
 
     private fun moreNearByJobLoadData() {
